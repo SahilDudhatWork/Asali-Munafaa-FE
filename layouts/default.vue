@@ -1,12 +1,13 @@
 <template>
   <div>
-    <Home />
-    <Integration />
+    <Header />
+    <Nuxt />
+    <Footer />
   </div>
 </template>
 
 <script>
 export default {
-  name: "IndexPage",
+  name: "default",
 };
 </script>
