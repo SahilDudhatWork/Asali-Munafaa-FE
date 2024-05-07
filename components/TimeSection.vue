@@ -1,11 +1,13 @@
 <
 <template>
   <div class="pb-[60px]">
-    <h2 class="text-[50px] font-semibold mb-[40px] text-blue text-center">
+    <h2
+      class="xl:text-[50px] md:text-[35px] text-[22px] font-semibold md:mb-[40px] mb-[20px] text-blue text-center"
+    >
       Find Out Every Profit Opportunity, Cut Losses in Real Time
     </h2>
     <p
-      class="text-[28px] max-w-[1448px] mx-auto text-center mb-[100px] font-medium text-blue"
+      class="md:text-[28px] text-[22px] max-w-[1448px] mx-auto text-center mb-[100px] font-medium text-blue"
     >
       Find what boosts and hurts your profit. Learn how fees such as shipping,
       fulfillment, discounts, and other expenses impact profitability, then
@@ -13,11 +15,11 @@
     </p>
     <div class="max-w-[918px] mx-auto">
       <div
-        class="bg-[rgba(228,192,254,1)] p-[36px] shadow-[0_5px_15px_rgba(0,0,0,0.35)]"
+        class="bg-[rgba(228,192,254,1)] md:p-[36px] p-[25px] shadow-[0_5px_15px_rgba(0,0,0,0.35)]"
       >
-        <div class="grid grid-cols-2 gap-5">
+        <div class="grid lg:grid-cols-2 gap-5">
           <div
-            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white p-[33px] rounded-lg"
+            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-lg"
           >
             <div
               class="flex flex-wrap items-center gap-6 pb-[15px] border-b border-[#F1F1F1]"
@@ -63,35 +65,53 @@
                   fill="black"
                 />
               </svg>
-              <h2 class="text-blue text-[24px] font-bold">Products</h2>
+              <h2 class="text-blue md:text-[24px] text-lg font-bold">
+                Products
+              </h2>
             </div>
             <div class="flex flex-wrap gap-[17px] pt-5">
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">Sales</h2>
-                <p class="text-blue text-[23px] font-bold">956</p>
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
+                  Sales
+                </h2>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  956
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Total Sales
                 </h2>
-                <p class="text-blue text-[23px] font-bold">₹45k</p>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  ₹45k
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Con. Profit
                 </h2>
-                <p class="text-blue text-[23px] font-bold">₹12k</p>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  ₹12k
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Con. margin
                 </h2>
-                <p class="text-blue text-[23px] font-bold">60%</p>
+                <p class="text-blue md:text-[23px] sm:text-lg text-mdfont-bold">
+                  60%
+                </p>
               </div>
             </div>
           </div>
           <div
-            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white p-[33px] rounded-lg"
+            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-lg"
           >
             <div
               class="flex flex-wrap items-center gap-6 pb-[15px] border-b border-[#F1F1F1]"
@@ -178,33 +198,55 @@
                 />
               </svg>
 
-              <h2 class="text-blue text-[24px] font-bold">Shipping</h2>
+              <h2 class="text-blue md:text-[24px] text-lg font-bold">
+                Shipping
+              </h2>
             </div>
             <div class="flex flex-wrap gap-[17px] pt-5">
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Delivery Time
                 </h2>
-                <p class="text-blue text-[23px] font-bold">12h</p>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  12h
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">AOV</h2>
-                <p class="text-blue text-[23px] font-bold">₹42</p>
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
+                  AOV
+                </h2>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  ₹42
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">Avg LTV</h2>
-                <p class="text-blue text-[23px] font-bold">₹240</p>
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
+                  Avg LTV
+                </h2>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  ₹240
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Con. margin
                 </h2>
-                <p class="text-blue text-[23px] font-bold">50%</p>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  50%
+                </p>
               </div>
             </div>
           </div>
           <div
-            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white p-[33px] rounded-lg"
+            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-lg"
           >
             <div
               class="flex flex-wrap items-center gap-6 pb-[15px] border-b border-[#F1F1F1]"
@@ -266,35 +308,55 @@
                   fill="white"
                 />
               </svg>
-              <h2 class="text-blue text-[24px] font-bold">Discount</h2>
+              <h2 class="text-blue md:text-[24px] text-lg font-bold">
+                Discount
+              </h2>
             </div>
             <div class="flex flex-wrap gap-[17px] pt-5">
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Discount
                 </h2>
-                <p class="text-blue text-[23px] font-bold">552</p>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  552
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">Avg LTV</h2>
-                <p class="text-blue text-[23px] font-bold">₹300</p>
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
+                  Avg LTV
+                </h2>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  ₹300
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Net Sales
                 </h2>
-                <p class="text-blue text-[23px] font-bold">₹30k</p>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  ₹30k
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Con. Profit
                 </h2>
-                <p class="text-blue text-[23px] font-bold">₹28k</p>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  ₹28k
+                </p>
               </div>
             </div>
           </div>
           <div
-            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white p-[33px] rounded-lg"
+            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-lg"
           >
             <div
               class="flex flex-wrap items-center gap-6 pb-[15px] border-b border-[#F1F1F1]"
@@ -380,30 +442,50 @@
                   </clippath>
                 </defs>
               </svg>
-              <h2 class="text-blue text-[24px] font-bold">Payment</h2>
+              <h2 class="text-blue md:text-[24px] text-lg font-bold">
+                Payment
+              </h2>
             </div>
             <div class="flex flex-wrap gap-[17px] pt-5">
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Repurchase
                 </h2>
-                <p class="text-blue text-[23px] font-bold">50%</p>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  50%
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">AOV</h2>
-                <p class="text-blue text-[23px] font-bold">₹42</p>
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
+                  AOV
+                </h2>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  ₹42
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Con. Profit
                 </h2>
-                <p class="text-blue text-[23px] font-bold">₹14k</p>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  ₹14k
+                </p>
               </div>
               <div class="w-[46%]">
-                <h2 class="text-textColor text-lg mb-2 text-normal">
+                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
                   Con. margin
                 </h2>
-                <p class="text-blue text-[23px] font-bold">50%</p>
+                <p
+                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
+                >
+                  50%
+                </p>
               </div>
             </div>
           </div>

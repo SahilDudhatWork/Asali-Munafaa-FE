@@ -1,7 +1,7 @@
 <
 <template>
   <div>
-    <footer class="bg-white lg:py-[74px] py-16">
+    <footer class="bg-white lg:py-[74px] md:py-16 py-10">
       <div class="max-w-[1792px] mx-auto px-3">
         <div class="grid xl:grid-cols-8 sm:grid-cols-2 xl:gap-10 gap-5">
           <div class="max-w-[660px] xl:col-span-4">

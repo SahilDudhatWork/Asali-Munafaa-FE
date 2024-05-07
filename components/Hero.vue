@@ -1,9 +1,9 @@
 <
 <template>
   <div
-    class="bg-hero-img relative bg-cover xxxl:py-[230px] pb-0 overflow-hidden py-[150px] sm:px-[60px] px-7 bg-no-repeat xxxl:h-screen"
+    class="bg-hero-img relative bg-cover xxxl:py-[230px] pb-0 overflow-hidden py-[150px] sm:px-[60px] px-7 bg-no-repeat xxxl:h-screen xl:h-screen"
   >
-    <div class="xxxl:grid xxxl:grid-cols-3">
+    <div class="xxxl:grid xxxl:grid-cols-3 xl:grid xl:grid-cols-3">
       <div class="col-span-2">
         <h2
           class="text-white text-normal leading-normal lg:mb-[38px] mb-7 lg:text-[44px] text-2xl"
@@ -21,7 +21,7 @@
           Learn More
         </a>
       </div>
-      <div class="xxxl:absolute right-0">
+      <div class="xl:w-[850px] xl:absolute right-0 xxx l:absolute right-0">
         <img
           src="../static/Images/hero-img.png"
           class="xxl:w-[1000px] s-full h-auto"

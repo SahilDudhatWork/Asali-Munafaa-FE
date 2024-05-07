@@ -1,10 +1,10 @@
 <template>
   <div>
-    <Home />
+    <Hero />
     <Integration />
     <OurImpact />
     <Profit />
-    <Work />
+    <!-- <Work /> -->
     <Blog />
     <TimeSection />
     <TrueProfit />
