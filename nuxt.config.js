@@ -21,17 +21,13 @@ export default {
   css: [
     "@/assets/css/tailwind.css",
     "@/assets/css/global.css",
+    "vue-toast-notification/dist/theme-bootstrap.css",
     // "vue-slick-carousel/dist/vue-slick-carousel.css",
     // "vue-slick-carousel/dist/vue-slick-carousel-theme.css",
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    // { src: "~/plugins/vue3-carousel.js", mode: "client" },
-    // "~/plugins/vue3-carousel.js",
-    // { src: "~/plugins/vue-carousel.js", mode: "client" },
-    // { src: "~/plugins/fontawesome.js", mode: "client" },
-  ],
+  plugins: [{ src: "~/plugins/toast-notification.js", mode: "client" }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

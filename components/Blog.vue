@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-[60px]">
+  <div class="pb-[60px] pb-[30px]">
     <!-- <VueSlickCarousel>
       <div><img src="../static/Images/profit1.png" alt="Image 1" /></div>
       <div><img src="../static/Images/profit1.png" alt="Image 1" /></div>
@@ -11,11 +11,13 @@
         {{ item }}
       </div>
     </VueSlick> -->
-    <h2 class="text-[50px] font-semibold mb-[40px] text-blue text-center">
+    <h2
+      class="xl:text-[50px] md:text-[35px] text-[25px] font-semibold mb-[40px] text-blue text-center"
+    >
       Blog
     </h2>
-    <div class="blog ml-14">
-      <VueSlickCarousel :arrows="false" :dots="true" :slidesToShow="3">
+    <div class="blog mx-5">
+      <VueSlickCarousel v-bind="settings">
         <div v-for="i in items" :key="i" class="text-center blog-box">
           <img :src="i.image" alt="Image 1" class="" />
           <div class="pt-5">
@@ -25,7 +27,7 @@
               {{ i.title }}
             </h2>
             <h6
-              class="text-darkBlue text-center w-[80%] md:text-xl text-lg font-normal md:mb-10 mb-0"
+              class="text-darkBlue text-center md:text-xl text-lg font-normal md:mb-10 mb-0"
             >
               {{ i.description }}
             </h6>
@@ -146,33 +148,58 @@
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
-// optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 import sliderImage from "../static/Images/slider.png";
-// import { VueperSlides, VueperSlide } from "vueperslides";
-// import "vueperslides/dist/vueperslides.css";
-// import "vue3-carousel/dist/carousel.css";
-// import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
-// import { Carousel, Slide } from "vue-carousel";
 
-// import VueSlickCarousel from "vue-slick-carousel";
-// import "vue-slick-carousel/dist/vue-slick-carousel.css";
-// import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   components: {
     VueSlickCarousel,
-    // VueperSlides,
-    // VueperSlide,
-    // Carousel,
-    // Slide,
-    // Pagination,
-    // Navigation,
-    // VueSlickCarousel,
-    // Carousel,
-    // Slide,
   },
   data() {
     return {
+      carouselWidth: "400px",
+      settings: {
+        dots: true,
+        centerMode: false,
+        centerPadding: "0px",
+
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        arrows: false,
+
+        // slidesToScroll: 1,
+        // initialSlide: 1,
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: "40px",
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 991,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: "40px",
+              slidesToShow: 1,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: "0",
+              slidesToShow: 1,
+            },
+          },
+        ],
+      },
       items: [
         {
           image: sliderImage,
@@ -209,3 +236,10 @@ export default {
   // },
 };
 </script>
+<style>
+::v-deep {
+  .slick-slide {
+    width: 432px;
+  }
+}
+</style>
