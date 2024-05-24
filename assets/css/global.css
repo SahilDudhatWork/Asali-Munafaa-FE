@@ -980,6 +980,17 @@ video {
 .bg-hero-img {
   background-image: url('../../static/Images/hero-bg.png');
 }
+.bg-dashboard-img {
+  background-image: url('../../static/Images/dashboard.png');
+  position: relative;
+  left: 0;
+}
+.bg-opacity-img {
+  background-image: url('../../static/Images/opacity.png');
+}
+.bg-world-img {
+  background-image: url('../../static/Images/world.png');
+}
 .bg-getintouch-img {
   background-image: url('../../static/Images/get-in-touch.jpg');
 }
@@ -1308,7 +1319,7 @@ video {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  /* font-family: Poppins, sans-serif; */
 }
 
 /* width */
@@ -1379,8 +1390,11 @@ body {
 }
 
 .slick-slide {
+    padding: 0 30px;
+  /* display: flex !important; */
+  /* gap: 30px !important; */
   /* margin: 0 50px; */
-  
+  /* width: 432px !important; */
 }
 
 .slick-dots {
@@ -1501,6 +1515,44 @@ body {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
+  
+}
+
+@media (max-width:575px)  and (min-width:320px){
+  .display-block{
+    display: block;
+  }
+  .margin-10{
+    margin-left:10px;
+    margin-right:10px;
+    width: 90%;
+    position: fixed;
+  }
+  .display-none {
+     display: none;
+  }
+  .display-block{
+    display: block;
+  }
+}
+@media (max-width:768px) {
+  .position-absolute{
+    position: absolute;
+  }
+  .top-100{
+    top: 100px;
+  }
+  .display-none {
+     display: none;
+  }
+}
+@media  (max-width:320px) {
+  .width-17 {
+    width: 17rem;
+  }
+  .width-100{
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1508,7 +1560,7 @@ body {
     margin-left: unset;
     margin-right: unset;
   }
-
+  
   .md\:mb-10 {
     margin-bottom: 2.5rem;
   }

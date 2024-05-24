@@ -1,4 +1,3 @@
-<
 <template>
   <div
     class="bg-profit-img px-5 md:pt-[70px] pt-[50px] xl:pb-[145px] pb-[80px] relative bg-cover bg-no-repeat"
@@ -15,40 +14,103 @@
       costs.
     </p>
     <div class="max-w-[1606px] mx-auto">
-      <div class="grid xl:grid-cols-3 xxl:gap-[80px] md:gap-[50px] gap-[30px]">
+      <div
+        class="grid xl:grid-cols-3 grid-cols-1 xxl:gap-[80px] md:gap-[50px] gap-[30px]"
+      >
         <div
-          class="bg-white xl:p-[70px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-lg"
+          class="bg-white h-[500px] xl:p-[50px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-lg"
         >
-          <h2 class="text-black text-normal text-lg md:mb-10 mb-5">Sources</h2>
-          <img
-            src="../static/Images/chart-left.png"
-            class="w-full h-auto"
-            alt
+          <h2 class="text-black text-normal text-lg mt-1">Sources</h2>
+          <PieChat
+            :chartData="data"
+            :options="doughnutOptions"
+            class="w-auto h-auto"
           />
         </div>
         <div
-          class="bg-white xl:col-span-2 xl:p-[70px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-lg"
+          class="bg-white h-[500px] xl:col-span-2 xl:p-[60px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-lg"
         >
           <div class="flex justify-between items-center mb-5">
             <h2 class="text-black text-normal text-lg">Net True Profit</h2>
             <select name id class="!focus-visible::outline-0">
               <option value="year">Year</option>
-              <option value="week">Week</option>
+              <option value="week">Month</option>
               <option value="week">Week</option>
             </select>
           </div>
-          <img
-            src="../static/Images/chart-right.png"
-            class="w-full h-auto"
-            alt
+          <LineChart
+            :chartData="chartData"
+            :options="chartOptions"
+            class="w-auto h-auto"
           />
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      chartData: {
+        labels: [2015, 2016, 2017, 2018, 2019, 2020],
+        datasets: [
+          {
+            data: [40, 34, 40, 60, 40, 60],
+            label: "",
+            borderColor: "#2453FF",
+            borderWidth: 2,
+            fill: false,
+          },
+        ],
+      },
+      data: {
+        labels: ["RTO", "SPENT MARKETNG", "Revenue", "NET PROFIT"],
+        datasets: [
+          {
+            data: [25, 40, 40, 24, 40],
+            label: "Numbers",
+            backgroundColor: [
+              "#CB0000",
+              "#FF462E",
+              "#7700D2",
+              "#34A300",
+              "#4D5566",
+            ],
+            borderWidth: 0,
+            fill: false,
+          },
+        ],
+      },
+      doughnutOptions: {
+        maintainAspectRatio: false,
+        responsive: true,
+        tooltips: {
+          backgroundtColor: "000000",
+          titleFontColor: "#ffffff",
+          bodyFontColor: "#ffffff",
+          position: "nearest",
+          node: "nearest",
+          intersect: 0,
+          bodySpacing: 2,
+        },
+      },
+      chartOptions: {
+        maintainAspectRatio: false,
+        responsive: true,
+        tooltips: {
+          backgroundtColor: "000000",
+          titleFontColor: "#ffffff",
+          bodyFontColor: "#ffffff",
+          position: "nearest",
+          node: "nearest",
+          intersect: 0,
+          bodySpacing: 4,
+        },
+      },
+    };
+  },
+  mounted() {},
+  methods: {},
+};
 </script>

@@ -1,15 +1,17 @@
 <template>
   <div>
-    <!-- <Hero />
+    <Hero />
     <Integration />
     <OurImpact />
     <Profit />
     <Work />
     <Blog />
     <TimeSection />
-    <TrueProfit /> -->
-    <!-- hero-section -->
-    <div
+    <TrueProfit />
+    <!-- <LoginPage /> -->
+  </div>
+  <!-- hero-section -->
+  <!-- <div
       class="bg-hero-img relative bg-cover xl:py-[230px] xxl:pb-[400px] overflow-hidden py-[200px] lg:px-[60px] px-7 bg-no-repeat"
     >
       <div class="xl:grid xl:grid-cols-3">
@@ -40,11 +42,12 @@
           />
         </div>
       </div>
-    </div>
-    <!-- <GetInTouchModal /> -->
+    </div> -->
+  <!-- <GetInTouchModal /> -->
 
-    <!-- Integration-with-section -->
-    <div
+  <!-- Integration-with-section -->
+
+  <!-- <div
       class="bg-integration-img xl:py-[100px] md:py-[70px] py-[40px] bg-bottom relative bg-cover bg-no-repeat"
     >
       <div class="max-w-[1270px] mx-auto px-3">
@@ -64,10 +67,10 @@
           <img src="../static/Images/logo6.png" />
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Our-Impact-section -->
-    <div
+  <!-- Our-Impact-section -->
+  <!-- <div
       class="bg-impact-img xl:pb-[100px] md:pb-[70px] pb-[40px] relative bg-cover bg-no-repeat"
     >
       <div class="xl:mb-[150px] mb-[80px]">
@@ -136,10 +139,10 @@
           optimize your store’s profitability.
         </p>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Know-Your-True-Profit-secttion -->
-    <div class="xl:pb-[140px] md:pb-[100px] pb-[50px] xl:pt-16">
+  <!-- Know-Your-True-Profit-secttion -->
+  <!-- <div class="xl:pb-[140px] md:pb-[100px] pb-[50px] xl:pt-16">
       <div class="xl:max-w-[1798px] max-w-[1500px] mx-auto">
         <div class="flex flex-wrap justify-center gap-10 px-3">
           <div
@@ -352,10 +355,10 @@
           your solve in JUST 60 Sec
         </p>
       </div>
-    </div>
+    </div> -->
 
-    <!-- How-Does-it-Work?-section -->
-    <div class="pb-[60px]">
+  <!-- How-Does-it-Work?-section -->
+  <!-- <div class="pb-[60px]">
       <div class="max-w-[1598px] mx-auto px-3">
         <h2
           class="xl:text-[50px] md:text-[40px] text-[25px] font-semibold xl:mb-[80px] md:mb-[50px] mb-[30px] text-blue text-center"
@@ -447,10 +450,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- blog-section -->
-    <!-- <div class="md:pb-[60px] pb-[30px]">
+  <!-- blog-section -->
+  <!-- <div class="md:pb-[60px] pb-[30px]">
       <h2
         class="xl:text-[50px] md:text-[35px] text-[25px] font-semibold mb-[40px] text-blue text-center">Blog</h2>
       <div class="blog">
@@ -525,9 +528,8 @@
           More</button>
       </div>
     </div> -->
-    <Blog />
-    <!-- time-section -->
-    <div class="pb-[60px]">
+  <!-- time-section -->
+  <!-- <div class="pb-[60px]">
       <h2
         class="xl:text-[50px] md:text-[35px] text-[22px] font-semibold md:mb-[40px] mb-[20px] text-blue text-center"
       >
@@ -1053,10 +1055,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- True Profit-section -->
-    <div
+  <!-- True Profit-section -->
+  <!-- <div
       class="bg-profit-img px-5 md:pt-[70px] pt-[50px] xl:pb-[145px] pb-[80px] relative bg-cover bg-no-repeat"
     >
       <h2
@@ -1105,8 +1107,7 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </div> -->
 </template>
 
 <script>

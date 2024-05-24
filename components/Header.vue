@@ -2,29 +2,33 @@
   <header
     id="header"
     style="z-index: 999"
-    class="bg-gradient-to-r fixed top-0 w-full lef-0 from-[#2B0064] to-[#6313D9] xl:p-8 p-5 header-area"
+    class="bg-gradient-to-r fixed top-0 w-full lef-0 from-[#2B0064] to-[#6313D9] xl:p-8 p-4 header-area"
   >
     <div class="flex justify-between items-center">
       <div class="flex items-center gap-14">
-        <a href="index.html">
-          <img src="../static/Images/logo.png" alt class="w-[150px] h-auto" />
+        <a href="/">
+          <img
+            src="../static/Images/logo.png"
+            alt
+            class="xl:w-[150px] w-[120px] h-auto"
+          />
         </a>
         <div
-          class="xl:relative bg-white xl:bg-transparent absolute xl:top-0 top-[100px] left-0 w-full xl:w-[unset] text-center menu-container hidden xl:!block"
+          class="relative text-white bg-transparent display-absolute top-0 top-100 left-0 w-full xl:w-[unset] text-center menu-container display-none block"
         >
-          <div class="py-10 xl:py-0">
-            <ul class="xl:flex block items-center xxl:gap-14 gap-8">
-              <li class="mb-5 xl:mb-0">
+          <div class="">
+            <ul class="flex display-block items-center xxl:gap-14 gap-6">
+              <li>
                 <a
-                  href="index.html"
-                  class="md:text-xl text-base font-normal justify-center xl:text-white text-black [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative active nav-menu-content"
+                  href="javascript:void(0)"
+                  class="xl:text-xl lg:text-lg font-normal justify-center xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative active nav-menu-content"
                   >Home</a
                 >
               </li>
-              <li class="mb-5 xl:mb-0 drop-li relative">
+              <li class="drop-li relative">
                 <a
-                  href="#"
-                  class="md:text-xl text-base inline-flex gap-2 justify-center items-center font-normal xl:text-white text-black [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  href="javascript:void(0)"
+                  class="xl:text-xl lg:text-lg inline-flex gap-2 justify-center items-center font-normal xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                 >
                   Explore
                   <svg
@@ -46,18 +50,18 @@
                     class="bg-white text-left xl:absolute child-drop top-[55px] min-w-[200px] shadow-md p-5">
                     <ul>
                       <li><a href="#"
-                          class="md:text-xl text-base font-normal text-black mb-3 inline-block">item1</a></li>
+                          class="xl:text-xl lg:text-lg  font-normal text-white mb-3 inline-block">item1</a></li>
                       <li><a href="#"
-                          class="md:text-xl text-base font-normal text-black mb-3 inline-block">item2</a></li>
+                          class="xl:text-xl lg:text-lg  font-normal text-white mb-3 inline-block">item2</a></li>
                       <li><a href="#"
-                          class="md:text-xl text-base font-normal text-black mb-3">item3</a></li>
+                          class="xl:text-xl lg:text-lg  font-normal text-white mb-3">item3</a></li>
                     </ul>
                   </div> -->
               </li>
-              <li class="mb-5 xl:mb-0 drop-li relative">
+              <li class="drop-li relative">
                 <a
-                  href="#"
-                  class="md:text-xl text-base inline-flex gap-2 justify-center items-center font-normal xl:text-white text-black [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  href="javascript:void(0)"
+                  class="xl:text-xl lg:text-lg inline-flex gap-2 justify-center items-center font-normal xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                 >
                   Pages
                   <svg
@@ -79,20 +83,21 @@
                     class="bg-white text-left xl:absolute child-drop top-[55px] min-w-[200px] shadow-md p-5">
                     <ul>
                       <li><a href="#"
-                          class="md:text-xl text-base font-normal text-black mb-3 inline-block">item1</a></li>
+                          class="xl:text-xl lg:text-lg  font-normal text-white mb-3 inline-block">item1</a></li>
                       <li><a href="#"
-                          class="md:text-xl text-base font-normal text-black mb-3 inline-block">item2</a></li>
+                          class="xl:text-xl lg:text-lg  font-normal text-white mb-3 inline-block">item2</a></li>
                       <li><a href="#"
-                          class="md:text-xl text-base font-normal text-black mb-3">item3</a></li>
+                          class="xl:text-xl lg:text-lg  font-normal text-white mb-3">item3</a></li>
                     </ul>
                   </div> -->
               </li>
-              <li class="mb-5 xl:mb-0 drop-li relative">
+              <li class="drop-li relative">
                 <a
-                  href="#"
-                  class="md:text-xl text-base inline-flex items-center justify-center gap-2 font-normal xl:text-white text-black [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  href="javascript:void(0)"
+                  class="xl:text-xl lg:text-lg inline-flex gap-2 justify-center items-center font-normal xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                 >
-                  Blogs
+                  <Nuxt-link to="/blog"> Blogs</Nuxt-link>
+
                   <svg
                     width="23"
                     height="23"
@@ -112,34 +117,42 @@
                     class="bg-white text-left xl:absolute child-drop top-[55px] min-w-[200px] shadow-md p-5">
                     <ul>
                       <li><a href="#"
-                          class="md:text-xl text-base font-normal text-black mb-3 inline-block">item1</a></li>
+                          class="xl:text-xl lg:text-lg  font-normal text-white mb-3 inline-block">item1</a></li>
                       <li><a href="#"
-                          class="md:text-xl text-base font-normal text-black mb-3 inline-block">item2</a></li>
+                          class="xl:text-xl lg:text-lg  font-normal text-white mb-3 inline-block">item2</a></li>
                       <li><a href="#"
-                          class="md:text-xl text-base font-normal text-black mb-3">item3</a></li>
+                          class="xl:text-xl lg:text-lg  font-normal text-white mb-3">item3</a></li>
                     </ul>
                   </div> -->
               </li>
-              <li class="mb-5 xl:mb-0">
+              <li class="">
                 <a
-                  href="index.html"
-                  class="md:text-xl text-base font-normal xl:text-white text-black justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  href="javascript:void(0)"
+                  class="xl:text-xl lg:text-lg font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                   >Contact</a
                 >
               </li>
-              <li class="mb-5 xl:mb-0">
+              <li class="">
                 <a
-                  href="index.html"
-                  class="md:text-xl text-base font-normal xl:text-white text-black justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  href="javascript:void(0)"
+                  class="xl:text-xl lg:text-lg font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                   >About</a
                 >
+              </li>
+              <li class="">
+                <a
+                  href="javascript:void(0)"
+                  class="xl:text-xl lg:text-lg font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                >
+                  <Nuxt-link to="/marketing-platform"> Onboarding</Nuxt-link>
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="items-center gap-4 xl:flex hidden">
-        <div class="cursor-pointer">
+      <div class="items-center gap-4 flex">
+        <div class="cursor-pointer xl:block hidden">
           <svg
             width="35"
             height="35"
@@ -171,39 +184,79 @@
           </svg>
         </div>
         <a
-          href="#"
-          @click="isModalOpen = true"
-          class="py-3 rounded-lg px-5 bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white text-lg font-medium"
+          href="javascript:void(0)"
+          @click="openModal"
+          class="py-3 rounded-lg xl:px-5 px-2 bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white xl:text-lg text-sm font-medium"
         >
           Get In Touch
         </a>
-      </div>
-      <div class="xl:hidden nav-menu text-white">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2.5"
-            d="M3 6h18M3 12h18M3 18h18"
-          />
-        </svg>
+        <div class="xl:hidden lg:hidden nav-menu text-white">
+          <button
+            @click.prevent="toggleSidebar"
+            type="button"
+            class="inline-flex items-center ms-3 display-block text-sm rounded-lg focus:outline-none"
+          >
+            <span class="sr-only">Open sidebar</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M3 6h18M3 12h18M3 18h18"
+              />
+            </svg>
+          </button>
+          <!-- ---------------- sidebar ------------ -->
+
+          <aside
+            :class="isSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+            v-click-outside="closeSidebar"
+            class="fixed top-0 left-0 z-40 w-[19rem] mt-[80px] width-17 h-screen transition-transform xl:translate-x-0 bg-[#2B0064]"
+            aria-label="Sidebar"
+          >
+            <div
+              class="bg-gradient-to-r from-[#2B0064] to-[#6313D9] h-full px-3 dark:bg-gray-800"
+            >
+              <div class="flex justify-center py-2">
+                <ul
+                  class="flex flex-col gap-y-5 text-white text-xl font-medium w-full"
+                >
+                  <li
+                    v-for="(tab, key) in sideBarItems"
+                    :key="key"
+                    class="text-white font-semibold py-2 border-b border-white w-full flex justify-center"
+                  >
+                    <Nuxt-link
+                      :to="tab.href"
+                      class="flex items-center gap-4 justify-between"
+                      >{{ tab.name }}
+                    </Nuxt-link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+
+          <!-- -------------------------------------- -->
+        </div>
       </div>
     </div>
+
     <GetInTouchModal
       :isModalOpen="isModalOpen"
       @save="saveData"
-      @close="isModalOpen = false"
+      @close="closeModal"
     />
     <ComingSoonModal
       :isComingSoonModal="isComingSoonModal"
-      @close="isComingSoonModal = false"
+      @close="comingSoonModalClose"
     />
   </header>
 </template>
@@ -214,13 +267,71 @@ export default {
       content: ["Home", "Explore", "Pages", "Blogs", "Contact", "About"],
       isModalOpen: false,
       isComingSoonModal: false,
+      isSidebarOpen: false,
+      sideBarItems: [
+        {
+          name: "Home",
+          href: "/",
+        },
+        {
+          name: "Explore",
+          href: "",
+        },
+        {
+          name: "Pages",
+          href: "",
+        },
+        {
+          name: "Blogs",
+          href: "/blog",
+        },
+        {
+          name: "Contact",
+          href: "",
+        },
+        {
+          name: "About",
+          href: "",
+        },
+        {
+          name: " Onboarding",
+          href: "/marketing-platform",
+        },
+      ],
     };
   },
   methods: {
     saveData() {
       this.isModalOpen = false;
       this.isComingSoonModal = true;
+      document.body.style.overflow = "hidden";
+    },
+    comingSoonModalClose() {
+      this.isComingSoonModal = false;
+      document.body.style.overflow = "";
+    },
+    openModal() {
+      this.isModalOpen = true;
+      document.body.style.overflow = "hidden";
+    },
+    closeModal() {
+      this.isModalOpen = false;
+      document.body.style.overflow = "";
+    },
+    toggleSidebar() {
+      this.isSidebarOpen = !this.isSidebarOpen;
+      document.body.style.overflow = "hidden";
+    },
+    closeSidebar() {
+      this.isSidebarOpen = false;
+      document.body.style.overflow = "";
     },
   },
 };
 </script>
+
+<style>
+.translate-x-0 {
+  transform: translateX(0);
+}
+</style>

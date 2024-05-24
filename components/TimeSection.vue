@@ -1,4 +1,3 @@
-<
 <template>
   <div class="pb-[60px]">
     <h2

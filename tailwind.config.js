@@ -7,6 +7,7 @@ module.exports = {
     "./plugins/**/*.{js,ts}",
     "./app.vue",
     "./error.vue",
+    "./node_modules/flowbite/**/*.{js,ts}",
   ],
   theme: {
     screens: {
@@ -33,7 +34,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
   // purge: [
   //   "./components/**/*.vue",
   //   "./layouts/**/*.vue",

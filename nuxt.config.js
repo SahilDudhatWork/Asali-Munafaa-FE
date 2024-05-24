@@ -22,12 +22,14 @@ export default {
     "@/assets/css/tailwind.css",
     "@/assets/css/global.css",
     "vue-toast-notification/dist/theme-bootstrap.css",
-    // "vue-slick-carousel/dist/vue-slick-carousel.css",
-    // "vue-slick-carousel/dist/vue-slick-carousel-theme.css",
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "~/plugins/toast-notification.js", mode: "client" }],
+  plugins: [
+    { src: "~/plugins/toast-notification.js", mode: "client" },
+    { src: "~/plugins/v-click-outside.js", mode: "client" },
+    { src: "~/plugins/vuejs-progress-bar.js", ssr: false },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -41,11 +43,13 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {
-      plugins: {
-        // Add Tailwind CSS and Autoprefixer as plugins
-        tailwindcss: {},
-        autoprefixer: {},
-        // You can add other PostCSS plugins here if needed
+      postcssOptions: {
+        plugins: {
+          // Add Tailwind CSS and Autoprefixer as plugins
+          tailwindcss: {},
+          autoprefixer: {},
+          // You can add other PostCSS plugins here if needed
+        },
       },
     },
   },

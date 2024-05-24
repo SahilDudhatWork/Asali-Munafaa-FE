@@ -1,16 +1,5 @@
 <template>
   <div class="pb-[60px] pb-[30px]">
-    <!-- <VueSlickCarousel>
-      <div><img src="../static/Images/profit1.png" alt="Image 1" /></div>
-      <div><img src="../static/Images/profit1.png" alt="Image 1" /></div>
-      <div><img src="../static/Images/profit1.png" alt="Image 1" /></div>
-      <div><img src="../static/Images/profit1.png" alt="Image 1" /></div>
-    </VueSlickCarousel> -->
-    <!-- <VueSlick :options="slickOptions">
-      <div v-for="(item, index) in items" :key="index">
-        {{ item }}
-      </div>
-    </VueSlick> -->
     <h2
       class="xl:text-[50px] md:text-[35px] text-[25px] font-semibold mb-[40px] text-blue text-center"
     >
@@ -18,11 +7,11 @@
     </h2>
     <div class="blog mx-5">
       <VueSlickCarousel v-bind="settings">
-        <div v-for="i in items" :key="i" class="text-center blog-box">
+        <div v-for="(i, key) in items" :key="key" class="text-center blog-box">
           <img :src="i.image" alt="Image 1" class="" />
           <div class="pt-5">
             <h2
-              class="text-darkBlue text-start mb-2 md:text-[26px] text-[22px] font-semibold"
+              class="text-darkBlue text-center mb-2 md:text-[26px] text-[22px] font-semibold"
             >
               {{ i.title }}
             </h2>
@@ -117,7 +106,7 @@
         </div>
       </div>
       <div class="text-center blog-box">
-        <img
+      <img
           src="../static/Images/profit1.png"
           class="w-full h-auto"
           alt="image"
@@ -157,12 +146,10 @@ export default {
   },
   data() {
     return {
-      carouselWidth: "400px",
       settings: {
         dots: true,
         centerMode: false,
         centerPadding: "0px",
-
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -236,10 +223,4 @@ export default {
   // },
 };
 </script>
-<style>
-::v-deep {
-  .slick-slide {
-    width: 432px;
-  }
-}
-</style>
+<style></style>

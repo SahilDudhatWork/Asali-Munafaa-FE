@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <Nuxt />
+    <Nuxt class="bg-white" />
     <Footer />
   </div>
 </template>
@@ -11,3 +11,8 @@ export default {
   name: "default",
 };
 </script>
+<style scoped>
+/* body {
+  background: #fff;
+} */
+</style>
