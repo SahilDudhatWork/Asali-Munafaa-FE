@@ -4,7 +4,7 @@
       <div class="xl:max-w-[1798px] max-w-[1500px] mx-auto">
         <div class="flex flex-wrap justify-center gap-10 px-3">
           <div
-            class="text-center md:p-10 p-4 rounded-xl shadow-[0_2px_8px_rgba(99,99,99,0.2)]"
+            class="text-center md:p-10 p-4 rounded-xl"
             v-for="(item, key) in profitItems"
             :key="key"
           >

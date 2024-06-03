@@ -20,8 +20,8 @@
         <div
           class="bg-white h-[500px] xl:p-[50px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-lg"
         >
-          <h2 class="text-black text-normal text-lg mt-1">Sources</h2>
-          <PieChat
+          <h2 class="text-black font-normal text-lg mt-1">Sources</h2>
+          <PieChart
             :chartData="data"
             :options="doughnutOptions"
             class="w-auto h-auto"
@@ -31,7 +31,7 @@
           class="bg-white h-[500px] xl:col-span-2 xl:p-[60px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-lg"
         >
           <div class="flex justify-between items-center mb-5">
-            <h2 class="text-black text-normal text-lg">Net True Profit</h2>
+            <h2 class="text-black font-normal text-lg">Net True Profit</h2>
             <select name id class="!focus-visible::outline-0">
               <option value="year">Year</option>
               <option value="week">Month</option>

@@ -28,7 +28,10 @@ export default {
   plugins: [
     { src: "~/plugins/toast-notification.js", mode: "client" },
     { src: "~/plugins/v-click-outside.js", mode: "client" },
+    { src: "~/plugins/vue2-datepicker.js", mode: "client" },
     { src: "~/plugins/vuejs-progress-bar.js", ssr: false },
+    { src: "~/plugins/vue-avatar.js", mode: "client" },
+    // { src: "~/plugins/axios.js", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

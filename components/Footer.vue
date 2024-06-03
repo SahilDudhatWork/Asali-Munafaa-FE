@@ -1,6 +1,6 @@
 <template>
-  <footer class="bg-white mt-7">
-    <div class="max-w-[1792px] mx-auto px-3">
+  <footer class="bg-white mt-5 p-3 rounded-xl">
+    <div class="max-w-[1792px] mx-auto px-4 py-3">
       <div class="grid xl:grid-cols-8 sm:grid-cols-2 xl:gap-10 gap-5">
         <div class="max-w-[660px] xl:col-span-4">
           <a href="javascript:void(0)" class="mb-6 inline-block">

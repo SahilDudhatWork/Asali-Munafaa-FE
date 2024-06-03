@@ -1517,6 +1517,14 @@ body {
   }
   
 }
+@media  (max-width:375px) {
+  .width-full{
+    width: 100%;
+  }
+  .gaps-0{
+    gap: 0px;
+  }
+}
 
 @media (max-width:575px)  and (min-width:320px){
   .display-block{

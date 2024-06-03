@@ -2,18 +2,24 @@
   <div>
     <Modal>
       <template #modalContent>
-        <OnBoardingModal @next="onBoardingNext" v-if="isOnBoardingModal" />
+        <OnBoardingModal
+          @next="onBoardingNext"
+          v-if="isOnBoardingModal"
+          :onBoarding="onBoarding"
+        />
         <AllmostDoneModal
           @next="allmostNext"
           @back="allMostBack"
           v-if="isAllmostDoneModal"
+          :onBoarding="onBoarding"
         />
         <LastBarrierModal
           @next="lastBarrierNext"
           @back="lastBarrierBack"
           v-if="isLastBarrierModal"
+          :onBoarding="onBoarding"
         />
-        <EcommeceModal v-if="isEcommerceModal" />
+        <EcommeceModal v-if="isEcommerceModal" :onBoarding="onBoarding" />
       </template>
     </Modal>
   </div>
@@ -28,10 +34,11 @@ export default {
       isLastBarrierModal: false,
       isOnBoardingModal: true,
       isEcommerceModal: false,
+      onBoarding: [],
     };
   },
   methods: {
-    onBoardingNext() {
+    async onBoardingNext() {
       this.isAllmostDoneModal = true;
       this.isOnBoardingModal = false;
     },
@@ -42,6 +49,7 @@ export default {
     allmostNext() {
       this.isLastBarrierModal = true;
       this.isAllmostDoneModal = false;
+      console.log(this.onBoarding);
     },
     lastBarrierBack() {
       this.isAllmostDoneModal = true;
@@ -50,14 +58,11 @@ export default {
     lastBarrierNext() {
       this.isEcommerceModal = true;
       this.isLastBarrierModal = false;
+      console.log(this.onBoarding);
     },
+  },
+  mounted() {
+    // console.log(this.onBoarding, "on boarding");
   },
 };
 </script>
-<!-- <div class="transition-opacity">
-              <div class="absolute inset-0 bg-black opacity-50"></div>
-            </div> -->
-
-<!-- <div class="transition-opacity">
-                <div class="absolute inset-0 bg-black opacity-50"></div>
-              </div> -->

@@ -120,7 +120,11 @@
             class="xl:text-[20px] font-medium text-center font-light text-white"
           >
             Don’t have an Account ?
-            <span class="cursor-pointer font-medium border-b">Create New</span>
+            <Nuxt-link to="/signup">
+              <span class="cursor-pointer font-medium border-b"
+                >Create New</span
+              ></Nuxt-link
+            >
           </p>
         </div>
       </div>
@@ -129,7 +133,8 @@
 </template>
 
 <script>
-import $axios from "@/plugins/axios";
+import { mapActions } from "vuex";
+import message from "@/static/lang/en.json";
 export default {
   layout: "blank",
   data() {
@@ -138,13 +143,36 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      Login: "auth/login",
+    }),
     async login() {
       try {
-        const response = await $axios.post("/user/auth/logIn", this.form);
-        console.log(response);
-        this.form = response;
+        if (this.form.emailOrPhone == "" || this.form.password == "") {
+          this.$toast.open({
+            message: "Please fill up your field !",
+            type: "error",
+            duration: 2000,
+            position: "bottom-right",
+          });
+        } else {
+          const response = await this.Login(this.form);
+          console.log(response, "res");
+          this.$toast.open({
+            message: message.loginMessage,
+            type: "success",
+            duration: 2000,
+            position: "bottom-right",
+          });
+          this.$router.push("/onboarding");
+        }
       } catch (error) {
-        console.log(error);
+        this.$toast.open({
+          message: error,
+          type: "error",
+          duration: 2000,
+          position: "bottom-right",
+        });
       }
     },
   },

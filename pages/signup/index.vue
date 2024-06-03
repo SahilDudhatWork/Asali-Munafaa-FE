@@ -133,7 +133,8 @@
 </template>
 
 <script>
-import $axios from "@/plugins/axios";
+import message from "@/static/lang/en.json";
+import { mapActions } from "vuex";
 export default {
   layout: "blank",
   data() {
@@ -142,14 +143,35 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      Signup: "auth/signup",
+    }),
     async signup() {
       try {
-        const response = await $axios.post("/user/auth/signUp", this.form);
-        console.log(response, "res");
-        this.form = response;
-        console.log(this.form, "submit");
+        if (this.form.email == "" || this.form.password == "") {
+          this.$toast.open({
+            message: "Please fill up your field !",
+            type: "error",
+            duration: 2000,
+            position: "bottom-right",
+          });
+        } else {
+          const response = await this.Signup(this.form);
+          this.$toast.open({
+            message: message.signupMessage,
+            type: "success",
+            duration: 2000,
+            position: "bottom-right",
+          });
+          this.$router.push("/login");
+        }
       } catch (error) {
-        console.log(error);
+        this.$toast.open({
+          message: error,
+          type: "error",
+          duration: 2000,
+          position: "bottom-right",
+        });
       }
     },
   },

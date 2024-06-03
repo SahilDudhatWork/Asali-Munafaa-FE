@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const $axios = axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "https://asali-munafaa-be.vercel.app",
+  // baseURL: "http://localhost:4000",
 });
 
 $axios.interceptors.request.use(

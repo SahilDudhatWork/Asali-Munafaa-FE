@@ -144,7 +144,7 @@
                   href="javascript:void(0)"
                   class="xl:text-xl lg:text-lg font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                 >
-                  <Nuxt-link to="/marketing-platform"> Onboarding</Nuxt-link>
+                  <Nuxt-link to="/onboarding"> Onboarding</Nuxt-link>
                 </a>
               </li>
             </ul>

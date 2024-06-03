@@ -8,7 +8,7 @@
           class="xl:col-span-2 col-span-1 xl:max-w-[600px] xxl:max-w-[1000px] max-w-[100%]"
         >
           <h2
-            class="text-white text-normal !leading-normal lg:mb-[38px] mb-7 lg:text-[44px] md:text-3xl text-2xl"
+            class="text-white font-normal !leading-normal lg:mb-[38px] mb-7 lg:text-[44px] md:text-3xl text-2xl"
           >
             Know your REAL E-commerce Profit or Loss in Just one Dashboard
             within 60 Sec

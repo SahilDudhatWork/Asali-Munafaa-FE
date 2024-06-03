@@ -36,7 +36,7 @@
       </div>
       <div class="flex gap-3 lg:flex-row flex-col justify-end w-full">
         <button
-          class="inline-flex items-center justify-center xl:w-[20%] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+          class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
           @click="next"
         >
           Next
@@ -60,32 +60,38 @@
         </p>
       </div>
       <p class="mt-8 font-medium text-xl text-[#5B638B]">Ad Platform</p>
-      <div class="grid lg:grid-cols-2 grid-cols-1 gap-3 mt-5 mb-5">
-        <div class="flex flex-col lg:flex-row items-center gap-4">
-          <div class="py-2 px-2 rounded-full bg-[#2B0064] transition-main w-7">
-            <img src="../../static/svg/facebook.svg" alt="" />
-          </div>
-          <div class="text-[#5B638B] font-medium text-xl">
-            {{ selectedText }}
-          </div>
-        </div>
-        <button
-          class="inline-flex items-center justify-center xl:w-[36%] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+      <div class="grid lg:grid-cols-2 grid-cols-1 gap-3 mt-5 mb-5 w-full">
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center gap-4"
         >
-          Connect
-        </button>
+          <div class="flex flex-col lg:flex-row items-center gap-4">
+            <div
+              class="py-2 px-2 rounded-full bg-[#2B0064] transition-main w-7"
+            >
+              <img src="../../static/svg/facebook.svg" alt="" />
+            </div>
+            <div class="text-[#5B638B] font-medium text-xl">
+              {{ selectedText }}
+            </div>
+          </div>
+          <button
+            class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-7 text-sm rounded-md"
+          >
+            Connect
+          </button>
+        </div>
       </div>
 
       <div class="flex gap-3 lg:flex-row flex-col justify-end w-full">
         <button
-          class="inline-flex items-center justify-center xl:w-[20%] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+          class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
           @click="back"
         >
           Back
         </button>
         <button
           @click="handleSubmit"
-          class="inline-flex items-center justify-center xl:w-[20%] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+          class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
         >
           Next
         </button>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <nav class="w-full bg-[#F1F1FF] !fixed">
+      <nav class="w-full bg-[#F1F1FF] !fixed z-50">
         <div class="flex items-center">
           <button
             @click="toggleSidebar"
@@ -44,16 +44,21 @@
       class="fixed top-0 left-0 z-40 xl:w-[19rem] w-[17rem] width-17 mt-[52px] h-screen transition-transform sm:translate-x-0 bg-[#2B0064]"
       aria-label="Sidebar"
     >
-      <!-- fixed top-0 left-0 z-40 w-[19rem] mt-[52px] h-screen bg-[#2B0064] transition-transform -translate-x-full sm:translate-x-0 -->
-      <div class="bg-dashboard-img h-full px-3 py-4 dark:bg-gray-800">
-        <div class="mx-4 mt-6 mb-5">
-          <form class="max-w-sm mx-auto">
+      <div class="bg-dashboard-img h-full py-4 dark:bg-gray-800">
+        <div class="mt-6 mb-5">
+          <form class="max-w-sm mx-4">
             <div
               @click="isShow = !isShow"
               class="cursor-pointer flex items-center justify-between bg-transparent border border-gray-300 text-white text-sm rounded-lg block w-full p-2.5"
             >
               <div class="flex items-center gap-2">
-                <img src="../static/Images/select.png" alt="" class="w-7" />
+                <avatar
+                  username="Aarti Jani"
+                  background-color="#7562FF"
+                  :size="46"
+                  color="#fffff"
+                ></avatar>
+
                 <span class="text-base font-medium">Aarti Jani</span>
               </div>
               <div>
@@ -73,29 +78,20 @@
               </div>
             </div>
           </form>
-          <!-- <div class="flex ml-6 mb-5 mt-5 w-full">
-            <ProgressBar :options="options" :value="progressValue" />
-          </div> -->
           <div class="flex justify-center mt-9">
             <ul
-              class="flex flex-col gap-y-7 text-white text-xl font-medium cursor-pointer"
+              class="flex flex-col gap-y-7 text-white text-xl font-medium cursor-pointer w-full justify-center"
             >
               <li
                 v-for="(tab, key) in sideBarItems"
                 :key="key"
-                @click="toggle(tab.href)"
-                :class="!tab.isActive ? '' : ''"
+                @click="toggle()"
+                :class="activeTab == tab.href ? 'bg-[#AB55FF] p-2' : ''"
               >
                 <Nuxt-link
                   :to="tab.href"
-                  class="flex items-center gap-4 justify-between"
+                  class="flex items-center gap-4 justify-center"
                   >{{ tab.name }}
-
-                  <img
-                    :src="tab.icon"
-                    alt=""
-                    :class="tab.isActive ? 'bg-[#10e348] rounded-full' : ''"
-                  />
                 </Nuxt-link>
               </li>
             </ul>
@@ -107,7 +103,7 @@
       <div
         v-click-outside="closeModal"
         v-if="isShow"
-        class="mt-16 slide-in-right block absolute z-50 w-[40%] p-6 bg-white border border-gray-200 rounded-lg shadow ml-[19.5rem] margin-10 mt-4"
+        class="mt-16 slide-in-right block fixed z-50 w-[32%] p-6 bg-white border border-gray-200 rounded-lg shadow ml-[19.5rem] margin-10"
       >
         <div class="flex justify-between items-center">
           <p
@@ -149,7 +145,7 @@
         </div>
       </div>
     </transition>
-    <div class="p-4 sm:ml-[19rem] mt-">
+    <div class="p-4 sm:ml-[19rem]">
       <div
         v-if="isSidebarOpen"
         drawer-backdrop=""
@@ -164,103 +160,52 @@
 export default {
   data() {
     return {
-      //   options: {
-      //     text: {
-      //       color: "#FFFFFF",
-      //       shadowEnable: true,
-      //       shadowColor: "#000000",
-      //       fontSize: 20,
-      //       fontFamily: "Helvetica",
-      //       dynamicPosition: true,
-      //       hideText: false,
-      //     },
-      //     progress: {
-      //       color: "#10e348",
-      //       backgroundColor: "#E3D0FF",
-      //       inverted: false,
-      //     },
-      //     layout: {
-      //       height: 190,
-      //       width: 190,
-      //       verticalTextAlign: 100,
-      //       horizontalTextAlign: 80,
-      //       zeroOffset: 0,
-      //       strokeWidth: 10,
-      //       progressPadding: 10,
-      //       type: "circle",
-      //     },
-      //   },
       isShow: false,
       isSidebarOpen: false,
-      progressValue: 20,
       sideBarItems: [
         {
           name: "Dashboard",
           href: "/dashboard",
-          value: 20,
           isActive: true,
         },
         {
           name: "Marketing",
           href: "/marketing",
-          value: 40,
           isActive: false,
         },
         {
           name: "shipping",
-          href: "/shipping",
-          value: 60,
+          href: "/shiping",
           isActive: false,
         },
         {
-          name: "About Business",
-          href: "/about-business",
-          value: 80,
+          name: "Products",
+          href: "/products",
           isActive: false,
         },
         {
-          name: "Product",
-          href: "/product",
-          value: 100,
+          name: "Returns",
+          href: "/returns",
           isActive: false,
         },
       ],
-      previousPath: "/marketing-platform",
+      activeTab: "",
     };
   },
-  mounted() {
-    // this.updateActiveTab(this.$router.history.current.fullPath);
+  created() {
+    this.activeTab = this.$router.history.current.fullPath;
   },
-  // watch: {
-  //   "$route.path"(newPath) {
-  //     this.previousPath = this.$router.history.current.fullPath;
-  //     this.updateActiveTab(newPath);
-  //   },
-  // },
+  watch: {
+    "$route.path"(newPath) {
+      this.activeTab = newPath;
+    },
+  },
   methods: {
-    // updateActiveTab(path) {
-    //   console.log("path", path);
-    //   const key = this.sideBarItems.findIndex((tab) => tab.href === path);
-    //   const updatedItems = this.sideBarItems.map((item, index) => {
-    //     if (index <= key || item.href === this.previousPath) {
-    //       return { ...item, isActive: true };
-    //     } else {
-    //       return { ...item, isActive: false };
-    //     }
-    //   });
-    //   this.sideBarItems = updatedItems;
-    //   const activeTab = this.sideBarItems.find((tab) => tab.href === path);
-    //   if (activeTab) {
-    //     this.progressValue = activeTab.value;
-    //   }
-    // },
-    toggle(href) {
-      this.previousPath = this.$router.history.current.fullPath;
-      this.$router.push(href);
+    toggle() {
+      this.activeTab = this.$router.history.current.fullPath;
       this.isSidebarOpen = false;
     },
     closeModal() {
-      console.log("asdfafafsfaf");
       this.isShow = false;
     },
     toggleSidebar() {

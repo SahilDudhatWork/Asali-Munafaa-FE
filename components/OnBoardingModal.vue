@@ -10,10 +10,11 @@
         <label class="block text-white text-sm font-bold">Full Name ?</label>
         <div class="flex items-center text-sm">
           <input
-            type="email"
+            type="text"
             id="email"
             class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full"
-            placeholder="Email"
+            placeholder="Full Name"
+            v-model="onBoarding.fullName"
           />
         </div>
       </div>
@@ -24,7 +25,8 @@
             type="number"
             id="phone"
             class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full"
-            placeholder="Phone Number"
+            placeholder="Mobile"
+            v-model="onBoarding.mobile"
           />
         </div>
       </div>
@@ -36,6 +38,7 @@
             id="website"
             class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full mb-3"
             placeholder="url"
+            v-model="onBoarding.websiteUrl"
           />
         </div>
       </div>
@@ -48,4 +51,13 @@
     </div>
   </div>
 </template>
-<script></script>
+<script>
+export default {
+  props: {
+    onBoarding: {
+      type: Array,
+      required: true,
+    },
+  },
+};
+</script>

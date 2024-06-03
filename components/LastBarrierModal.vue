@@ -16,6 +16,7 @@
             id="email"
             class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full"
             placeholder="Enter Here ..."
+            v-model="onBoarding.goal"
           />
         </div>
       </div>
@@ -30,6 +31,7 @@
             id="website"
             class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full mb-3"
             placeholder="Enter Here ..."
+            v-model="onBoarding.futureRevenue"
           />
         </div>
       </div>
@@ -50,4 +52,13 @@
     </div>
   </div>
 </template>
-<script></script>
+<script>
+export default {
+  props: {
+    onBoarding: {
+      type: Array,
+      required: true,
+    },
+  },
+};
+</script>

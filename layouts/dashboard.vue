@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <nav class="w-full bg-[#F1F1FF] !fixed">
+      <nav class="w-full bg-[#F1F1FF] !fixed z-50">
         <div class="flex items-center">
           <button
             @click="toggleSidebar"
@@ -53,7 +53,12 @@
               class="cursor-pointer flex items-center justify-between bg-transparent border border-gray-300 text-white text-sm rounded-lg block w-full p-2.5"
             >
               <div class="flex items-center gap-2">
-                <img src="../static/Images/select.png" alt="" class="w-7" />
+                <avatar
+                  username="Aarti Jani"
+                  background-color="#7562FF"
+                  :size="46"
+                  color="#fffff"
+                ></avatar>
                 <span class="text-base font-medium">Aarti Jani</span>
               </div>
               <div>
@@ -109,7 +114,7 @@
       <div
         v-click-outside="closeModal"
         v-if="isShow"
-        class="mt-16 slide-in-right block absolute z-50 w-[40%] p-6 bg-white border border-gray-200 rounded-lg shadow ml-[19.5rem] margin-10 mt-4"
+        class="mt-16 slide-in-right block fixed z-50 w-[32%] p-6 bg-white border border-gray-200 rounded-lg shadow ml-[19.5rem] margin-10"
       >
         <div class="flex justify-between items-center">
           <p
@@ -248,7 +253,6 @@ export default {
   },
   methods: {
     updateActiveTab(path) {
-      console.log("path", path);
       const key = this.sideBarItems.findIndex((tab) => tab.href === path);
       const updatedItems = this.sideBarItems.map((item, index) => {
         if (index <= key || item.href === this.previousPath) {
@@ -269,7 +273,6 @@ export default {
       this.isSidebarOpen = false;
     },
     closeModal() {
-      console.log("asdfafafsfaf");
       this.isShow = false;
     },
     toggleSidebar() {

@@ -17,7 +17,7 @@
 
       <button
         class="bg-gradient-to-r from-[#3CBB00] to-[#05E852] hover:bg-gradient-to-r hover:from-[#05E852] transition-main hover:to-[#3CBB00] text-white font-bold py-3 mt-4 px-4 w-full text-sm rounded-md"
-        @click="$emit('next')"
+        @click="login"
       >
         <div class="flex justify-center items-center">
           <svg
@@ -92,7 +92,91 @@
         </div>
       </button>
     </div>
+    <div style="z-index: 999" class="fixed top-0 w-full left-0">
+      <div class="fixed inset-0" v-if="isModal">
+        <div class="flex items-center justify-center min-h-screen">
+          <div
+            class="fixed inset-0 transition-opacity"
+            @click="isModal = false"
+          >
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+          </div>
+          <div class="max-w-6xl w-full mx-auto z-50">
+            <div
+              class="flex overflow-hidden mx-auto max-w-sm xl:max-w-3xl rounded-md"
+            >
+              <div
+                class="w-1/2 hidden xxxl:flex md:flex xxl:flex xl:flex lg:flex justify-center md:bg-gradient-to-b md:from-brand-purple md:to-brand-purple-darkest flex items-center"
+              >
+                <img
+                  class="object-cover"
+                  src="https://cdn.speedsize.com/41d9be0f-34ba-41e6-9c3f-6413291b5ed8/https://d3uimzec9orevk.cloudfront.net/assets/images/general/illustrations_laptop_shopify.svg/rstrz"
+                  alt=""
+                />
+              </div>
+
+              <div
+                class="w-full p-7 py-9 xxl:w-1/2 bg-white mx-4 my-4 xl:mx-0 xl:my-0"
+              >
+                <h2 class="text-3xl py-2 font-bold">
+                  Connect your Shopify store
+                </h2>
+                <p class="text-[#637381] font-medium text-lg">
+                  Enter your Shopify store URL:
+                </p>
+                <div class="mt-6 flex gap-1 flex-col">
+                  <label for="" class="font-medium text-lg text-[#637370]"
+                    >Shopify store URL
+                  </label>
+                  <div class="relative mb-8">
+                    <div
+                      class="absolute inset-y-0 right-2 flex items-center ps-3.5 pointer-events-none"
+                    >
+                      <span class="font-medium">.myshopify.com</span>
+                    </div>
+                    <input
+                      class="text-gray-700 focus:outline-none pr-32 focus:shadow-outline border border-gray-300 rounded px-4 block w-full appearance-none"
+                      type="text"
+                      placeholder="store-name"
+                    />
+                  </div>
+                </div>
+                <div class="flex justify-end gap-3 mt-8">
+                  <button
+                    @click="isModal = false"
+                    class="font-medium bg-white border border-gray-300 transition-colors rounded py-3 px-9"
+                  >
+                    Back
+                  </button>
+                  <button
+                    class="font-medium bg-green-800 text-white border border-gray-300 transition-colors rounded py-3 px-9"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <slot></slot>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      isModal: false,
+    };
+  },
+  methods: {
+    login() {
+      this.isModal = true;
+    },
+  },
+};
+</script>
