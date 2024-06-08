@@ -44,7 +44,7 @@
       </div>
       <button
         class="bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full text-sm rounded-md"
-        @click="$emit('next')"
+        @click="next"
       >
         Next
       </button>
@@ -52,11 +52,46 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
-  props: {
-    onBoarding: {
-      type: Array,
-      required: true,
+  data() {
+    return {
+      onBoarding: {
+        fullName: "",
+        mobile: "",
+        websiteUrl: "",
+        onboardingSteps: {
+          step1: true,
+        },
+      },
+    };
+  },
+  computed: {
+    ...mapGetters({
+      getUserData: "auth/getUserData",
+    }),
+  },
+  async mounted() {
+    this.onBoarding.fullName = await this.getUserData?.fullName;
+    this.onBoarding.mobile = await this.getUserData?.mobile;
+    this.onBoarding.websiteUrl = await this.getUserData?.websiteUrl;
+  },
+  methods: {
+    async next() {
+      if (
+        !this.onBoarding.fullName ||
+        !this.onBoarding.mobile ||
+        !this.onBoarding.websiteUrl
+      ) {
+        this.$toast.open({
+          message: "Please fill up your field !",
+          type: "error",
+          duration: 2000,
+          position: "bottom-right",
+        });
+      } else {
+        await this.$emit("next", this.onBoarding);
+      }
     },
   },
 };

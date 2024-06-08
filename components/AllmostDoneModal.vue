@@ -53,13 +53,13 @@
       <div class="flex gap-3 lg:flex-row flex-col">
         <button
           class="bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full text-sm rounded-md"
-          @click="$emit('back')"
+          @click="back"
         >
           Back
         </button>
         <button
           class="bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full text-sm rounded-md"
-          @click="$emit('next')"
+          @click="next"
         >
           Next
         </button>
@@ -68,11 +68,53 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
-  props: {
-    onBoarding: {
-      type: Array,
-      required: true,
+  data() {
+    return {
+      onBoarding: {
+        aboutAsaliMunafaa: "",
+        sellingProduct: "",
+        monthlyRevenue: "",
+        onboardingSteps: {
+          step2: true,
+        },
+      },
+    };
+  },
+  computed: {
+    ...mapGetters({
+      getUserData: "auth/getUserData",
+    }),
+  },
+
+  async mounted() {
+    this.onBoarding.aboutAsaliMunafaa = await this.getUserData
+      ?.aboutAsaliMunafaa;
+    this.onBoarding.sellingProduct = await this.getUserData?.sellingProduct;
+    this.onBoarding.monthlyRevenue = await this.getUserData?.monthlyRevenue;
+  },
+
+  methods: {
+    async next() {
+      if (
+        !this.onBoarding.aboutAsaliMunafaa ||
+        !this.onBoarding.sellingProduct ||
+        !this.onBoarding.monthlyRevenue
+      ) {
+        this.$toast.open({
+          message: "Please fill up your field !",
+          type: "error",
+          duration: 2000,
+          position: "bottom-right",
+        });
+      } else {
+        await this.$emit("next", this.onBoarding);
+      }
+    },
+    async back() {
+      await this.$emit("back");
     },
   },
 };

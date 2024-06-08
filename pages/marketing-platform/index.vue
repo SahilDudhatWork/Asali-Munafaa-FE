@@ -20,7 +20,7 @@
         <CheckBox
           :label-text="tab.name"
           :checkbox-id="tab.name"
-          v-for="(tab, key) in socialMedia"
+          v-for="(tab, key) in marketingPlatform"
           :key="key"
           :imageSrc="tab.image"
           :selectedValue="selectedValue"
@@ -37,7 +37,7 @@
       <div class="flex gap-3 lg:flex-row flex-col justify-end w-full">
         <button
           class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
-          @click="next"
+          @click="marketingPlatformNext"
         >
           Next
         </button>
@@ -60,18 +60,20 @@
         </p>
       </div>
       <p class="mt-8 font-medium text-xl text-[#5B638B]">Ad Platform</p>
-      <div class="grid lg:grid-cols-2 grid-cols-1 gap-3 mt-5 mb-5 w-full">
+      <div
+        v-for="(platform, key) in selectedPlatform"
+        :key="key"
+        class="grid lg:grid-cols-2 grid-cols-1 gap-3 mt-5 mb-5 w-full"
+      >
         <div
           class="flex flex-col lg:flex-row justify-between items-center gap-4"
         >
           <div class="flex flex-col lg:flex-row items-center gap-4">
-            <div
-              class="py-2 px-2 rounded-full bg-[#2B0064] transition-main w-7"
-            >
-              <img src="../../static/svg/facebook.svg" alt="" />
+            <div class="py-2 px-2 rounded-full bg-gray-200 transition-main w-7">
+              <img :src="platform.image" alt="" />
             </div>
             <div class="text-[#5B638B] font-medium text-xl">
-              {{ selectedText }}
+              {{ platform.name }}
             </div>
           </div>
           <button
@@ -105,16 +107,17 @@ import meta from "@/static/svg/meta.svg";
 import googleAds from "@/static/svg/googleAds.svg";
 import tiktok from "@/static/svg/tiktok.svg";
 import snapchat from "@/static/svg/snapchat.svg";
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   layout: "dashboard",
-  components: {},
   data() {
     return {
       errorMessage: "",
       selectedValue: [],
       isOpen: false,
       isMarketing: true,
-      socialMedia: [
+      marketingPlatform: [
         {
           name: "Meta ads",
           image: meta,
@@ -132,28 +135,68 @@ export default {
           image: snapchat,
         },
       ],
+      selectedPlatform: [],
     };
   },
-  computed: {
-    selectedText() {
-      return this.selectedValue.join(" & ");
+  async mounted() {
+    if (this.getUserBusinessData?.marketingPlatform) {
+      this.selectedValue = await this.getUserBusinessData?.marketingPlatform;
+    }
+  },
+  watch: {
+    getUserBusinessData: {
+      deep: true,
+      handler(item) {
+        if (item?.marketingPlatform) {
+          this.selectedValue = item.marketingPlatform;
+        }
+      },
     },
   },
+  computed: {
+    ...mapGetters({
+      getUserBusinessData: "bussiness-details/getUserBusinessData",
+    }),
+  },
   methods: {
-    getName(value) {
+    ...mapActions({
+      MarketingPlatformNext: "bussiness-details/marketingPlatform",
+      // getBusinessDetail: "bussiness-details/getBusinessDetail",
+    }),
+    async getName(value) {
       this.selectedValue = value;
     },
-    next() {
-      if (this.selectedText == "") {
+    async marketingPlatformNext() {
+      try {
+        if (this.selectedValue == "") {
+          this.$toast.open({
+            message: "Please fill up your field !",
+            type: "error",
+            duration: 2000,
+            position: "bottom-right",
+          });
+        } else {
+          this.isOpen = true;
+          this.isMarketing = false;
+          this.selectedPlatform = this.marketingPlatform.filter((platform) =>
+            this.selectedValue.includes(platform.name)
+          );
+
+          let data = {
+            marketingPlatform: this.selectedValue,
+            businessDetailsSteps: {
+              step1: true,
+            },
+          };
+          const response = await this.MarketingPlatformNext(data);
+        }
+      } catch (error) {
         this.$toast.open({
-          message: "Please fill up your field !",
+          message: error,
           type: "error",
           duration: 2000,
           position: "bottom-right",
         });
-      } else {
-        this.isOpen = true;
-        this.isMarketing = false;
       }
     },
     back() {

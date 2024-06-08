@@ -3,7 +3,9 @@
     <div
       class="max-w-fulls py-4 pl-5 grid xxxl:grid-cols-5 xxl:grid-cols-5 xl:grid-cols-5 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-10 items-center bg-white border border-gray-200 rounded-2xl shadow-lg"
     >
-      <TotalSales v-for="(item, key) in totalSales" :key="key" :item="item" />
+      <Nuxt-link to="/product"
+        ><TotalSales v-for="(item, key) in totalSales" :key="key" :item="item"
+      /></Nuxt-link>
     </div>
     <div class="mt-6 mb-4">
       <Sales :sales="protal" />

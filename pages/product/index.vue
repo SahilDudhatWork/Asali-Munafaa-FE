@@ -19,7 +19,21 @@
         </p>
         <div class="mx-7 mt-7">
           <p class="text-lg text-[#8C93BE] font-semibold mb-1">Products name</p>
+          <input
+            type="email"
+            id="email"
+            class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full"
+            placeholder="Products name"
+            v-model="product.name"
+          />
           <p class="text-lg text-[#8C93BE] font-semibold mt-4">Selling Price</p>
+          <input
+            type="number"
+            id="email"
+            class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full"
+            placeholder="Products name"
+            v-model="product.sellingPrice"
+          />
         </div>
       </div>
       <div class="mx-5 gap-3 mt-5 mb-5 flex flex-col gap-3">
@@ -51,7 +65,7 @@
           <textarea
             class="rounded-lg p-3 xl:w-[83%] sm:w-full h-36"
             placeholder="Text Here"
-            v-model="description"
+            v-model="product.ManufacturingCost"
           ></textarea>
         </div>
       </div>
@@ -73,33 +87,82 @@
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   layout: "dashboard",
   data() {
     return {
-      description: "",
+      product: {
+        name: "",
+        sellingPrice: "",
+        ManufacturingCost: "",
+      },
     };
   },
+  async mounted() {
+    if (this.getUserBusinessData?.product) {
+      this.product.name = await this.getUserBusinessData?.product?.name;
+      this.product.sellingPrice = await this.getUserBusinessData?.product
+        ?.sellingPrice;
+      this.product.ManufacturingCost = await this.getUserBusinessData?.product
+        ?.ManufacturingCost;
+    }
+  },
+  watch: {
+    getUserBusinessData: {
+      deep: true,
+      handler(item) {
+        if (item?.product) {
+          this.product.name = item.product?.name;
+          this.product.sellingPrice = item.product?.sellingPrice;
+          this.product.ManufacturingCost = item.product?.ManufacturingCost;
+        }
+      },
+    },
+  },
+  computed: {
+    ...mapGetters({
+      getUserBusinessData: "bussiness-details/getUserBusinessData",
+    }),
+  },
   methods: {
+    ...mapActions({
+      MarketingPlatformNext: "bussiness-details/marketingPlatform",
+    }),
     back() {
       this.$router.push("/about-business");
     },
-    handleSubmit() {
-      if (this.description == "") {
+    async handleSubmit() {
+      try {
+        if (
+          this.product.name == "" ||
+          this.product.sellingPrice == "" ||
+          this.product.ManufacturingCost == ""
+        ) {
+          this.$toast.open({
+            message: "Please fill up your field !",
+            type: "error",
+            duration: 2000,
+            position: "bottom-right",
+          });
+        } else {
+          let data = {
+            product: this.product,
+            businessDetailsSteps: {
+              step5: true,
+            },
+          };
+          const response = await this.MarketingPlatformNext(data);
+          this.$router.push("/dashboard");
+        }
+      } catch (error) {
         this.$toast.open({
-          message: "Please fill up your field !",
+          message: error,
           type: "error",
           duration: 2000,
           position: "bottom-right",
         });
-      } else {
-        this.$toast.open({
-          message: "Okk !",
-          type: "success",
-          duration: 2000,
-          position: "bottom-right",
-        });
-        console.log(this.description);
       }
     },
   },

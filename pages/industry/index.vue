@@ -49,6 +49,7 @@
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   layout: "dashboard",
   data() {
@@ -68,28 +69,62 @@ export default {
       ],
     };
   },
-  computed: {
-    selectedText() {
-      return this.selectedValue.join(" & ");
+  async mounted() {
+    if (this.getUserBusinessData?.industry) {
+      this.selectedValue = await this.getUserBusinessData?.industry;
+    }
+  },
+  watch: {
+    getUserBusinessData: {
+      deep: true,
+      handler(item) {
+        if (item?.industry) {
+          this.selectedValue = item.industry;
+        }
+      },
     },
   },
+  computed: {
+    ...mapGetters({
+      getUserBusinessData: "bussiness-details/getUserBusinessData",
+    }),
+  },
   methods: {
+    ...mapActions({
+      MarketingPlatformNext: "bussiness-details/marketingPlatform",
+    }),
     getName(value) {
       this.selectedValue = value;
     },
     back() {
       this.$router.push("/marketing-platform");
     },
-    handleSubmit() {
-      if (this.selectedValue == "") {
+    async handleSubmit() {
+      try {
+        if (this.selectedValue == "") {
+          this.$toast.open({
+            message: "Please fill up your field !",
+            type: "error",
+            duration: 2000,
+            position: "bottom-right",
+          });
+        } else {
+          let data = {
+            industry: this.selectedValue,
+            businessDetailsSteps: {
+              step2: true,
+            },
+          };
+          const response = await this.MarketingPlatformNext(data);
+          this.$router.push("/shipping");
+        }
+      } catch (error) {
         this.$toast.open({
-          message: "Please fill up your field !",
+          message: error,
           type: "error",
           duration: 2000,
           position: "bottom-right",
         });
-      } else {
-        this.$router.push("/shipping");
       }
     },
   },

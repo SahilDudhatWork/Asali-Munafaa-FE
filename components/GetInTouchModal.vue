@@ -31,21 +31,25 @@
                   class="text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                   type="email"
                   placeholder="First Name"
+                  v-model="firstName"
                 />
                 <input
                   class="text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                   type="email"
                   placeholder="Email"
+                  v-model="email"
                 />
                 <input
                   class="text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                   type="email"
                   placeholder="Your Phone Number"
+                  v-model="mobile"
                 />
                 <input
                   class="text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                   type="email"
                   placeholder="Website"
+                  v-model="website"
                 />
                 <button
                   class="bg-[#4C0EA6] text-white font-bold py-2 px-4 w-full rounded-md"
@@ -75,6 +79,9 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+import message from "@/static/lang/en.json";
+
 export default {
   props: {
     isModalOpen: {
@@ -84,15 +91,56 @@ export default {
   },
   data() {
     return {
-      isComingSoonModal: false,
+      firstName: "",
+      email: "",
+      mobile: "",
+      website: "",
     };
   },
   methods: {
+    ...mapActions({
+      getInTouch: "auth/getInTouch",
+    }),
     closeModal() {
       this.$emit("close");
     },
-    save() {
-      this.$emit("save");
+    async save() {
+      if (!this.firstName || !this.email || !this.mobile || !this.website) {
+        this.$toast.open({
+          message: "Please fill up your field !",
+          type: "error",
+          duration: 2000,
+          position: "bottom-right",
+        });
+      } else {
+        try {
+          let data = {
+            firstName: this.firstName,
+            email: this.email,
+            mobile: this.mobile,
+            website: this.website,
+          };
+          const response = await this.getInTouch(data);
+          (this.firstName = ""),
+            (this.email = ""),
+            (this.mobile = ""),
+            (this.website = ""),
+            this.$emit("save");
+          this.$toast.open({
+            message: message.getInTouchMessage,
+            type: "success",
+            duration: 2000,
+            position: "bottom-right",
+          });
+        } catch (error) {
+          this.$toast.open({
+            message: error,
+            type: "error",
+            duration: 2000,
+            position: "bottom-right",
+          });
+        }
+      }
     },
   },
 };

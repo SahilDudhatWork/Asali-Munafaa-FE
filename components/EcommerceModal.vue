@@ -17,7 +17,7 @@
 
       <button
         class="bg-gradient-to-r from-[#3CBB00] to-[#05E852] hover:bg-gradient-to-r hover:from-[#05E852] transition-main hover:to-[#3CBB00] text-white font-bold py-3 mt-4 px-4 w-full text-sm rounded-md"
-        @click="login"
+        @click="shopifyLogin"
       >
         <div class="flex justify-center items-center">
           <svg
@@ -55,7 +55,7 @@
       </button>
       <button
         class="bg-[#2E0A93] text-white font-bold py-3 mt-4 px-4 w-full text-sm rounded-md"
-        @click="$emit('next')"
+        @click="weCommerceLogin"
       >
         <div class="flex items-center justify-center">
           <svg
@@ -174,8 +174,12 @@ export default {
     };
   },
   methods: {
-    login() {
-      this.isModal = true;
+    shopifyLogin() {
+      this.isModal = false;
+      this.$emit("next");
+    },
+    weCommerceLogin() {
+      this.$emit("next");
     },
   },
 };

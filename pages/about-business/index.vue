@@ -20,7 +20,9 @@
         v-for="(item, key) in aboutBusiness"
         :key="key"
       >
-        <p class="text-xl font-medium text-[#5B638B]">{{ item.question }}</p>
+        <p class="text-xl font-medium text-[#5B638B]">
+          {{ `${key + 1}).` }} {{ item.question }}
+        </p>
         <Dropdown
           :index="key"
           :items="item.items"
@@ -46,14 +48,14 @@
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   layout: "dashboard",
   data() {
     return {
-      // selectedLabel: "Select here...",
       aboutBusiness: [
         {
-          question: "1). How much You’re Spending on ads ?",
+          question: "How much You’re Spending on ads ?",
           selectedLabel: "Select here...",
           items: [
             { label: "50k to 1lac", value: "50k to 1lac" },
@@ -64,7 +66,7 @@ export default {
           ],
         },
         {
-          question: "2). How much ROAS you're getting?",
+          question: "How much ROAS you're getting?",
           selectedLabel: "Select here...",
           items: [
             { label: "2x to 4x", value: "2x to 4x" },
@@ -74,7 +76,7 @@ export default {
           ],
         },
         {
-          question: "3). Your RTO Percentage ?",
+          question: "Your RTO Percentage ?",
           selectedLabel: "Select here...",
           items: [
             { label: "2% to 5%", value: "2% to 5%" },
@@ -85,7 +87,7 @@ export default {
           ],
         },
         {
-          question: "4). Your COD/Prepaid Percentage ?",
+          question: "Your COD/Prepaid Percentage ?",
           selectedLabel: "Select here...",
           items: [
             { label: "5% to 10%", value: "5% to 10%" },
@@ -98,9 +100,58 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapGetters({
+      getUserBusinessData: "bussiness-details/getUserBusinessData",
+    }),
+    formattedData() {
+      return {
+        aboutBusiness: this.aboutBusiness.map((item) => ({
+          question: item.question,
+          answer: item.selectedLabel,
+        })),
+        businessDetailsSteps: {
+          step4: true,
+        },
+      };
+    },
+  },
+  mounted() {
+    if (
+      this.getUserBusinessData.aboutBusiness &&
+      this.getUserBusinessData.aboutBusiness.length > 0
+    ) {
+      console.log(
+        "this.getUserBusinessData.aboutBusiness",
+        this.getUserBusinessData.aboutBusiness
+      );
+      this.aboutBusiness.forEach((items, index) => {
+        items.selectedLabel =
+          this.getUserBusinessData?.aboutBusiness[index]?.answer;
+      });
+    }
+  },
+  watch: {
+    getUserBusinessData: {
+      deep: true,
+      handler(item) {
+        if (item.aboutBusiness && item.aboutBusiness.length > 0) {
+          this.aboutBusiness.forEach((items, index) => {
+            if (item.aboutBusiness[index]) {
+              items.selectedLabel = item.aboutBusiness[index]?.answer;
+            }
+          });
+        }
+      },
+    },
+  },
+
   methods: {
-    getValue(value, index) {
-      this.aboutBusiness[index].selectedLabel = value;
+    ...mapActions({
+      MarketingPlatformNext: "bussiness-details/marketingPlatform",
+    }),
+    getValue(item, index) {
+      this.aboutBusiness[index].selectedLabel = item.value;
     },
     back() {
       this.$router.push("/shipping");
@@ -121,9 +172,21 @@ export default {
       return true;
     },
     async handleSubmit() {
-      let valid = await this.validForm();
-      if (valid) {
-        this.$router.push("/product");
+      try {
+        let valid = await this.validForm();
+        if (valid) {
+          let data = await this.formattedData;
+          console.log(data, "data");
+          const response = await this.MarketingPlatformNext(data);
+          this.$router.push("/product");
+        }
+      } catch (error) {
+        this.$toast.open({
+          message: error,
+          type: "error",
+          duration: 2000,
+          position: "bottom-right",
+        });
       }
     },
   },

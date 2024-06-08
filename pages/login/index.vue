@@ -133,8 +133,9 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import message from "@/static/lang/en.json";
+import $axios from "@/plugins/axios";
 export default {
   layout: "blank",
   data() {
@@ -142,9 +143,19 @@ export default {
       form: {},
     };
   },
+  computed: {
+    ...mapState("auth", {
+      isOnBoardingModal: (state) => state.modal.isOnBoardingModal,
+      isAllmostDoneModal: (state) => state.modal.isAllmostDoneModal,
+      isLastBarrierModal: (state) => state.modal.isLastBarrierModal,
+      isEcommerceModal: (state) => state.modal.isEcommerceModal,
+    }),
+  },
   methods: {
     ...mapActions({
       Login: "auth/login",
+      openModal: "auth/openModal",
+      closeModal: "auth/closeModal",
     }),
     async login() {
       try {
@@ -157,7 +168,35 @@ export default {
           });
         } else {
           const response = await this.Login(this.form);
-          console.log(response, "res");
+          let onbordingStep = response.data.onboardingSteps;
+          this.closeModal("isOnBoardingModal");
+          this.closeModal("isAllmostDoneModal");
+          this.closeModal("isLastBarrierModal");
+          this.closeModal("isEcommerceModal");
+          if (onbordingStep.step1) {
+            this.openModal("isAllmostDoneModal");
+          } else if (onbordingStep.step2) {
+            this.openModal("isLastBarrierModal");
+          } else if (onbordingStep.step3) {
+            this.openModal("isEcommerceModal");
+          } else if (onbordingStep.step4) {
+            const businessdetailsSteps = response.data.businessDetailsSteps;
+            if (businessdetailsSteps.step1) {
+              this.$router.push("/industry");
+            } else if (businessdetailsSteps.step2) {
+              this.$router.push("/shipping");
+            } else if (businessdetailsSteps.step3) {
+              this.$router.push("/about-business");
+            } else if (businessdetailsSteps.step4) {
+              this.$router.push("/product");
+            } else if (businessdetailsSteps.step5) {
+              this.$router.push("/dashboard");
+            } else {
+              this.$router.push("/marketing-platform");
+            }
+          } else {
+            this.openModal("isOnBoardingModal");
+          }
           this.$toast.open({
             message: message.loginMessage,
             type: "success",

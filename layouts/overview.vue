@@ -53,13 +53,13 @@
             >
               <div class="flex items-center gap-2">
                 <avatar
-                  username="Aarti Jani"
+                  :username="userName"
                   background-color="#7562FF"
                   :size="46"
                   color="#fffff"
                 ></avatar>
 
-                <span class="text-base font-medium">Aarti Jani</span>
+                <span class="text-base font-medium">{{ userName }}</span>
               </div>
               <div>
                 <svg
@@ -129,8 +129,13 @@
           class="mt-4 bg-[#C7FFC3] p-2 rounded-md flex justify-between items-center"
         >
           <div class="flex items-center gap-2 mx-1">
-            <img src="../static/Images/select.png" alt="" class="w-7" />
-            <p class="text-base font-medium text-[#0C8D00]">Aarti Jani</p>
+            <avatar
+              :username="userName"
+              background-color="#7562FF"
+              :size="30"
+              color="#fffff"
+            ></avatar>
+            <p class="text-base font-medium text-[#0C8D00]">{{ userName }}</p>
           </div>
           <div class="mx-1">
             <p class="text-xs font-normal text-[#0C8D00]">Logged Shop</p>
@@ -157,7 +162,9 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
+  middleware: "auth",
   data() {
     return {
       isShow: false,
@@ -190,10 +197,23 @@ export default {
         },
       ],
       activeTab: "",
+      userName: "",
     };
   },
-  created() {
+  async mounted() {
     this.activeTab = this.$router.history.current.fullPath;
+    try {
+      const response = await this.getProfileData();
+      console.log(response, "res");
+      this.userName = response.data.fullName;
+    } catch (error) {
+      this.$toast.open({
+        message: error,
+        type: "error",
+        duration: 2000,
+        position: "bottom-right",
+      });
+    }
   },
   watch: {
     "$route.path"(newPath) {
@@ -201,6 +221,9 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      getProfileData: "auth/getProfileData",
+    }),
     toggle() {
       this.activeTab = this.$router.history.current.fullPath;
       this.isSidebarOpen = false;

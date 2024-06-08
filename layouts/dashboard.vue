@@ -54,12 +54,12 @@
             >
               <div class="flex items-center gap-2">
                 <avatar
-                  username="Aarti Jani"
+                  :username="userName"
                   background-color="#7562FF"
                   :size="46"
                   color="#fffff"
                 ></avatar>
-                <span class="text-base font-medium">Aarti Jani</span>
+                <span class="text-base font-medium">{{ userName }}</span>
               </div>
               <div>
                 <svg
@@ -140,8 +140,13 @@
           class="mt-4 bg-[#C7FFC3] p-2 rounded-md flex justify-between items-center"
         >
           <div class="flex items-center gap-2 mx-1">
-            <img src="../static/Images/select.png" alt="" class="w-7" />
-            <p class="text-base font-medium text-[#0C8D00]">Aarti Jani</p>
+            <avatar
+              :username="userName"
+              background-color="#7562FF"
+              :size="30"
+              color="#fffff"
+            ></avatar>
+            <p class="text-base font-medium text-[#0C8D00]">{{ userName }}</p>
           </div>
           <div class="mx-1">
             <p class="text-xs font-normal text-[#0C8D00]">Logged Shop</p>
@@ -169,8 +174,9 @@
 
 <script>
 import trueIcon from "@/static/svg/true.svg";
-
+import { mapActions, mapState } from "vuex";
 export default {
+  middleware: "auth",
   data() {
     return {
       options: {
@@ -240,10 +246,33 @@ export default {
         },
       ],
       previousPath: "/marketing-platform",
+      userName: "",
     };
   },
-  mounted() {
+
+  async beforeMount() {
     this.updateActiveTab(this.$router.history.current.fullPath);
+    try {
+      const response = await this.getBusinessDetail();
+    } catch (error) {
+      this.$toast.open({
+        message: error,
+        type: "error",
+        duration: 2000,
+        position: "bottom-right",
+      });
+    }
+    try {
+      const response = await this.getProfileData();
+      this.userName = response.data.fullName;
+    } catch (error) {
+      this.$toast.open({
+        message: error,
+        type: "error",
+        duration: 2000,
+        position: "bottom-right",
+      });
+    }
   },
   watch: {
     "$route.path"(newPath) {
@@ -251,7 +280,19 @@ export default {
       this.updateActiveTab(newPath);
     },
   },
+  computed: {
+    // ...mapState({
+    //   userData: (state) => state.userData,
+    // }),
+    // userData() {
+    //   return this.userName;
+    // },
+  },
   methods: {
+    ...mapActions({
+      getBusinessDetail: "bussiness-details/getBusinessDetail",
+      getProfileData: "auth/getProfileData",
+    }),
     updateActiveTab(path) {
       const key = this.sideBarItems.findIndex((tab) => tab.href === path);
       const updatedItems = this.sideBarItems.map((item, index) => {

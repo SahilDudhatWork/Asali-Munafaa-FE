@@ -5,7 +5,7 @@
       class="text-[#8C93BE] bg-[#F3F3F3] xl:mx-7 mx-0 lg:mx-8 md:mx-5 xl:w-1/2 xs:w-full width-100 lg:w-1/2 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
       type="button"
     >
-      {{ selectLabel }}
+      {{ selectedLabel }}
     </button>
 
     <div
@@ -47,8 +47,13 @@ export default {
   data() {
     return {
       isDropdownVisible: false,
-      selectLabel: this.selectedLabel,
+      // selectLabel: this.selectedLabel,
     };
+  },
+  watch: {
+    selectedLabel(item) {
+      // this.selectLabel = this.selectedLabel;
+    },
   },
 
   methods: {
@@ -56,7 +61,7 @@ export default {
       this.isDropdownVisible = !this.isDropdownVisible;
     },
     selectItem(item) {
-      this.selectLabel = item.label;
+      // this.selectLabel = item.label;
       this.isDropdownVisible = false;
       this.$emit("getValue", item, this.index);
     },

@@ -7,10 +7,11 @@ const $axios = axios.create({
 
 $axios.interceptors.request.use(
   async (config) => {
-    // const accessToken = useCookie("accessToken").value;
-    // if (accessToken) {
-    //   config.headers.Authorization = `Bearer ${accessToken}`;
-    // }
+    const accessToken = localStorage.getItem("token");
+
+    if (accessToken) {
+      config.headers.Authorization = `Bearer ${accessToken}`;
+    }
 
     return config;
   },

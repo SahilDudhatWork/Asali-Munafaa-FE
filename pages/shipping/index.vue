@@ -52,6 +52,8 @@
 import shiprocket from "@/static/svg/shiprocket.svg";
 import truck from "@/static/svg/truck.svg";
 import packaging from "@/static/svg/packaging.svg";
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   layout: "dashboard",
   data() {
@@ -73,23 +75,62 @@ export default {
       ],
     };
   },
+  async mounted() {
+    if (this.getUserBusinessData?.shipping) {
+      this.selectedValue = await this.getUserBusinessData?.shipping;
+    }
+  },
+  watch: {
+    getUserBusinessData: {
+      deep: true,
+      handler(item) {
+        if (item?.shipping) {
+          this.selectedValue = item?.shipping;
+        }
+      },
+    },
+  },
+  computed: {
+    ...mapGetters({
+      getUserBusinessData: "bussiness-details/getUserBusinessData",
+    }),
+  },
   methods: {
+    ...mapActions({
+      MarketingPlatformNext: "bussiness-details/marketingPlatform",
+    }),
     getName(value) {
       this.selectedValue = value;
     },
     back() {
       this.$router.push("/industry");
     },
-    handleSubmit() {
-      if (this.selectedValue == "") {
+    async handleSubmit() {
+      try {
+        if (this.selectedValue == "") {
+          this.$toast.open({
+            message: "Please fill up your field !",
+            type: "error",
+            duration: 2000,
+            position: "bottom-right",
+          });
+        } else {
+          let data = {
+            shipping: this.selectedValue,
+            businessDetailsSteps: {
+              step3: true,
+            },
+          };
+          const response = await this.MarketingPlatformNext(data);
+          this.$router.push("/about-business");
+        }
+      } catch (error) {
         this.$toast.open({
-          message: "Please fill up your field !",
+          message: error,
           type: "error",
           duration: 2000,
           position: "bottom-right",
         });
-      } else {
-        this.$router.push("/about-business");
       }
     },
   },
