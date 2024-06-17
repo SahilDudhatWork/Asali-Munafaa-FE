@@ -8,7 +8,7 @@
       <div class="flex items-center gap-14">
         <a href="/">
           <img
-            src="../static/Images/logo.png"
+            src="../static/Images/logo.webp"
             alt
             class="xl:w-[150px] w-[120px] h-auto"
           />
@@ -16,11 +16,11 @@
         <div
           class="relative text-white bg-transparent display-absolute top-0 top-100 left-0 w-full xl:w-[unset] text-center menu-container display-none block"
         >
-          <div class="">
+          <div>
             <ul class="flex display-block items-center xxl:gap-14 gap-6">
               <li>
                 <a
-                  href="javascript:void(0)"
+                  href="/"
                   class="xl:text-xl lg:text-lg font-normal justify-center xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative active nav-menu-content"
                   >Home</a
                 >
@@ -139,14 +139,6 @@
                   >About</a
                 >
               </li>
-              <li class="">
-                <a
-                  href="javascript:void(0)"
-                  class="xl:text-xl lg:text-lg font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
-                >
-                  <Nuxt-link to="/onboarding"> Onboarding</Nuxt-link>
-                </a>
-              </li>
             </ul>
           </div>
         </div>
@@ -243,7 +235,11 @@
               </div>
             </div>
           </aside>
-
+          <div
+            v-if="isSidebarOpen"
+            @click="isSidebarOpen = false"
+            class="bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-30"
+          ></div>
           <!-- -------------------------------------- -->
         </div>
       </div>
@@ -264,7 +260,6 @@
 export default {
   data() {
     return {
-      content: ["Home", "Explore", "Pages", "Blogs", "Contact", "About"],
       isModalOpen: false,
       isComingSoonModal: false,
       isSidebarOpen: false,
@@ -293,10 +288,6 @@ export default {
           name: "About",
           href: "",
         },
-        {
-          name: " Onboarding",
-          href: "/marketing-platform",
-        },
       ],
     };
   },
@@ -323,15 +314,8 @@ export default {
       document.body.style.overflow = "hidden";
     },
     closeSidebar() {
-      this.isSidebarOpen = false;
       document.body.style.overflow = "";
     },
   },
 };
 </script>
-
-<style>
-.translate-x-0 {
-  transform: translateX(0);
-}
-</style>

@@ -31,8 +31,12 @@
           class="bg-white h-[500px] xl:col-span-2 xl:p-[60px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-lg"
         >
           <div class="flex justify-between items-center mb-5">
-            <h2 class="text-black font-normal text-lg">Net True Profit</h2>
-            <select name id class="!focus-visible::outline-0">
+            <h2 class="text-black font-normal text-xl">Net True Profit</h2>
+            <select
+              name
+              id
+              class="py-1 px-2 rounded-sm border border-[#C6CDE5]"
+            >
               <option value="year">Year</option>
               <option value="week">Month</option>
               <option value="week">Week</option>
@@ -110,7 +114,5 @@ export default {
       },
     };
   },
-  mounted() {},
-  methods: {},
 };
 </script>

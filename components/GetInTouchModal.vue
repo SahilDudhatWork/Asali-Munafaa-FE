@@ -11,7 +11,7 @@
           >
             <div class="w-full hidden xl:block">
               <img
-                src="../static/Images/get-in-touch.jpg"
+                src="../static/Images/get-in-touch.webp"
                 class="object-cover"
               />
             </div>
@@ -54,8 +54,10 @@
                 <button
                   class="bg-[#4C0EA6] text-white font-bold py-2 px-4 w-full rounded-md"
                   @click="save"
+                  :disabled="isLoading"
                 >
-                  Contact
+                  <Loader v-if="isLoading" :loading="isLoading"></Loader>
+                  <span v-else>Contact</span>
                 </button>
               </div>
               <div class="py-4">
@@ -95,6 +97,7 @@ export default {
       email: "",
       mobile: "",
       website: "",
+      isLoading: false,
     };
   },
   methods: {
@@ -114,6 +117,7 @@ export default {
         });
       } else {
         try {
+          this.isLoading = true;
           let data = {
             firstName: this.firstName,
             email: this.email,
@@ -139,6 +143,8 @@ export default {
             duration: 2000,
             position: "bottom-right",
           });
+        } finally {
+          this.isLoading = false;
         }
       }
     },

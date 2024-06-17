@@ -39,9 +39,11 @@
         </button>
         <button
           @click="handleSubmit"
+          :disabled="isLoading"
           class="inline-flex items-center justify-center xl:w-[12.5rem] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
         >
-          Next
+          <Loader v-if="isLoading" :loading="isLoading"></Loader>
+          <span v-else> Next</span>
         </button>
       </div>
     </div>
@@ -53,6 +55,7 @@ export default {
   layout: "dashboard",
   data() {
     return {
+      isLoading: false,
       aboutBusiness: [
         {
           question: "How much You’re Spending on ads ?",
@@ -121,10 +124,6 @@ export default {
       this.getUserBusinessData.aboutBusiness &&
       this.getUserBusinessData.aboutBusiness.length > 0
     ) {
-      console.log(
-        "this.getUserBusinessData.aboutBusiness",
-        this.getUserBusinessData.aboutBusiness
-      );
       this.aboutBusiness.forEach((items, index) => {
         items.selectedLabel =
           this.getUserBusinessData?.aboutBusiness[index]?.answer;
@@ -173,10 +172,10 @@ export default {
     },
     async handleSubmit() {
       try {
+        this.isLoading = true;
         let valid = await this.validForm();
         if (valid) {
           let data = await this.formattedData;
-          console.log(data, "data");
           const response = await this.MarketingPlatformNext(data);
           this.$router.push("/product");
         }
@@ -187,6 +186,8 @@ export default {
           duration: 2000,
           position: "bottom-right",
         });
+      } finally {
+        this.isLoading = false;
       }
     },
   },

@@ -3,9 +3,7 @@
     <div
       class="max-w-fulls py-4 pl-5 grid xxxl:grid-cols-5 xxl:grid-cols-5 xl:grid-cols-5 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-10 items-center bg-white border border-gray-200 rounded-2xl shadow-lg"
     >
-      <Nuxt-link to="/product"
-        ><TotalSales v-for="(item, key) in totalSales" :key="key" :item="item"
-      /></Nuxt-link>
+      <TotalSales v-for="(item, key) in totalSales" :key="key" :item="item" />
     </div>
     <div class="mt-6 mb-4">
       <Sales :sales="protal" />
@@ -262,10 +260,10 @@
 
 <script>
 import ruppesImage from "@/static/svg/ruppes.svg";
-import salesImage from "@/static/Images/product1.png";
-import totalSalesImage from "@/static/Images/product2.png";
-import grossProfitImage from "@/static/Images/product3.png";
-import deviveryRateImage from "@/static/Images/product4.png";
+import salesImage from "@/static/Images/product1.webp";
+import totalSalesImage from "@/static/Images/product2.webp";
+import grossProfitImage from "@/static/Images/product3.webp";
+import deviveryRateImage from "@/static/Images/product4.webp";
 import questionIcon from "@/static/svg/question.svg";
 import profitImage from "@/static/svg/profit.svg";
 export default {

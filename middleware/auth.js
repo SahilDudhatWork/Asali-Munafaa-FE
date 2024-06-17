@@ -1,9 +1,6 @@
-// middleware/auth.js
-
-export default function ({ redirect }) {
-  // If the user is not authenticatedlet
-
-  let token = localStorage.getItem("token");
+export default async function ({ redirect }) {
+  let token = sessionStorage.getItem("token");
+  console.log("auth called");
   if (!token) {
     return redirect("/login");
   }

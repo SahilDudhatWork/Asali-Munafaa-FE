@@ -18,6 +18,7 @@
       <button
         class="bg-gradient-to-r from-[#3CBB00] to-[#05E852] hover:bg-gradient-to-r hover:from-[#05E852] transition-main hover:to-[#3CBB00] text-white font-bold py-3 mt-4 px-4 w-full text-sm rounded-md"
         @click="shopifyLogin"
+        :disabled="isLoading"
       >
         <div class="flex justify-center items-center">
           <svg
@@ -50,12 +51,14 @@
               </g>
             </g>
           </svg>
-          <span>Shopify</span>
+          <Loader v-if="isLoading" :loading="isLoading"></Loader>
+          <span v-else>Shopify</span>
         </div>
       </button>
       <button
         class="bg-[#2E0A93] text-white font-bold py-3 mt-4 px-4 w-full text-sm rounded-md"
         @click="weCommerceLogin"
+        :disabled="isLoading"
       >
         <div class="flex items-center justify-center">
           <svg
@@ -88,7 +91,8 @@
               </g>
             </g>
           </svg>
-          <span>Wocommerce</span>
+          <Loader v-if="isLoading" :loading="isLoading"></Loader>
+          <span v-else>Wocommerce</span>
         </div>
       </button>
     </div>
@@ -168,6 +172,11 @@
 
 <script>
 export default {
+  props: {
+    isLoading: {
+      type: Boolean,
+    },
+  },
   data() {
     return {
       isModal: false,

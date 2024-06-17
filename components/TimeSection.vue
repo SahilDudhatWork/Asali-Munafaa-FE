@@ -69,42 +69,14 @@
               </h2>
             </div>
             <div class="flex flex-wrap gap-[17px] pt-5">
-              <div class="w-[46%]">
+              <div class="w-[46%]" v-for="(item, key) in products" :key="key">
                 <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Sales
+                  {{ item.name }}
                 </h2>
                 <p
                   class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
                 >
-                  956
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Total Sales
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  ₹45k
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Con. Profit
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  ₹12k
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Con. margin
-                </h2>
-                <p class="text-blue md:text-[23px] sm:text-lg text-mdfont-bold">
-                  60%
+                  {{ item.price }}
                 </p>
               </div>
             </div>
@@ -202,44 +174,14 @@
               </h2>
             </div>
             <div class="flex flex-wrap gap-[17px] pt-5">
-              <div class="w-[46%]">
+              <div class="w-[46%]" v-for="(item, key) in shipping" :key="key">
                 <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Delivery Time
+                  {{ item.name }}
                 </h2>
                 <p
                   class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
                 >
-                  12h
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  AOV
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  ₹42
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Avg LTV
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  ₹240
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Con. margin
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  50%
+                  {{ item.price }}
                 </p>
               </div>
             </div>
@@ -312,44 +254,14 @@
               </h2>
             </div>
             <div class="flex flex-wrap gap-[17px] pt-5">
-              <div class="w-[46%]">
+              <div class="w-[46%]" v-for="(item, key) in discount" :key="key">
                 <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Discount
+                  {{ item.name }}
                 </h2>
                 <p
                   class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
                 >
-                  552
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Avg LTV
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  ₹300
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Net Sales
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  ₹30k
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Con. Profit
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  ₹28k
+                  {{ item.price }}
                 </p>
               </div>
             </div>
@@ -446,44 +358,14 @@
               </h2>
             </div>
             <div class="flex flex-wrap gap-[17px] pt-5">
-              <div class="w-[46%]">
+              <div class="w-[46%]" v-for="(item, key) in payment" :key="key">
                 <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Repurchase
+                  {{ item.name }}
                 </h2>
                 <p
                   class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
                 >
-                  50%
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  AOV
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  ₹42
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Con. Profit
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  ₹14k
-                </p>
-              </div>
-              <div class="w-[46%]">
-                <h2 class="text-textColor sm:text-lg text-md mb-2 text-normal">
-                  Con. margin
-                </h2>
-                <p
-                  class="text-blue md:text-[23px] sm:text-lg text-md font-bold"
-                >
-                  50%
+                  {{ item.price }}
                 </p>
               </div>
             </div>
@@ -496,5 +378,82 @@
 
 <
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      products: [
+        {
+          name: "Sales",
+          price: "956",
+        },
+        {
+          name: "Total Sales",
+          price: "₹45k",
+        },
+        {
+          name: "Con. Profit",
+          price: "₹12k",
+        },
+        {
+          name: "Con. margin",
+          price: "60%",
+        },
+      ],
+      shipping: [
+        {
+          name: "Delivery Time",
+          price: "12h",
+        },
+        {
+          name: "AOV",
+          price: "₹42",
+        },
+        {
+          name: "Avg LTV",
+          price: "₹240",
+        },
+        {
+          name: "Con. margin",
+          price: "50%",
+        },
+      ],
+      discount: [
+        {
+          name: "Discount",
+          price: "552",
+        },
+        {
+          name: "Avg LTV",
+          price: "₹300",
+        },
+        {
+          name: "Net Sales",
+          price: "₹30k",
+        },
+        {
+          name: "Con. Profit",
+          price: "₹28k",
+        },
+      ],
+      payment: [
+        {
+          name: "Repurchase",
+          price: "50%",
+        },
+        {
+          name: "AOV",
+          price: "₹42",
+        },
+        {
+          name: "Con. Profit",
+          price: "₹14k",
+        },
+        {
+          name: "Con. margin",
+          price: "50%",
+        },
+      ],
+    };
+  },
+};
 </script>

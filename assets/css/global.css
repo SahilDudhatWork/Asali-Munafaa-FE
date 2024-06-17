@@ -978,35 +978,32 @@ video {
 }
 
 .bg-hero-img {
-  background-image: url('../../static/Images/hero-bg.png');
+  background-image: url('../../static/Images/hero-bg.webp');
 }
 .bg-dashboard-img {
-  background-image: url('../../static/Images/dashboard.png');
+  background-image: url('../../static/Images/dashboard.webp');
   position: relative;
   left: 0;
 }
 .bg-opacity-img {
-  background-image: url('../../static/Images/opacity.png');
+  background-image: url('../../static/Images/opacity.webp');
 }
 .bg-world-img {
-  background-image: url('../../static/Images/world.png');
+  background-image: url('../../static/Images/world.webp');
 }
 .bg-getintouch-img {
-  background-image: url('../../static/Images/get-in-touch.jpg');
+  background-image: url('../../static/Images/get-in-touch.webp');
 }
 .bg-integration-img {
-  background-image: url('../../static/Images/integration-img.png');
+  background-image: url('../../static/Images/integration-img.webp');
 }
 .bg-impact-img {
-  background-image: url('../../static/Images/impact-img.png');
+  background-image: url('../../static/Images/impact-img.webp');
 }
 
-.bg-\[url\(\'\.\.\/image\/integration-img\.png\'\)\] {
-  background-image: url('../../static/Images/integration-img.png');
-}
 
 .bg-profit-img {
-  background-image: url('../../static/Images/profit-img.png');
+  background-image: url('../../static/Images/profit-img.webp');
 }
 
 .bg-gradient-to-r {
@@ -1439,7 +1436,7 @@ body {
   position: absolute;
   left: 49%;
   top: 62%;
-  background-image: url(../../static/Images/social-line.png);
+  background-image: url(../../static/Images/social-line.webp);
   background-repeat: no-repeat;
   background-size: contain;
   z-index: -1;
@@ -1452,7 +1449,7 @@ body {
   position: absolute;
   left: 150px;
   top: 240px;
-  background-image: url(../../static/Images/social-line.png);
+  background-image: url(../../static/Images/social-line.webp);
   background-repeat: no-repeat;
   background-size: contain;
   z-index: -1;
@@ -1465,7 +1462,7 @@ body {
   position: absolute;
   left: 150px;
   top: 110px;
-  background-image: url(../../static/Images/social-line2.png);
+  background-image: url(../../static/Images/social-line2.webp);
   background-repeat: no-repeat;
   background-size: contain;
 }

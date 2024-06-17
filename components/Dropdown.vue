@@ -47,21 +47,13 @@ export default {
   data() {
     return {
       isDropdownVisible: false,
-      // selectLabel: this.selectedLabel,
     };
   },
-  watch: {
-    selectedLabel(item) {
-      // this.selectLabel = this.selectedLabel;
-    },
-  },
-
   methods: {
     toggleDropdown() {
       this.isDropdownVisible = !this.isDropdownVisible;
     },
     selectItem(item) {
-      // this.selectLabel = item.label;
       this.isDropdownVisible = false;
       this.$emit("getValue", item, this.index);
     },

@@ -4,8 +4,7 @@
       <nav class="w-full bg-[#F1F1FF] !fixed z-50">
         <div class="flex items-center">
           <button
-            @click="toggleSidebar"
-            type="button"
+            @click.prevent="toggleSidebar"
             class="inline-flex items-center ms-3 hidden display-block text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none"
           >
             <span class="sr-only">Open sidebar</span>
@@ -28,38 +27,90 @@
           >
             <Nuxt-link to="/">
               <img
-                src="@/static/Images/footer-logo.png"
+                src="@/static/Images/footer-logo.webp"
                 alt="Asli munfa"
                 class="w-24 ml-5"
               />
             </Nuxt-link>
-            <img src="@/static/Images/user.png" alt="" class="w-7" />
+            <img
+              src="@/static/Images/user.webp"
+              @click="isDropdown = !isDropdown"
+              alt=""
+              class="w-7 cursor-pointer"
+            />
+            <div
+              v-if="isDropdown"
+              v-click-outside="closeDropdown"
+              class="z-50 absolute right-2 top-12 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+            >
+              <ul
+                class="py-2 text-sm text-gray-700 dark:text-gray-200 cursor-pointer"
+                aria-labelledby="dropdownHoverButton"
+                @click="closeDropdown"
+              >
+                <li>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >Settings</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >Earnings</a
+                  >
+                </li>
+                <li>
+                  <a
+                    @click="logOut"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >Log out</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
     </header>
     <aside
       :class="isSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
-      v-click-outside="closeSidebar"
       class="fixed top-0 left-0 z-40 xl:w-[19rem] sm:w-[17rem] width-17 mt-[52px] h-screen transition-transform sm:translate-x-0 bg-[#2B0064]"
-      aria-label="Sidebar"
     >
-      <!-- fixed top-0 left-0 z-40 w-[19rem] mt-[52px] h-screen bg-[#2B0064] transition-transform -translate-x-full sm:translate-x-0 -->
       <div class="bg-dashboard-img h-full px-3 py-4 dark:bg-gray-800">
         <div class="mx-4 mt-6 mb-5">
           <form class="max-w-sm mx-auto">
             <div
               @click="isShow = !isShow"
-              class="cursor-pointer flex items-center justify-between bg-transparent border border-gray-300 text-white text-sm rounded-lg block w-full p-2.5"
+              class="cursor-pointer flex items-center justify-between bg-transparent border border-gray-300 text-white text-sm rounded-lg block w-full py-2 pr-3 pl-2"
             >
               <div class="flex items-center gap-2">
                 <avatar
                   :username="userName"
                   background-color="#7562FF"
-                  :size="46"
+                  :size="40"
                   color="#fffff"
                 ></avatar>
-                <span class="text-base font-medium">{{ userName }}</span>
+
+                <div
+                  class="relative inline-block"
+                  @mouseover="showTooltip"
+                  @mouseleave="hideTooltip"
+                >
+                  <slot
+                    ><span class="text-base font-medium">{{
+                      username.length > 10
+                        ? username.substring(0, 10) + "..."
+                        : username
+                    }}</span></slot
+                  >
+                  <div
+                    v-if="visible"
+                    class="absolute left-1/2 transform inline-block -translate-x-1/2 transition-opacity -top-8 px-3 py-2 text-black mb-2 p-2 bg-white text-sm rounded shadow-lg z-10"
+                  >
+                    {{ username }}
+                  </div>
+                </div>
               </div>
               <div>
                 <svg
@@ -120,7 +171,7 @@
           <p
             class="font-semibold text-lg text-[#1F2DC6] border-b-2 border-[#1F2DC6]"
           >
-            Aarti Jani Workspace
+            {{ username }} Workspace
           </p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +197,9 @@
               :size="30"
               color="#fffff"
             ></avatar>
-            <p class="text-base font-medium text-[#0C8D00]">{{ userName }}</p>
+            <p class="text-base font-medium text-[#0C8D00]">
+              {{ username }}
+            </p>
           </div>
           <div class="mx-1">
             <p class="text-xs font-normal text-[#0C8D00]">Logged Shop</p>
@@ -164,7 +217,7 @@
     <div class="p-4 sm:ml-[19rem]">
       <div
         v-if="isSidebarOpen"
-        drawer-backdrop=""
+        @click="isSidebarOpen = false"
         class="bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-30"
       ></div>
       <Nuxt />
@@ -207,6 +260,7 @@ export default {
       },
       isShow: false,
       isSidebarOpen: false,
+      isDropdown: false,
       progressValue: 20,
       sideBarItems: [
         {
@@ -247,10 +301,11 @@ export default {
       ],
       previousPath: "/marketing-platform",
       userName: "",
+      visible: false,
     };
   },
-
   async beforeMount() {
+    document.body.style.backgroundColor = "#cbd9f5";
     this.updateActiveTab(this.$router.history.current.fullPath);
     try {
       const response = await this.getBusinessDetail();
@@ -281,18 +336,21 @@ export default {
     },
   },
   computed: {
-    // ...mapState({
-    //   userData: (state) => state.userData,
-    // }),
-    // userData() {
-    //   return this.userName;
-    // },
+    username() {
+      return this.userName.charAt(0).toUpperCase() + this.userName.slice(1);
+    },
   },
   methods: {
     ...mapActions({
       getBusinessDetail: "bussiness-details/getBusinessDetail",
       getProfileData: "auth/getProfileData",
     }),
+    showTooltip() {
+      this.visible = true;
+    },
+    hideTooltip() {
+      this.visible = false;
+    },
     updateActiveTab(path) {
       const key = this.sideBarItems.findIndex((tab) => tab.href === path);
       const updatedItems = this.sideBarItems.map((item, index) => {
@@ -313,22 +371,23 @@ export default {
       this.$router.push(href);
       this.isSidebarOpen = false;
     },
+    closeDropdown() {
+      this.isDropdown = false;
+    },
+    logOut() {
+      sessionStorage.removeItem("token");
+      this.$router.push("login");
+    },
     closeModal() {
       this.isShow = false;
     },
     toggleSidebar() {
       this.isSidebarOpen = !this.isSidebarOpen;
     },
-    closeSidebar() {
-      this.isSidebarOpen = false;
-    },
   },
 };
 </script>
 <style>
-body {
-  background: #cbd9f5;
-}
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -341,8 +400,5 @@ body {
 }
 .slide-in-right {
   animation: slideInRight 0.5s ease-in-out forwards;
-}
-.translate-x-0 {
-  transform: translateX(0);
 }
 </style>

@@ -60,8 +60,10 @@
         <button
           class="bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full text-sm rounded-md"
           @click="next"
+          :disabled="isLoading"
         >
-          Next
+          <Loader v-if="isLoading" :loading="isLoading"></Loader>
+          <span v-else>Next</span>
         </button>
       </div>
     </div>
@@ -71,6 +73,11 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
+  props: {
+    isLoading: {
+      type: Boolean,
+    },
+  },
   data() {
     return {
       onBoarding: {

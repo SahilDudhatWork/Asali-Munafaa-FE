@@ -2,18 +2,28 @@
   <div>
     <Modal>
       <template #modalContent>
-        <OnBoardingModal @next="onBoardingNext" v-if="isOnBoardingModal" />
+        <OnBoardingModal
+          @next="onBoardingNext"
+          v-if="isOnBoardingModal"
+          :isLoading="isLoading"
+        />
         <AllmostDoneModal
           @next="allmostNext"
           @back="allMostBack"
           v-if="isAllmostDoneModal"
+          :isLoading="isLoading"
         />
         <LastBarrierModal
           @next="lastBarrierNext"
           @back="lastBarrierBack"
           v-if="isLastBarrierModal"
+          :isLoading="isLoading"
         />
-        <EcommerceModal v-if="isEcommerceModal" @next="ecommerceNext" />
+        <EcommerceModal
+          v-if="isEcommerceModal"
+          @next="ecommerceNext"
+          :isLoading="isLoading"
+        />
       </template>
     </Modal>
   </div>
@@ -26,7 +36,9 @@ import message from "@/static/lang/en.json";
 export default {
   layout: "blank",
   data() {
-    return {};
+    return {
+      isLoading: false,
+    };
   },
   computed: {
     ...mapState("auth", {
@@ -51,17 +63,21 @@ export default {
       } else if (onbordingStep.step4) {
         try {
           const response = await this.getBusinessDetail();
-          const businessdetailsSteps = response.data.businessDetailsSteps;
-          if (businessdetailsSteps.step1) {
-            this.$router.push("/industry");
-          } else if (businessdetailsSteps.step2) {
-            this.$router.push("/shipping");
-          } else if (businessdetailsSteps.step3) {
-            this.$router.push("/about-business");
-          } else if (businessdetailsSteps.step4) {
-            this.$router.push("/product");
-          } else if (businessdetailsSteps.step5) {
-            this.$router.push("/dashboard");
+          if (response.data && Object.keys(response.data).length > 0) {
+            const businessdetailsSteps = response.data.businessDetailsSteps;
+            if (businessdetailsSteps.step1) {
+              this.$router.push("/industry");
+            } else if (businessdetailsSteps.step2) {
+              this.$router.push("/shipping");
+            } else if (businessdetailsSteps.step3) {
+              this.$router.push("/about-business");
+            } else if (businessdetailsSteps.step4) {
+              this.$router.push("/product");
+            } else if (businessdetailsSteps.step5) {
+              this.$router.push("/dashboard");
+            } else {
+              this.$router.push("/marketing-platform");
+            }
           } else {
             this.$router.push("/marketing-platform");
           }
@@ -85,6 +101,7 @@ export default {
     }),
     async onBoardingNext(payload) {
       try {
+        this.isLoading = true;
         const response = await this.addProfileData(payload);
         this.$toast.open({
           message: message.dataUpdateMessage,
@@ -101,6 +118,8 @@ export default {
           duration: 2000,
           position: "bottom-right",
         });
+      } finally {
+        this.isLoading = false;
       }
     },
     async allMostBack() {
@@ -109,6 +128,7 @@ export default {
     },
     async allmostNext(payload) {
       try {
+        this.isLoading = true;
         const response = await this.addProfileData(payload);
         this.$toast.open({
           message: message.dataUpdateMessage,
@@ -125,10 +145,13 @@ export default {
           duration: 2000,
           position: "bottom-right",
         });
+      } finally {
+        this.isLoading = false;
       }
     },
     async ecommerceNext() {
       try {
+        this.isLoading = true;
         let data = {
           onboardingSteps: {
             step4: true,
@@ -151,6 +174,7 @@ export default {
     },
     async lastBarrierNext(payload) {
       try {
+        this.isLoading = true;
         const response = await this.addProfileData(payload);
         this.$toast.open({
           message: message.dataUpdateMessage,
@@ -167,6 +191,8 @@ export default {
           duration: 2000,
           position: "bottom-right",
         });
+      } finally {
+        this.isLoading = false;
       }
     },
   },

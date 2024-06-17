@@ -106,8 +106,10 @@
           <button
             class="bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full rounded-md"
             @click="login"
+            :disabled="isLoading"
           >
-            Continue With Email
+            <Loader v-if="isLoading" :loading="isLoading"></Loader>
+            <span v-else>Continue With Email</span>
           </button>
           <div class="flex justify-end">
             <a href="#" class="xl:text-[18px] font-normal text-white"
@@ -135,12 +137,12 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import message from "@/static/lang/en.json";
-import $axios from "@/plugins/axios";
 export default {
   layout: "blank",
   data() {
     return {
       form: {},
+      isLoading: false,
     };
   },
   computed: {
@@ -158,6 +160,7 @@ export default {
       closeModal: "auth/closeModal",
     }),
     async login() {
+      console.log(true);
       try {
         if (this.form.emailOrPhone == "" || this.form.password == "") {
           this.$toast.open({
@@ -167,6 +170,7 @@ export default {
             position: "bottom-right",
           });
         } else {
+          this.isLoading = true;
           const response = await this.Login(this.form);
           let onbordingStep = response.data.onboardingSteps;
           this.closeModal("isOnBoardingModal");
@@ -212,6 +216,8 @@ export default {
           duration: 2000,
           position: "bottom-right",
         });
+      } finally {
+        this.isLoading = false;
       }
     },
   },

@@ -35,7 +35,7 @@ export const actions = {
   async login(ctx, payload) {
     try {
       const response = await $axios.post("/user/auth/logIn", payload);
-      localStorage.setItem("token", response.data.accessToken);
+      sessionStorage.setItem("token", response.data.accessToken);
       ctx.commit("getuserData", response.data);
       return response;
     } catch (error) {

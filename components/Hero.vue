@@ -26,7 +26,7 @@
         </div>
         <div class="xl:absolute right-0">
           <img
-            src="../static/Images/hero-img.png"
+            src="../static/Images/hero-img.webp"
             class="xxl:w-[800px] xl:w-[600px] w-full h-auto"
             alt="image"
           />
@@ -36,11 +36,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {};
-  },
-  methods: {},
-};
-</script>
+<script></script>

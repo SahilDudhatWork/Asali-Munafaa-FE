@@ -33,6 +33,9 @@ export default {
     { src: "~/plugins/vue2-datepicker.js", mode: "client" },
     { src: "~/plugins/vuejs-progress-bar.js", ssr: false },
     { src: "~/plugins/vue-avatar.js", mode: "client" },
+    { src: "~/plugins/vue-spinner.js", mode: "client" },
+    { src: "~/plugins/echarts.js", mode: "client" },
+
     // { src: "~/plugins/axios.js", mode: "client" },
   ],
 
@@ -47,6 +50,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ["vue-echarts", "resize-detector"],
     postcss: {
       postcssOptions: {
         plugins: {

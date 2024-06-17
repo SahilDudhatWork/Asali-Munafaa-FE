@@ -1,8 +1,6 @@
 <template>
-  <Nuxt />
+  <div>
+    <Nuxt />
+  </div>
 </template>
-<script>
-export default {
-  // middleware: "auth",
-};
-</script>
+<script></script>

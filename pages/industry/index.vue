@@ -41,8 +41,10 @@
         <button
           @click="handleSubmit"
           class="inline-flex items-center justify-center xl:w-[12.5rem] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+          :disabled="isLoading"
         >
-          Next
+          <Loader v-if="isLoading" :loading="isLoading"></Loader>
+          <span v-else> Next</span>
         </button>
       </div>
     </div>
@@ -55,6 +57,7 @@ export default {
   data() {
     return {
       selectedValue: [],
+      isLoading: false,
       industry: [
         "Clothing & Fashion",
         "Jewellery & Accessories",
@@ -109,6 +112,7 @@ export default {
             position: "bottom-right",
           });
         } else {
+          this.isLoading = true;
           let data = {
             industry: this.selectedValue,
             businessDetailsSteps: {
@@ -125,6 +129,8 @@ export default {
           duration: 2000,
           position: "bottom-right",
         });
+      } finally {
+        this.isLoading = false;
       }
     },
   },

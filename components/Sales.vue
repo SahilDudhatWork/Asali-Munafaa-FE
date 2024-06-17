@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="max-w-fulls border-gray-200 flex gap-6">
-      <!-- xxl:h-14 xxxl:h-14 xl:h-14 lg:h-14 hight-1 sm:h-[4.5rem] -->
       <div class="w-14 h-14">
         <div
           class="rounded-full bg-[#6514DD] transition-main w-14 h-14 flex justify-center"

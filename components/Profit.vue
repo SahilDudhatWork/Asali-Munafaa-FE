@@ -4,7 +4,8 @@
       <div class="xl:max-w-[1798px] max-w-[1500px] mx-auto">
         <div class="flex flex-wrap justify-center gap-10 px-3">
           <div
-            class="text-center md:p-10 p-4 rounded-xl"
+            style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"
+            class="text-center bg-white md:p-10 p-4 rounded-2xl"
             v-for="(item, key) in profitItems"
             :key="key"
           >
@@ -72,11 +73,11 @@
 </template>
 
 <script>
-import profit1 from "@/static/Images/profit1.png";
-import profit2 from "@/static/Images/profit2.png";
-import profit3 from "@/static/Images/profit3.png";
-import profit4 from "@/static/Images/profit4.png";
-import profit5 from "@/static/Images/profit5.png";
+import profit1 from "@/static/Images/profit1.webp";
+import profit2 from "@/static/Images/profit2.webp";
+import profit3 from "@/static/Images/profit3.webp";
+import profit4 from "@/static/Images/profit4.webp";
+import profit5 from "@/static/Images/profit5.webp";
 
 export default {
   data() {

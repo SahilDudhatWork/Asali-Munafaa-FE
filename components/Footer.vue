@@ -5,7 +5,7 @@
         <div class="max-w-[660px] xl:col-span-4">
           <a href="javascript:void(0)" class="mb-6 inline-block">
             <img
-              src="../static/Images/footer-logo.png"
+              src="../static/Images/footer-logo.webp"
               class="md:mx-[unset] mx-auto"
               alt
             />
@@ -34,33 +34,11 @@
             COMPANY
           </h2>
           <ul>
-            <li>
+            <li v-for="(item, key) in company" :key="key">
               <a
                 href="#"
                 class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-                >Login</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-              >
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-                >About Us</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-                >Careers</a
+                >{{ item }}</a
               >
             </li>
           </ul>
@@ -72,26 +50,11 @@
             RESOURCES
           </h2>
           <ul>
-            <li>
+            <li v-for="(item, key) in resources" :key="key">
               <a
                 href="#"
                 class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-                >Resorce Center</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-                >Community</a
+                >{{ item }}</a
               >
             </li>
           </ul>
@@ -103,26 +66,11 @@
             PARTNERS
           </h2>
           <ul>
-            <li>
+            <li v-for="(item, key) in partners" :key="key">
               <a
                 href="#"
                 class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-                >PARTNERS</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-              >
-                Agency Partners
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-                >Partners With Us</a
+                >{{ item }}</a
               >
             </li>
           </ul>
@@ -134,20 +82,13 @@
             LEGAL
           </h2>
           <ul>
-            <li>
-              <a
-                href="#"
-                class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
-                >Terms & Condition</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
+            <li v-for="(tab, key) in legal" :key="key">
+              <Nuxt-link
+                :to="tab.href"
                 class="text-darkText text-lg font-normal mb-3 inline-block transition-main hover:translate-x-[10px]"
               >
-                Privacy Policy
-              </a>
+                {{ tab.name }}
+              </Nuxt-link>
             </li>
           </ul>
         </div>
@@ -175,6 +116,19 @@ export default {
         twitter,
         linkdin,
       },
+      company: ["Login", "Pricing", "About Us", "Careers"],
+      resources: ["Resorce Center", "Blog", "Community"],
+      partners: ["PARTNERS", "Agency Partners", "Partners With Us"],
+      legal: [
+        {
+          name: "Terms & Condition",
+          href: "",
+        },
+        {
+          name: "Privacy Policy",
+          href: "/privacy-policy",
+        },
+      ],
     };
   },
 };

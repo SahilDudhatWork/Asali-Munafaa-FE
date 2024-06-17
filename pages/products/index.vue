@@ -52,17 +52,6 @@
             </li>
           </ul>
         </nav>
-        <!-- <button class="bg-[#4C45E3] text-xl font-semibold text-white px-1 py-1">
-          Best Sellers
-        </button>
-        <button
-          class="text-xl font-semibold border-r border-[#4C45E3] text-[#4C45E3] px-1 py-1"
-        >
-          Most Profitable
-        </button>
-        <button class="text-xl font-semibold text-[#4C45E3] px-1 py-1">
-          Least Profitable
-        </button> -->
       </div>
       <div>
         <p class="text-center font-medium text-base text-[#6A719A]">1-4 / 12</p>

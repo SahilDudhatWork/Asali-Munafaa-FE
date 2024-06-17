@@ -1,18 +1,9 @@
 <template>
-  <div class="bg-white">
+  <div>
     <Header />
     <Nuxt />
     <Footer />
   </div>
 </template>
 
-<script>
-export default {
-  name: "default",
-};
-</script>
-<style scoped>
-/* body {
-  background: #fff;
-} */
-</style>
+<script></script>

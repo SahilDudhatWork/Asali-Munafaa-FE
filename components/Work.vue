@@ -11,7 +11,7 @@
       >
         <div class="relative social-icon xl:mt-[260px]">
           <img
-            src="../static/Images/left-icon.png"
+            src="../static/Images/left-icon.webp"
             class="relative hidden xl:block mb-[260px]"
             alt="image"
           />
@@ -28,7 +28,7 @@
         <div class="xxl:col-span-3 col-span-2">
           <div class="social-icon3 relative">
             <img
-              src="../static/Images/center-img.png"
+              src="../static/Images/center-img.webp"
               alt="image"
               class="w-[840px] xl:mb-[150px] hidden xl:block mb-[100px] ml-auto h-auto"
             />
@@ -91,6 +91,4 @@
 </template>
 
 <
-<script>
-export default {};
-</script>
+<script></script>

@@ -112,8 +112,10 @@
             <button
               class="bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full rounded-md"
               @click="signup"
+              :disabled="isLoading"
             >
-              Continue With Email
+              <Loader v-if="isLoading" :loading="isLoading"></Loader>
+              <span v-else>Continue With Email</span>
             </button>
           </div>
           <div class="py-4 mt-3">
@@ -133,13 +135,14 @@
 </template>
 
 <script>
-import message from "@/static/lang/en.json";
 import { mapActions } from "vuex";
+import message from "@/static/lang/en.json";
 export default {
   layout: "blank",
   data() {
     return {
       form: {},
+      isLoading: false,
     };
   },
   methods: {
@@ -156,6 +159,7 @@ export default {
             position: "bottom-right",
           });
         } else {
+          this.isLoading = true;
           const response = await this.Signup(this.form);
           this.$toast.open({
             message: message.signupMessage,
@@ -172,6 +176,8 @@ export default {
           duration: 2000,
           position: "bottom-right",
         });
+      } finally {
+        this.isLoading = false;
       }
     },
   },

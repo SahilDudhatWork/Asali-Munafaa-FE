@@ -28,27 +28,25 @@
           :checkbox-value="tab.name"
           @change="getName"
         />
-        <div>
-          <span class="text-lg text-red-500 font-medium">{{
-            errorMessage
-          }}</span>
-        </div>
+        <div></div>
       </div>
       <div class="flex gap-3 lg:flex-row flex-col justify-end w-full">
         <button
           class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
           @click="marketingPlatformNext"
+          :disabled="isLoading"
         >
-          Next
+          <Loader v-if="isLoading" :loading="isLoading"></Loader>
+          <span v-else> Next</span>
         </button>
       </div>
     </div>
     <div
       v-if="isOpen"
-      class="max-w-fulls mx-8 my-8 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      class="max-w-fulls mt-16 my-8 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
     >
       <div>
-        <a href="#">
+        <a>
           <h5
             class="mb-2 text-3xl font-bold tracking-tight text-[#7562FF] dark:text-white"
           >
@@ -59,11 +57,11 @@
           Connect your ad Platform to your Asali Munaafa dashboard below.
         </p>
       </div>
-      <p class="mt-8 font-medium text-xl text-[#5B638B]">Ad Platform</p>
+      <p class="mt-8 mb-6 font-medium text-xl text-[#5B638B]">Ad Platform</p>
       <div
         v-for="(platform, key) in selectedPlatform"
         :key="key"
-        class="grid lg:grid-cols-2 grid-cols-1 gap-3 mt-5 mb-5 w-full"
+        class="grid lg:grid-cols-2 grid-cols-1 gap-3 w-full"
       >
         <div
           class="flex flex-col lg:flex-row justify-between items-center gap-4"
@@ -77,6 +75,7 @@
             </div>
           </div>
           <button
+            @click="connect(platform, key)"
             class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-7 text-sm rounded-md"
           >
             Connect
@@ -93,9 +92,11 @@
         </button>
         <button
           @click="handleSubmit"
+          :disabled="isLoading"
           class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
         >
-          Next
+          <Loader v-if="isLoading" :loading="isLoading"></Loader>
+          <span v-else> Next</span>
         </button>
       </div>
     </div>
@@ -113,10 +114,10 @@ export default {
   layout: "dashboard",
   data() {
     return {
-      errorMessage: "",
       selectedValue: [],
       isOpen: false,
       isMarketing: true,
+      isLoading: false,
       marketingPlatform: [
         {
           name: "Meta ads",
@@ -161,10 +162,12 @@ export default {
   methods: {
     ...mapActions({
       MarketingPlatformNext: "bussiness-details/marketingPlatform",
-      // getBusinessDetail: "bussiness-details/getBusinessDetail",
     }),
     async getName(value) {
       this.selectedValue = value;
+    },
+    connect(value, key) {
+      console.log(value.name, key, "are you sure do connect ??");
     },
     async marketingPlatformNext() {
       try {
@@ -176,6 +179,7 @@ export default {
             position: "bottom-right",
           });
         } else {
+          this.isLoading = true;
           this.isOpen = true;
           this.isMarketing = false;
           this.selectedPlatform = this.marketingPlatform.filter((platform) =>
@@ -197,6 +201,8 @@ export default {
           duration: 2000,
           position: "bottom-right",
         });
+      } finally {
+        this.isLoading = false;
       }
     },
     back() {

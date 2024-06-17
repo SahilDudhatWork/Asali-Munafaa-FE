@@ -18,19 +18,11 @@
         <button
           class="text-xl font-semibold p-2"
           @click="toggleAds('Delhivery')"
-          :class="isAds ? 'text-[#4C45E3]' : 'bg-[#4C45E3] text-white '"
+          :class="isAds ? 'text-[#4C45E3]' : 'bg-[#4C45E3] text-white'"
         >
           Delhivery
         </button>
       </div>
-      <!-- <div class="mt-6 mb-4 border border-[#4C45E3] xs:w-64 w-[17rem]">
-        <button class="bg-[#4C45E3] text-xl font-semibold text-white p-2">
-          Shiprocket
-        </button>
-        <button class="text-xl font-semibold text-[#4C45E3] p-2">
-          Delhivery
-        </button>
-      </div> -->
     </div>
     <div class="mt-6 flex mb-3 flex-col xl:flex-row gap-3">
       <div
@@ -111,11 +103,16 @@
           <p class="text-[#2d375b] font-normal text-base">Last 30 days</p>
         </div>
         <div class="flex justify-center">
-          <PieChart
+          <v-chart
+            :options="chartOptions"
+            style="width: 100%; height: 600px"
+          ></v-chart>
+
+          <!-- <PieChart
             :chartData="data"
             :options="doughnutOptions"
             class="w-[70%]"
-          />
+          /> -->
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg p-3 py-6">
@@ -211,7 +208,7 @@
 <script>
 import ruppesImage from "@/static/svg/ruppes.svg";
 import questionIcon from "@/static/svg/question.svg";
-
+import $axios from "axios";
 export default {
   layout: "overview",
   data() {
@@ -225,6 +222,25 @@ export default {
         description: "Select youur Shipping Portal belon",
         icon: "",
         left: 0,
+      },
+      chartOptions: {
+        series: [
+          {
+            type: "map",
+            map: "india",
+            label: {
+              show: true,
+            },
+            itemStyle: {
+              emphasis: {
+                areaColor: "#a0d911",
+              },
+            },
+            data: [
+              // Data for different regions can be added here
+            ],
+          },
+        ],
       },
       tier: [
         {
@@ -473,6 +489,12 @@ export default {
       this.isAds = type === "Shiprocket";
     },
   },
+  // async mounted() {
+  //   // Fetch the India GeoJSON data
+  //   const indiaGeoJson = await $axios.get("/india.json");
+  //   echarts.registerMap("india", indiaGeoJson.data);
+  //   this.$refs.chart && this.$refs.chart.resize();
+  // },
 };
 </script>
 <style>
