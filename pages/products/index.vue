@@ -59,18 +59,18 @@
     </div>
     <div class="mt-8 mb-3">
       <div
-        class="flex xxxl:flex-row xxl:flex-row xl:flex-row lg:flex-row sm:flex-row flex-col gap-2 items-center"
+        class="flex gap-2 items-center"
       >
         <p class="text-[#000E2F] font-medium text-xl">Group by</p>
         <button
-          class="border border-[#4C45E3] font-semibold text-xl p-1 px-2"
+          class="border border-[#4C45E3] font-semibold lg:text-xl text-md p-1 px-2"
           @click="toggleProduct('Product')"
           :class="isProduct ? 'bg-[#4C45E3] text-white' : 'text-[#4C45E3]'"
         >
           Product
         </button>
         <button
-          class="border border-[#4C45E3] font-semibold text-xl p-1 px-2"
+          class="border border-[#4C45E3] font-semibold lg:text-xl text-md p-1 px-2"
           @click="toggleProduct('Category')"
           :class="isProduct ? ' text-[#4C45E3]  ' : 'bg-[#4C45E3] text-white'"
         >

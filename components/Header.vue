@@ -224,6 +224,7 @@
                     v-for="(tab, key) in sideBarItems"
                     :key="key"
                     class="text-white font-semibold py-2 border-b border-white w-full flex justify-center"
+                    @click="isSidebarOpen = false"
                   >
                     <Nuxt-link
                       :to="tab.href"
@@ -299,11 +300,11 @@ export default {
     },
     comingSoonModalClose() {
       this.isComingSoonModal = false;
-      document.body.style.overflow = "";
+      document.body.style.overflow = ""; 
     },
     openModal() {
-      this.isModalOpen = true;
       document.body.style.overflow = "hidden";
+      this.isModalOpen = true;
     },
     closeModal() {
       this.isModalOpen = false;

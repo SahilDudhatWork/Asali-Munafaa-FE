@@ -22,7 +22,7 @@
           <input
             type="email"
             id="email"
-            class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full"
+            class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full border border-[#8C93BE]"
             placeholder="Products name"
             v-model="product.name"
           />
@@ -30,7 +30,7 @@
           <input
             type="number"
             id="email"
-            class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full"
+            class="bg-white rounded pl-6 py-2 md:py-2 focus:outline-none w-full border border-[#8C93BE]"
             placeholder="Products name"
             v-model="product.sellingPrice"
           />
@@ -63,7 +63,7 @@
         </div>
         <div class="grid xl:grid-cols-2 sm:grid-cols-1">
           <textarea
-            class="rounded-lg p-3 xl:w-[83%] sm:w-full h-36"
+            class="rounded-lg p-3 xl:w-[83%] sm:w-full h-36 border border-[#8C93BE]"
             placeholder="Text Here"
             v-model="product.ManufacturingCost"
           ></textarea>

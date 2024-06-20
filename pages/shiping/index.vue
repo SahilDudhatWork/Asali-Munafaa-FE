@@ -41,13 +41,13 @@
         class="bg-white xl:col-span-2 xl:p-[60px] w-full md:p-[30px] p-[30px] shadow-lg rounded-xl"
       >
         <div
-          class="flex justify-between items-center xxl:flex-row xxxl:flex-row xl:flex-row gap-4 flex-col mb-5 border-b-2 py-3"
+          class="flex justify-between items-center xxl:flex-row xxxl:flex-row xl:flex-row lg:flex-row gap-4 flex-col mb-5 border-b-2 py-3"
         >
           <h2 class="text-[#09347F] font-semibold text-xl">
             Compare Key Metrics
           </h2>
           <div
-            class="flex gap-2 xxl:flex-row xxxl:flex-row xl:flex-row gap-4 flex-col"
+            class="flex gap-2 xxl:flex-row xxxl:flex-row xl:flex-row gap-4 flex-col lg:flex-row"
           >
             <button
               class="bg-[#009332] transition-main text-white font-semibold px-5 py-3 w-full text-base rounded-sm"
@@ -103,16 +103,11 @@
           <p class="text-[#2d375b] font-normal text-base">Last 30 days</p>
         </div>
         <div class="flex justify-center">
-          <v-chart
-            :options="chartOptions"
-            style="width: 100%; height: 600px"
-          ></v-chart>
-
-          <!-- <PieChart
+          <PieChart
             :chartData="data"
             :options="doughnutOptions"
             class="w-[70%]"
-          /> -->
+          /> 
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg p-3 py-6">
@@ -150,18 +145,27 @@
       <div class="bg-white rounded-xl shadow-lg px-5 py-5 mb-6">
         <div class="flex justify-between px-2 py-2">
           <p class="text-[#000087] font-semibold text-xl w-[70%]">
-            Shipments-Zone Distribution
+            <select
+                name
+                id
+                class="!focus-visible::outline-0 text-[#5B638B] border py-2 px-3 rounded-md font-semibold text-base"
+              >
+                <option value="year">Orders</option>
+                <option value="week">Month</option>
+                <option value="week">Week</option>
+              </select>
           </p>
           <p class="text-[#2d375b] font-normal text-base">Last 30 days</p>
         </div>
         <div class="mb-7">
-          <Tier
-            v-for="(item, key) in tier"
-            :key="key"
-            :item="item"
-            :isShow="true"
-            class="border-b py-5"
+          <GChart
+          :type="'GeoChart'"
+          :data="chartDatas"
+          :options="chartOptionse"
+          :settings="settings"
+          @ready="onChartReady"
           />
+        
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg px-5 py-5 mb-6">
@@ -171,14 +175,14 @@
           </p>
           <p class="text-[#2d375b] font-normal text-base">Last 30 days</p>
         </div>
-        <div class="mb-7">
+         <div class="mb-7">
           <Tier
             v-for="(item, key) in tier"
             :key="key"
             :item="item"
             :isShow="true"
             class="border-b py-5"
-          />
+          /> 
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg px-5 py-5 mb-6">
@@ -206,9 +210,9 @@
 </template>
 
 <script>
+
 import ruppesImage from "@/static/svg/ruppes.svg";
 import questionIcon from "@/static/svg/question.svg";
-import $axios from "axios";
 export default {
   layout: "overview",
   data() {
@@ -219,28 +223,61 @@ export default {
       shippingProtal: {
         image: ruppesImage,
         title: "Shipping Portal",
-        description: "Select youur Shipping Portal belon",
+        description: "Select your Shipping Portal belon",
         icon: "",
         left: 0,
       },
-      chartOptions: {
-        series: [
-          {
-            type: "map",
-            map: "india",
-            label: {
-              show: true,
-            },
-            itemStyle: {
-              emphasis: {
-                areaColor: "#a0d911",
-              },
-            },
-            data: [
-              // Data for different regions can be added here
-            ],
-          },
-        ],
+      settings: {
+        packages: ['geochart'],
+      },
+      chartDatas: [
+      ['State', 'Population'],
+        ['IN-AP', 0],  // Andhra Pradesh
+        ['IN-AR', 10],   // Arunachal Pradesh
+        ['IN-AS', 20],  // Assam
+        ['IN-BR', 30], // Bihar
+        ['IN-CH', 30],   // Chandigarh
+        ['IN-CT', 30],  // Chhattisgarh
+        ['IN-DN', 0],    // Dadra and Nagar Haveli and Daman and Diu
+        ['IN-DD', 0],   // Daman and Diu
+        ['IN-DL', 20],  // Delhi
+        ['IN-GA', 15],   // Goa
+        ['IN-GJ', 0],  // Gujarat
+        ['IN-HR', 15],  // Haryana
+        ['IN-HP', 15],   // Himachal Pradesh
+        ['IN-JK', 10],  // Jammu and Kashmir
+        ['IN-JH', 10],  // Jharkhand
+        ['IN-KA', 15],  // Karnataka
+        ['IN-KL', 0],  // Kerala
+        ['IN-LD', 0],    // Lakshadweep
+        ['IN-MP', 15],  // Madhya Pradesh
+        ['IN-MH', 20], // Maharashtra
+        ['IN-MN', 0],   // Manipur
+        ['IN-ML', 15],   // Meghalaya
+        ['IN-MZ', 30],   // Mizoram
+        ['IN-NL', 0],   // Nagaland
+        ['IN-OR', 15],  // Odisha
+        ['IN-PY', 0],   // Puducherry
+        ['IN-PB', 0],  // Punjab
+        ['IN-RJ', 17],  // Rajasthan
+        ['IN-SK', 15],    // Sikkim
+        ['IN-TN', 30],  // Tamil Nadu
+        ['IN-TG', 30],  // Telangana
+        ['IN-TR', 0],   // Tripura
+        ['IN-UP', 0], // Uttar Pradesh
+        ['IN-UT', 30],  // Uttarakhand
+        ['IN-WB', 0],  // West Bengal
+      ],
+      chartOptionse: {
+        region: 'IN',
+        displayMode: 'regions',
+        resolution: 'provinces',
+        colorAxis: { colors: ['#BBBFEB','#8592E0','#7275D2'],},
+        backgroundColor: 'transparent',
+        datalessRegionColor: 'transparent',
+        defaultColor: '#FFFFFF',
+        width: 550,
+        height: 380,
       },
       tier: [
         {
@@ -487,14 +524,25 @@ export default {
   methods: {
     toggleAds(type) {
       this.isAds = type === "Shiprocket";
+    },  
+    onChartReady() {
+      this.removeBorders();
+    },
+    removeBorders() {
+      this.$nextTick(() => {
+        const svg = document.querySelector('svg');
+        if (svg) {
+          const paths = svg.querySelectorAll('path');
+          paths.forEach(path => {
+            if (path.getAttribute('stroke') && !path.getAttribute('id').startsWith('IN')) {
+              path.style.stroke = 'none';
+              path.style.display = 'none';
+            }
+          });
+        }
+      });
     },
   },
-  // async mounted() {
-  //   // Fetch the India GeoJSON data
-  //   const indiaGeoJson = await $axios.get("/india.json");
-  //   echarts.registerMap("india", indiaGeoJson.data);
-  //   this.$refs.chart && this.$refs.chart.resize();
-  // },
 };
 </script>
 <style>

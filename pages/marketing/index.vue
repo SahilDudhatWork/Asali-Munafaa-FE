@@ -9,14 +9,14 @@
     <div class="mt-6 mb-4">
       <div class="mt-6 mb-4 border border-[#4C45E3] w-fit">
         <button
-          class="text-xl font-semibold p-2"
+          class="lg:text-xl text-md font-semibold p-2"
           @click="toggleAds('facebookAds')"
           :class="isAds ? 'bg-[#4C45E3] text-white' : 'text-[#4C45E3]'"
         >
           Facebook Ads
         </button>
         <button
-          class="text-xl font-semibold p-2"
+          class="lg:text-xl text-md font-semibold p-2"
           @click="toggleAds('googleAds')"
           :class="isAds ? 'text-[#4C45E3]' : 'bg-[#4C45E3] text-white '"
         >

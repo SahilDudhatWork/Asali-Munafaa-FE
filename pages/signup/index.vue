@@ -3,10 +3,10 @@
     <PageTemplate>
       <template #content>
         <div
-          class="pt-8 my-4 xl:w-[30%] lg:w-1/2 sm:w-1/2 md:w-[75%] xl:mx-5 sm:mx-0"
+          class="pt-8 my-4 xl:w-[30%] lg:w-1/2 sm:w-1/2 md:w-[75%] mx-5"
         >
           <h2
-            class="xl:text-4xl sm:text-2xl py-2 font-medium text-center text-white lg:mb-12 xl:mb-3 sm:mb-0"
+            class="xl:text-4xl text-2xl py-2 font-medium text-center text-white lg:mb-12 xl:mb-3 sm:mb-0"
           >
             signup
           </h2>

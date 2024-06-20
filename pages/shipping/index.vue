@@ -72,18 +72,18 @@
         class="grid lg:grid-cols-2 grid-cols-1 gap-3 w-full"
       >
         <div
-          class="flex flex-col lg:flex-row justify-between items-center gap-4"
+          class="flex justify-between items-center gap-4"
         >
-          <div class="flex flex-col lg:flex-row items-center gap-4">
+          <div class="flex items-center gap-4">
             <div class="py-2 px-2 rounded-full bg-gray-200 transition-main w-7">
               <img :src="platform.image" alt="" />
             </div>
-            <div class="text-[#5B638B] font-medium text-xl">
+            <div class="text-[#5B638B] font-medium lg:text-xl text-md">
               {{ platform.name }}
             </div>
           </div>
           <button
-            class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-7 text-sm rounded-md"
+            class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold lg:py-4 py-3 mt-4 lg:px-7 px-5 text-sm rounded-md"
           >
             Connect
           </button>

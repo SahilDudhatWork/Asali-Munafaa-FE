@@ -90,13 +90,13 @@
     </p>
     <p class="font-normal text-lg mt-5">
       located at
-      <span class="text-[#0000FF]"
+      <!-- <span class="text-[#0000FF]"
         >http://www.google.com/analytics/terms/us.html</span
-      >
+      > -->
       and the Google Privacy Policy located at
-      <span class="text-[#0000FF]"
+      <!-- <span class="text-[#0000FF]"
         >http://www.google.com/policies/privacy/</span
-      >
+      > -->
     </p>
     <p class="font-normal text-lg mt-5">
       Your Personal Information may be disclosed for reasons other than the

@@ -25,13 +25,13 @@
         class="bg-white xl:col-span-2 xl:p-[60px] w-full md:p-[30px] p-[30px] shadow-lg rounded-xl"
       >
         <div
-          class="flex justify-between items-center xxl:flex-row xxxl:flex-row xl:flex-row gap-4 flex-col mb-5 border-b-2 py-3"
+          class="flex justify-between items-center xxl:flex-row xxxl:flex-row xl:flex-row gap-4 lg:flex-row flex-col mb-5 border-b-2 py-3"
         >
           <h2 class="text-[#09347F] font-semibold text-xl">
             Compare Key Metrics
           </h2>
           <div
-            class="flex gap-2 xxl:flex-row xxxl:flex-row xl:flex-row gap-4 flex-col"
+            class="flex gap-2 xxl:flex-row xxxl:flex-row xl:flex-row gap-4 flex-col lg:flex-row"
           >
             <button
               class="bg-[#009332] transition-main text-white font-semibold px-5 py-3 w-full text-base rounded-sm"
@@ -94,7 +94,7 @@
         >
           <div class="border border-[#4C45E3] w-max">
             <button
-              class="bg-[#4C45E3] text-xl font-semibold px-4 py-[6px]"
+              class="bg-[#4C45E3] xl:text-xl text-md font-semibold px-4 py-[6px]"
               @click="toggleProfit('gross')"
               :class="
                 isGross ? 'bg-[#4C45E3] text-white' : 'text-[#4C45E3] bg-white '
@@ -103,7 +103,7 @@
               Gross Profit
             </button>
             <button
-              class="text-xl font-semibold text-[#4C45E3] px-4 py-[6px]"
+              class="xl::text-xl text-md font-semibold text-[#4C45E3] px-4 py-[6px]"
               @click="toggleProfit('net')"
               :class="isGross ? 'text-[#4C45E3]' : 'bg-[#4C45E3] text-white '"
             >
@@ -159,14 +159,14 @@
     <div class="mt-6 mb-4">
       <div class="mt-6 mb-4 border border-[#4C45E3] w-fit">
         <button
-          class="text-xl font-semibold p-2"
+          class="lg:text-xl text-md font-semibold p-2"
           @click="toggleAds('facebookAds')"
           :class="isAds ? 'bg-[#4C45E3] text-white' : 'text-[#4C45E3]'"
         >
           Facebook Ads
         </button>
         <button
-          class="text-xl font-semibold p-2"
+          class="lg:text-xl text-md font-semibold p-2"
           @click="toggleAds('googleAds')"
           :class="isAds ? 'text-[#4C45E3]' : 'bg-[#4C45E3] text-white '"
         >

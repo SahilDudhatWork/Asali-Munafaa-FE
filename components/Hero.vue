@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="bg-hero-img relative bg-cover xl:py-[230px] xxl:pb-[400px] overflow-hidden py-[200px] lg:px-[60px] px-7 bg-no-repeat"
+      class="bg-hero-img relative bg-cover xl:py-[230px] xxl:pb-[400px] overflow-hidden py-[180px] lg:px-[60px] px-7 bg-no-repeat"
     >
       <div class="xl:grid xl:grid-cols-3">
         <div

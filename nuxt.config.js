@@ -23,7 +23,7 @@ export default {
   css: [
     "@/assets/css/tailwind.css",
     "@/assets/css/global.css",
-    "vue-toast-notification/dist/theme-bootstrap.css",
+    "vue-toast-notification/dist/theme-bootstrap.css",    
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -34,9 +34,7 @@ export default {
     { src: "~/plugins/vuejs-progress-bar.js", ssr: false },
     { src: "~/plugins/vue-avatar.js", mode: "client" },
     { src: "~/plugins/vue-spinner.js", mode: "client" },
-    { src: "~/plugins/echarts.js", mode: "client" },
-
-    // { src: "~/plugins/axios.js", mode: "client" },
+    { src: "~/plugins/vue-google-charts.js", ssr: false  },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
