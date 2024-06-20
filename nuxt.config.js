@@ -1,7 +1,9 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-
+  // router: {
+  //   middleware: "auth",
+  // },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Asali-Munafaa-FE",
@@ -18,10 +20,22 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/css/tailwind.css"],
+  css: [
+    "@/assets/css/tailwind.css",
+    "@/assets/css/global.css",
+    "vue-toast-notification/dist/theme-bootstrap.css",    
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    { src: "~/plugins/toast-notification.js", mode: "client" },
+    { src: "~/plugins/v-click-outside.js", mode: "client" },
+    { src: "~/plugins/vue2-datepicker.js", mode: "client" },
+    { src: "~/plugins/vuejs-progress-bar.js", ssr: false },
+    { src: "~/plugins/vue-avatar.js", mode: "client" },
+    { src: "~/plugins/vue-spinner.js", mode: "client" },
+    { src: "~/plugins/vue-google-charts.js", ssr: false  },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -34,12 +48,15 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ["vue-echarts", "resize-detector"],
     postcss: {
-      plugins: {
-        // Add Tailwind CSS and Autoprefixer as plugins
-        tailwindcss: {},
-        autoprefixer: {},
-        // You can add other PostCSS plugins here if needed
+      postcssOptions: {
+        plugins: {
+          // Add Tailwind CSS and Autoprefixer as plugins
+          tailwindcss: {},
+          autoprefixer: {},
+          // You can add other PostCSS plugins here if needed
+        },
       },
     },
   },
