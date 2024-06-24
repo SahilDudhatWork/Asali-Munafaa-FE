@@ -181,8 +181,7 @@ export default {
           });
         } else {
           this.isLoading = true;
-          this.isOpen = true;
-          this.isMarketing = false;
+
           this.selectedPlatform = this.shipping.filter((platform) =>
             this.selectedValue.includes(platform.name)
           );
@@ -203,6 +202,8 @@ export default {
         });
       } finally {
         this.isLoading = false;
+        this.isOpen = true;
+        this.isMarketing = false;
       }
     },
     back() {

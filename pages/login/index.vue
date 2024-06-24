@@ -160,7 +160,6 @@ export default {
       closeModal: "auth/closeModal",
     }),
     async login() {
-      console.log(true);
       try {
         if (this.form.emailOrPhone == "" || this.form.password == "") {
           this.$toast.open({

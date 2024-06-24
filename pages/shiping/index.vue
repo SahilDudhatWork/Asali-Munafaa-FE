@@ -44,21 +44,16 @@
           class="flex justify-between items-center xxl:flex-row xxxl:flex-row xl:flex-row lg:flex-row gap-4 flex-col mb-5 border-b-2 py-3"
         >
           <h2 class="text-[#09347F] font-semibold text-xl">
-            Compare Key Metrics
+            Compare shipment
           </h2>
           <div
             class="flex gap-2 xxl:flex-row xxxl:flex-row xl:flex-row gap-4 flex-col lg:flex-row"
           >
-            <button
-              class="bg-[#009332] transition-main text-white font-semibold px-5 py-3 w-full text-base rounded-sm"
-            >
-              Compare Periods
-            </button>
-            <div class="flex border py-2 px-2">
+            <div class="flex border-2 py-2 px-2 gap-3">
               <select
                 name
                 id
-                class="!focus-visible::outline-0 text-[#5B638B] border-none font-semibold text-base"
+                class="!focus-visible::outline-0 text-[#5B638B] border-none rounded font-semibold text-base"
               >
                 <option value="year">logistics</option>
                 <option value="week">Month</option>
@@ -67,7 +62,7 @@
               <select
                 name
                 id
-                class="!focus-visible::outline-0 text-[#5B638B] border-none font-semibold text-base"
+                class="!focus-visible::outline-0 text-[#5B638B] border-none rounded font-semibold text-base"
               >
                 <option value="year">Region</option>
                 <option value="week">Month</option>
@@ -157,15 +152,15 @@
           </p>
           <p class="text-[#2d375b] font-normal text-base">Last 30 days</p>
         </div>
-        <div class="mb-7">
+        <div class="mb-7" id="test-chart">
           <GChart
           :type="'GeoChart'"
           :data="chartDatas"
           :options="chartOptionse"
           :settings="settings"
           @ready="onChartReady"
-          />
-        
+          class="w-auto"
+          />     
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg px-5 py-5 mb-6">
@@ -231,7 +226,7 @@ export default {
         packages: ['geochart'],
       },
       chartDatas: [
-      ['State', 'Population'],
+        ['State', 'Population'],
         ['IN-AP', 0],  // Andhra Pradesh
         ['IN-AR', 10],   // Arunachal Pradesh
         ['IN-AS', 20],  // Assam
@@ -276,8 +271,17 @@ export default {
         backgroundColor: 'transparent',
         datalessRegionColor: 'transparent',
         defaultColor: '#FFFFFF',
-        width: 550,
-        height: 380,
+        // enableRegionInteractivity: false,
+        keepAspectRatio: true,
+        legend: {
+          width:400,
+          position: 'top', 
+          alignment: 'start', 
+          textStyle: {
+            color: 'black', 
+            fontSize: 14, 
+          }
+        },
       },
       tier: [
         {
@@ -331,20 +335,20 @@ export default {
       profit: [
         {
           image: "",
-          title: "Gross Profit",
+          title: "Total Orders",
           icon: "",
-          ruppes: "₹967.45",
+          ruppes: "No. 10",
           description: "",
           percentage: "",
           height: 269,
         },
         {
           image: "",
-          title: "Net Profit",
+          title: "Order Action Pending",
           icon: questionIcon,
-          ruppes: "₹967.45",
-          description: "Gross Margin",
-          percentage: "64.1%",
+          ruppes: "No. 10",
+          description: "",
+          percentage: "",
           height: 269,
         },
       ],
@@ -519,29 +523,37 @@ export default {
           ruppes: "No.",
         },
       ],
-    };
+    }; 
+  },
+  mounted(){
+    this.onChartReady();
   },
   methods: {
     toggleAds(type) {
       this.isAds = type === "Shiprocket";
     },  
     onChartReady() {
-      this.removeBorders();
+      setTimeout(() => {
+        this.removeBorders();
+      }, 500);
     },
     removeBorders() {
       this.$nextTick(() => {
-        const svg = document.querySelector('svg');
+        const chart = document.getElementById('test-chart');
+        const svg = chart.querySelector('svg');
         if (svg) {
           const paths = svg.querySelectorAll('path');
           paths.forEach(path => {
-            if (path.getAttribute('stroke') && !path.getAttribute('id').startsWith('IN')) {
+            if (path.getAttribute('stroke') == "#e6e6e6") {
               path.style.stroke = 'none';
-              path.style.display = 'none';
+              path.style.fill = 'none';
             }
           });
+        } else {
+          console.log('SVG element not found');
         }
       });
-    },
+    }
   },
 };
 </script>

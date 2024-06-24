@@ -38,11 +38,11 @@
             >
               Compare Periods
             </button>
-            <div class="flex border py-2 px-2">
+            <div class="flex border py-3 px-2 gap-3">
               <select
                 name
                 id
-                class="!focus-visible::outline-0 text-[#5B638B] border-none font-semibold text-base"
+                class="!focus:outline-none !focus-visible::outline-0 border-none text-[#5B638B] rounded font-semibold text-base"
               >
                 <option value="year">Select Metrics</option>
                 <option value="week">Month</option>
@@ -51,7 +51,7 @@
               <select
                 name
                 id
-                class="!focus-visible::outline-0 text-[#5B638B] border-none font-semibold text-base"
+                class="focus:border-none active:border-none text-[#5B638B] border-none font-semibold rounded text-base"
               >
                 <option value="year">Daily</option>
                 <option value="week">Month</option>
