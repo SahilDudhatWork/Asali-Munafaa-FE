@@ -177,8 +177,8 @@
         </div>
         <a
           href="javascript:void(0)"
-          @click="openModal"
-          class="py-3 rounded-lg xl:px-5 px-2 bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white xl:text-lg text-sm font-medium"
+          @click="openGetInTouchModal"
+          class="py-3 rounded-xl xl:px-5 px-2 bg-gradient-to-r from-[#00CACE] to-[#00C3D3] hover:bg-gradient-to-r hover:from-[#00CACE] transition-main hover:to-[#00C3D3] bg-primaryBg text-white xl:text-lg text-sm font-medium"
         >
           Get In Touch
         </a>
@@ -247,13 +247,13 @@
     </div>
 
     <GetInTouchModal
-      :isModalOpen="isModalOpen"
-      @save="saveData"
-      @close="closeModal"
+      :isGetInTouchModal="isGetInTouchModal"
+      @save="handleGetInTouch"
+      @close="closeGetInTouchModal"
     />
     <ComingSoonModal
       :isComingSoonModal="isComingSoonModal"
-      @close="comingSoonModalClose"
+      @close="closeComingSoonModal"
     />
   </header>
 </template>
@@ -261,7 +261,7 @@
 export default {
   data() {
     return {
-      isModalOpen: false,
+      isGetInTouchModal: false,
       isComingSoonModal: false,
       isSidebarOpen: false,
       sideBarItems: [
@@ -293,21 +293,21 @@ export default {
     };
   },
   methods: {
-    saveData() {
-      this.isModalOpen = false;
+    handleGetInTouch() {
+      document.body.style.overflow = "hidden";
+      this.isGetInTouchModal = false;
       this.isComingSoonModal = true;
-      document.body.style.overflow = "hidden";
     },
-    comingSoonModalClose() {
+    closeComingSoonModal() {
       this.isComingSoonModal = false;
-      document.body.style.overflow = ""; 
+      document.body.style.overflow = "";
     },
-    openModal() {
+    openGetInTouchModal(hidden) {
+      this.isGetInTouchModal = true;
       document.body.style.overflow = "hidden";
-      this.isModalOpen = true;
     },
-    closeModal() {
-      this.isModalOpen = false;
+    closeGetInTouchModal() {
+      this.isGetInTouchModal = false;
       document.body.style.overflow = "";
     },
     toggleSidebar() {

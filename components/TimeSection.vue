@@ -1,7 +1,7 @@
 <template>
   <div class="pb-[60px]">
     <h2
-      class="xl:text-[50px] md:text-[35px] text-[22px] font-semibold md:mb-[40px] mb-[20px] text-blue text-center"
+      class="xl:text-[50px] md:text-[35px] text-[22px] font-semibold md:mb-[16px] mb-[16px] text-black text-center"
     >
       Find Out Every Profit Opportunity, Cut Losses in Real Time
     </h2>

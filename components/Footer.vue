@@ -21,7 +21,7 @@
             <div
               v-for="(item, key) in profitItems"
               :key="key"
-              class="py-2 px-2 rounded-full bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] transition-main w-7"
+              class="py-2 px-2 rounded-full bg-gradient-to-r from-[#00CACE] to-[#00C3D3] transition-main w-7"
             >
               <img :src="item" alt="image" />
             </div>

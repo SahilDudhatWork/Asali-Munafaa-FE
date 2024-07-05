@@ -997,11 +997,6 @@ video {
 .bg-integration-img {
   background-image: url('../../static/Images/integration-img.webp');
 }
-.bg-impact-img {
-  background-image: url('../../static/Images/impact-img.webp');
-}
-
-
 .bg-profit-img {
   background-image: url('../../static/Images/profit-img.webp');
 }
@@ -1557,6 +1552,10 @@ body {
   }
   .width-100{
     width: 100%;
+  }
+  .flex-column{
+    display: flex;
+    flex-direction:column;
   }
 }
 

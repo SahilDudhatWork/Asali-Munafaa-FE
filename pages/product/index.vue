@@ -69,17 +69,17 @@
           ></textarea>
         </div>
       </div>
-      <div class="flex gap-3 lg:flex-row flex-col justify-end w-full mb-6">
+      <div class="flex gap-3 justify-end flex-column mb-6">
         <button
           @click="back"
-          class="inline-flex items-center justify-center xl:w-[12.5rem] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+          class="inline-flex items-center width-100 justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
         >
           Back
         </button>
         <button
           @click="handleSubmit"
           :disabled="isLoading"
-          class="inline-flex items-center justify-center xl:w-[12.5rem] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+          class="inline-flex items-center width-100 justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
         >
           <Loader v-if="isLoading" :loading="isLoading"></Loader>
           <span v-else> Next</span>

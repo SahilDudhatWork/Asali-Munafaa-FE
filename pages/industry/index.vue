@@ -31,16 +31,16 @@
           :imageSrc="tab"
         />
       </div>
-      <div class="flex gap-3 lg:flex-row flex-col justify-end w-full">
+      <div class="flex gap-3 justify-end flex-column">
         <button
           @click="back"
-          class="inline-flex items-center justify-center xl:w-[12.5rem] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+          class="inline-flex items-center justify-center width-100 bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
         >
           Back
         </button>
         <button
           @click="handleSubmit"
-          class="inline-flex items-center justify-center xl:w-[12.5rem] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+          class="inline-flex items-center justify-center width-100 bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
           :disabled="isLoading"
         >
           <Loader v-if="isLoading" :loading="isLoading"></Loader>

@@ -1,10 +1,10 @@
 <template>
-  <div class="pb-[60px]">
+  <div class="mt-10">
     <div class="max-w-[1598px] mx-auto px-3">
       <h2
-        class="xl:text-[50px] md:text-[40px] text-[25px] font-semibold xl:mb-[80px] md:mb-[50px] mb-[30px] text-blue text-center"
+        class="xl:text-[50px] md:text-[40px] text-[25px] font-semibold xl:mb-[60px] md:mb-[50px] mb-[30px] text-black text-center"
       >
-        Why How Does it Work?
+        How Does it Work?
       </h2>
       <div
         class="grid xxl:grid-cols-5 xl:grid-cols-4 grid-cols-1 justify-center"
@@ -16,9 +16,9 @@
             alt="image"
           />
           <div class="text-center w-full">
-            <h2 class="text-darkBlue mb-2 text-[26px] font-semibold">Step 1</h2>
+            <h2 class="text-black mb-2 text-[26px] font-semibold">Step 1</h2>
             <h6
-              class="text-darkBlue xl:max-w-[450px] mx-auto text-xl font-normal mb-10"
+              class="text-[#330099] xl:max-w-[450px] mx-auto text-xl font-medium mb-10"
             >
               Connect all platforms like Shopify, WordPress, Facebook ads,
               google ads, shipping portal
@@ -33,11 +33,9 @@
               class="w-[840px] xl:mb-[150px] hidden xl:block mb-[100px] ml-auto h-auto"
             />
             <div class="text-center w-full">
-              <h2 class="text-darkBlue mb-2 text-[26px] font-semibold">
-                Step 2
-              </h2>
+              <h2 class="text-black mb-2 text-[26px] font-semibold">Step 2</h2>
               <h6
-                class="text-darkBlue xl:max-w-[450px] mx-auto text-xl font-normal mb-10"
+                class="text-[#330099] xl:max-w-[450px] mx-auto text-xl font-medium mb-10"
               >
                 Find out where you are spending your money, where you’re
                 lacking, how much money you have received now, and how much you
@@ -76,9 +74,9 @@
             </div>
           </div>
           <div class="text-center w-full">
-            <h2 class="text-darkBlue mb-2 text-[26px] font-semibold">Step 3</h2>
+            <h2 class="text-black mb-2 text-[26px] font-semibold">Step 3</h2>
             <h6
-              class="text-darkBlue xl:max-w-[450px] mx-auto text-xl font-normal md:mb-10 mb-0"
+              class="text-[#330099] xl:max-w-[450px] mx-auto text-xl font-medium md:mb-10 mb-0"
             >
               Now it’s time to scale your E-commerce business because you know
               your mistakes and now you can't repeat it

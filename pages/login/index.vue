@@ -104,7 +104,7 @@
             </div>
           </div>
           <button
-            class="bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full rounded-md"
+            class="bg-gradient-to-r from-[#00CACE] to-[#00C3D3] hover:bg-gradient-to-r hover:from-[#00CACE] transition-main hover:to-[#00C3D3] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full rounded-md"
             @click="login"
             :disabled="isLoading"
           >
@@ -210,7 +210,7 @@ export default {
         }
       } catch (error) {
         this.$toast.open({
-          message: error,
+          message: error?.response?.data?.msg || this.message?.techinalError,
           type: "error",
           duration: 2000,
           position: "bottom-right",

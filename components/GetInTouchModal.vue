@@ -1,6 +1,6 @@
 <template>
   <div style="z-index: 999" class="fixed top-0 w-full lef-0">
-    <div class="fixed inset-0 mt-10" v-if="isModalOpen">
+    <div class="fixed inset-0 mt-10" v-if="isGetInTouchModal">
       <div class="flex items-center justify-center min-h-screen">
         <div class="fixed inset-0 transition-opacity" @click="closeModal">
           <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -53,7 +53,7 @@
                 />
                 <button
                   class="bg-[#4C0EA6] text-white font-bold py-2 px-4 w-full rounded-md"
-                  @click="save"
+                  @click="handleClick"
                   :disabled="isLoading"
                 >
                   <Loader v-if="isLoading" :loading="isLoading"></Loader>
@@ -86,7 +86,7 @@ import message from "@/static/lang/en.json";
 
 export default {
   props: {
-    isModalOpen: {
+    isGetInTouchModal: {
       type: Boolean,
       required: true,
     },
@@ -107,7 +107,7 @@ export default {
     closeModal() {
       this.$emit("close");
     },
-    async save() {
+    async handleClick() {
       if (!this.firstName || !this.email || !this.mobile || !this.website) {
         this.$toast.open({
           message: "Please fill up your field !",
@@ -138,7 +138,7 @@ export default {
           });
         } catch (error) {
           this.$toast.open({
-            message: error,
+            message: error?.response?.data?.msg || this.message?.techinalError,
             type: "error",
             duration: 2000,
             position: "bottom-right",

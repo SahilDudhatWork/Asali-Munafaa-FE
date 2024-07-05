@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="xl:pb-[140px] md:pb-[100px] pb-[50px] xl:pt-16">
+    <div class="xl:pb-[120px] md:pb-[100px] pb-[50px]">
       <div class="xl:max-w-[1798px] max-w-[1500px] mx-auto">
         <div class="flex flex-wrap justify-center gap-10 px-3">
           <div
@@ -12,12 +12,12 @@
             <img :src="item.image" alt="image" />
             <div class="pt-5">
               <h2
-                class="text-darkBlue md:mb-2 md:text-[26px] text-[22px] font-semibold"
+                class="text-black md:mb-2 md:text-[26px] text-[22px] font-semibold"
               >
                 {{ item.title }}
               </h2>
               <h6
-                class="text-darkBlue max-w-[450px] mx-auto text-xl font-normal md:mb-10 mb-5"
+                class="text-[#330099] max-w-[450px] mx-auto text-xl font-normal md:mb-10 mb-5"
               >
                 {{ item.description }}
               </h6>
@@ -46,10 +46,10 @@
       </div>
     </div>
 
-    <div class="xl:pb-[140px] md:pb-[100px] pb-[50px]">
+    <div class="xl:pb-[110px] md:pb-[100px] pb-[50px] bg-[#F8E9FD] pt-20">
       <div class="max-w-[1448px] mx-auto px-3">
         <h2
-          class="lg:text-[50px] md:text-[35px] text-[25px] font-semibold md:mb-[40px] mb-[25px] text-blue text-center"
+          class="lg:text-[50px] md:text-[35px] text-[25px] font-semibold md:mb-[40px] mb-[25px] text-black text-center"
         >
           Why You’re Not Profitable in Your Online Store?
         </h2>

@@ -42,7 +42,7 @@
                   >
                   <button
                     class="bg-[#4C0EA6] text-white font-bold py-3 xl:mt-7 mt-6 px-4 w-full rounded-md"
-                    @click="showToast"
+                    @click="handleClick"
                   >
                     Okk !!
                   </button>
@@ -75,7 +75,7 @@ export default {
     closeModal() {
       this.$emit("close");
     },
-    showToast() {
+    handleClick() {
       this.$emit("close");
     },
   },

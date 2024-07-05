@@ -1,7 +1,7 @@
 <template>
   <div class="pb-[60px] pb-[30px]">
     <h2
-      class="xl:text-[50px] md:text-[35px] text-[25px] font-semibold mb-[40px] text-blue text-center"
+      class="xl:text-[50px] md:text-[35px] text-[25px] font-semibold mb-[40px] text-black text-center"
     >
       Blog
     </h2>
@@ -11,12 +11,12 @@
           <img :src="i.image" alt="Image 1" class="" />
           <div class="pt-5">
             <h2
-              class="text-darkBlue text-center mb-2 md:text-[26px] text-[22px] font-semibold"
+              class="text-black text-center mb-2 md:text-[26px] text-[22px] font-semibold"
             >
               {{ i.title }}
             </h2>
             <h6
-              class="text-darkBlue text-center md:text-xl text-lg font-normal md:mb-10 mb-0"
+              class="text-[#330099] text-center md:text-xl text-lg font-normal md:mb-10 mb-0"
             >
               {{ i.description }}
             </h6>

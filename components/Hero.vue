@@ -1,30 +1,32 @@
 <template>
   <div>
     <div
-      class="bg-hero-img relative bg-cover xl:py-[230px] xxl:pb-[400px] overflow-hidden py-[180px] lg:px-[60px] px-7 bg-no-repeat"
+      class="bg-hero-img relative bg-cover xxl:pb-[230px] xl:pb-[200px] lg:pb-[230px] pb-[150px] overflow-hidden lg:pt-[250px] pt-[120px] lg:px-[60px] px-7 bg-no-repeat"
     >
       <div class="xl:grid xl:grid-cols-3">
         <div
-          class="xl:col-span-2 col-span-1 xl:max-w-[600px] xxl:max-w-[1000px] max-w-[100%]"
+          class="xl:col-span-2 col-span-1 xl:max-w-[600px] xxl:max-w-[552px] max-w-[100%]"
         >
           <h2
-            class="text-white font-normal !leading-normal lg:mb-[38px] mb-7 lg:text-[44px] md:text-3xl text-2xl"
+            class="text-white font-medium font-[roboto-slab] !leading-normal lg:mb-[38px] mb-7 lg:text-[44px] md:text-3xl text-2xl"
           >
-            Know your REAL E-commerce Profit or Loss in Just one Dashboard
-            within 60 Sec
+            Know your REAL <span class="text-[#01CACF]">E-commerce</span> Profit
+            or Loss in Just one Dashboard within 60 Sec
           </h2>
-          <p class="text-dark lg:text-3xl text-lg lg:mb-10 mb-8">
+          <p
+            class="text-dark font[roboto-flex] font-semibold lg:text-3xl text-lg lg:mb-10 mb-8"
+          >
             Track all your revenue and expenses and find out real profit
           </p>
 
           <nuxt-link
             to="/signup"
-            class="lg:py-5 py-3 rounded-lg lg:px-[85px] md:px-10 px-5 inline-block bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white text-lg font-medium"
+            class="lg:py-5 py-3 rounded-xl lg:px-[67px] md:px-10 px-5 inline-block bg-gradient-to-r from-[#00CACE] to-[#00C3D3] hover:bg-gradient-to-r hover:from-[#00CACE] transition-main hover:to-[#00C3D3] bg-primaryBg text-white text-2xl font-semibold"
           >
             Learn More
           </nuxt-link>
         </div>
-        <div class="xl:absolute right-0">
+        <div class="xl:absolute right-0 top-28 xxl:mt-0 xl:mt-0 mt-10">
           <img
             src="../static/Images/hero-img.webp"
             class="xxl:w-[800px] xl:w-[600px] w-full h-auto"

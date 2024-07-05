@@ -2,9 +2,7 @@
   <div>
     <PageTemplate>
       <template #content>
-        <div
-          class="pt-8 my-4 xl:w-[30%] lg:w-1/2 sm:w-1/2 md:w-[75%] mx-5"
-        >
+        <div class="pt-8 my-4 xl:w-[30%] lg:w-1/2 sm:w-1/2 md:w-[75%] mx-5">
           <h2
             class="xl:text-4xl text-2xl py-2 font-medium text-center text-white lg:mb-12 xl:mb-3 sm:mb-0"
           >
@@ -110,7 +108,7 @@
               </div>
             </div>
             <button
-              class="bg-gradient-to-r from-[#EA69FF] to-[#AC05E8] hover:bg-gradient-to-r hover:from-[#AC05E8] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full rounded-md"
+              class="bg-gradient-to-r from-[#00CACE] to-[#00C3D3] hover:bg-gradient-to-r hover:from-[#00CACE] transition-main hover:to-[#00C3D3] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full rounded-md"
               @click="signup"
               :disabled="isLoading"
             >
@@ -170,8 +168,9 @@ export default {
           this.$router.push("/login");
         }
       } catch (error) {
+        console.log("error", error);
         this.$toast.open({
-          message: error,
+          message: error?.response?.data?.msg || this.message?.techinalError,
           type: "error",
           duration: 2000,
           position: "bottom-right",

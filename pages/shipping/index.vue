@@ -32,17 +32,17 @@
           @change="getName"
         />
       </div>
-      <div class="flex gap-3 lg:flex-row flex-col justify-end w-full">
+      <div class="flex gap-3 justify-end flex-column">
         <button
           @click="shipingBack"
-          class="inline-flex items-center justify-center xl:w-[12.5rem] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+          class="inline-flex items-center width-100 justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
         >
           Back
         </button>
         <button
           @click="handleShippingNext"
           :disabled="isLoading"
-          class="inline-flex items-center justify-center xl:w-[12.5rem] sm:w-full bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-5 mt-4 px-4 text-sm rounded-md"
+          class="inline-flex items-center width-100 justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
         >
           <Loader v-if="isLoading" :loading="isLoading"></Loader>
           <span v-else> Next</span>
@@ -71,9 +71,7 @@
         :key="key"
         class="grid lg:grid-cols-2 grid-cols-1 gap-3 w-full"
       >
-        <div
-          class="flex justify-between items-center gap-4"
-        >
+        <div class="flex justify-between items-center gap-4">
           <div class="flex items-center gap-4">
             <div class="py-2 px-2 rounded-full bg-gray-200 transition-main w-7">
               <img :src="platform.image" alt="" />
@@ -90,16 +88,16 @@
         </div>
       </div>
 
-      <div class="flex gap-3 lg:flex-row flex-col justify-end w-full">
+      <div class="flex gap-3 justify-end flex-column">
         <button
-          class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
+          class="inline-flex items-center width-100 justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
           @click="back"
         >
           Back
         </button>
         <button
           @click="handleSubmit"
-          class="inline-flex items-center justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
+          class="inline-flex items-center width-100 justify-center bg-[#2B0064] transition-main hover:to-[#EA69FF] bg-primaryBg text-white font-bold py-4 mt-4 px-12 text-sm rounded-md"
           :disabled="isLoading"
         >
           <Loader v-if="isLoading" :loading="isLoading"></Loader>
