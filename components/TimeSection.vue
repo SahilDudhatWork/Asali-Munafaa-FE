@@ -6,7 +6,7 @@
       Find Out Every Profit Opportunity, Cut Losses in Real Time
     </h2>
     <p
-      class="md:text-[28px] text-[22px] max-w-[1448px] mx-auto text-center mb-[100px] font-medium text-blue"
+      class="md:text-[28px] text-[22px] max-w-[1448px] mx-auto text-center mb-[100px] font-medium text-[#330099]"
     >
       Find what boosts and hurts your profit. Learn how fees such as shipping,
       fulfillment, discounts, and other expenses impact profitability, then
@@ -64,7 +64,7 @@
                   fill="black"
                 />
               </svg>
-              <h2 class="text-blue md:text-[24px] text-lg font-bold">
+              <h2 class="text-[#7700D2] md:text-[24px] text-lg font-bold">
                 Products
               </h2>
             </div>
@@ -169,7 +169,7 @@
                 />
               </svg>
 
-              <h2 class="text-blue md:text-[24px] text-lg font-bold">
+              <h2 class="text-[#7700D2] md:text-[24px] text-lg font-bold">
                 Shipping
               </h2>
             </div>
@@ -249,7 +249,7 @@
                   fill="white"
                 />
               </svg>
-              <h2 class="text-blue md:text-[24px] text-lg font-bold">
+              <h2 class="text-[#7700D2] md:text-[24px] text-lg font-bold">
                 Discount
               </h2>
             </div>
@@ -353,7 +353,7 @@
                   </clippath>
                 </defs>
               </svg>
-              <h2 class="text-blue md:text-[24px] text-lg font-bold">
+              <h2 class="text-[#7700D2] md:text-[24px] text-lg font-bold">
                 Payment
               </h2>
             </div>

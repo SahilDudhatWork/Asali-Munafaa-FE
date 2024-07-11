@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="bg-hero-img relative bg-cover xxl:pb-[230px] xl:pb-[200px] lg:pb-[230px] pb-[150px] overflow-hidden lg:pt-[250px] pt-[120px] lg:px-[60px] px-7 bg-no-repeat"
+      class="bg-hero-img relative bg-cover xxl:pb-[290px] xl:pb-[200px] lg:pb-[230px] pb-[150px] overflow-hidden lg:pt-[250px] pt-[150px] xxl:px-[250px] px-7 bg-no-repeat"
     >
       <div class="xl:grid xl:grid-cols-3">
         <div
@@ -14,7 +14,7 @@
             or Loss in Just one Dashboard within 60 Sec
           </h2>
           <p
-            class="text-dark font[roboto-flex] font-semibold lg:text-3xl text-lg lg:mb-10 mb-8"
+            class="text-[#EAEDFF] font-[poppins] font-semibold lg:text-3xl text-lg lg:mb-10 mb-8"
           >
             Track all your revenue and expenses and find out real profit
           </p>
@@ -29,7 +29,7 @@
         <div class="xl:absolute right-0 top-28 xxl:mt-0 xl:mt-0 mt-10">
           <img
             src="../static/Images/hero-img.webp"
-            class="xxl:w-[800px] xl:w-[600px] w-full h-auto"
+            class="xxl:w-[900px] xl:w-[1000px] w-full h-auto"
             alt="image"
           />
         </div>

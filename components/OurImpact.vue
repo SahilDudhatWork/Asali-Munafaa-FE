@@ -54,7 +54,7 @@
     </div>
     <img
       src="../static/Images/impact-img.webp"
-      class="absolute top-1 opacity-10 bg-cover bg-no-repeat hidden !md:block !lg:block xl:block xxl:block"
+      class="absolute opacity-10 bg-cover bg-no-repeat hidden !md:block !lg:block xl:block xxl:block -top-[65px]"
     />
     <div class="max-w-[1216px] mx-auto px-3">
       <h2
@@ -63,7 +63,7 @@
         Know Your True Profit
       </h2>
       <p
-        class="xl:text-3xl md:text-2xl text-xl text-center mx-auto font-medium xxl:mb-[90px] text-blue"
+        class="xl:text-3xl md:text-2xl text-xl text-center mx-auto font-medium xxl:mb-[90px] text-[#330099]"
       >
         Understanding everything that impacts your business should be simple,
         intuitive, and up-to-date at any given moment so you can continuously

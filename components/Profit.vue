@@ -54,14 +54,14 @@
           Why You’re Not Profitable in Your Online Store?
         </h2>
         <p
-          class="xl:text-3xl md:text-2xl text-xl text-center mx-auto font-medium text-blue"
+          class="xl:text-3xl md:text-2xl text-xl text-center mx-auto font-medium text-[#330099]"
         >
           Because you don’t know the matrix, you don’t know how much money you
           have spent on marketing, websites, shipping, labour, products and
           other small expenses.
         </p>
         <p
-          class="xl:text-3xl md:text-2xl text-xl text-center mx-auto font-medium text-blue"
+          class="xl:text-3xl md:text-2xl text-xl text-center mx-auto font-medium text-[#330099]"
         >
           You also don’t know what’s your cost for acquiring one customer, your
           REAL ROAS, and your RTO, but we have a solution for you that can solve

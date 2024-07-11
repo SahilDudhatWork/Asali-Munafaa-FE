@@ -70,6 +70,15 @@ export const actions = {
     }
   },
 
+  async connectShopify(ctx, payload) {
+    try {
+      const response = await $axios.post(`/shopify/install?shop=${payload}`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+
   async getProfileData(ctx, payload) {
     try {
       const response = await $axios.get("/user/profile");

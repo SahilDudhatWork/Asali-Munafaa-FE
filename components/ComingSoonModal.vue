@@ -18,7 +18,7 @@
                   />
                 </div>
                 <div
-                  class="w-full p-7 xxl:w-1/2 bg-white mx-4 my-4 xl:mx-0 xl:my-0"
+                  class="w-full p-3 xxl:w-1/2 bg-white mx-4 my-4 xl:mx-0 xl:my-0"
                 >
                   <h2
                     class="xl:text-2xl sm:text-xl xl:py-3 py-1 font-semibold text-center"

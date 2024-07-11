@@ -38,7 +38,19 @@
             >
               Compare Periods
             </button>
-            <div class="flex border py-3 px-2 gap-3">
+            <div
+        class="gap-3 mt-3 mb-5 flex flex-col gap-3"
+        v-for="(item, key) in aboutBusiness"
+        :key="key"
+      >
+        <Dropdown
+          :index="key"
+          :items="item.items"
+          :selectedLabel="item.selectedLabel"
+          @getValue="getValue"
+        />
+      </div>
+            <!-- <div class="flex border py-3 px-2 gap-3">
               <select
                 name
                 id
@@ -57,7 +69,7 @@
                 <option value="week">Month</option>
                 <option value="week">Week</option>
               </select>
-            </div>
+            </div> -->
           </div>
         </div>
         <LineChart
@@ -283,6 +295,19 @@ export default {
         "Cost per Purchase",
         "Total Sales",
         "ROAS",
+      ],
+      aboutBusiness: [
+        {
+          question: "How much You’re Spending on ads ?",
+          selectedLabel: "Select Metrics",
+          items: [
+            { label: "50k to 1lac", value: "50k to 1lac" },
+            { label: "3lac to 5lac", value: "3lac to 5lac" },
+            { label: "1lac to 3lac", value: "1lac to 3lac" },
+            { label: "Above 10lac", value: "Above 10lac" },
+            { label: "5lac to 10lac", value: "5lac to 10lac" },
+          ],
+        },
       ],
       tableData: [
         {
