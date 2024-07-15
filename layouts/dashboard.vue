@@ -228,7 +228,7 @@
 
 <script>
 import trueIcon from "@/static/svg/true.svg";
-import { mapActions, mapState } from "vuex";
+import { mapActions} from "vuex";
 export default {
   middleware: "auth",
   data() {
@@ -306,7 +306,7 @@ export default {
     };
   },
   mounted() {
-    document.body.style.backgroundColor = "#dad8f3";
+    document.body.style.backgroundColor = "#D9D8FF";
   },
   beforeDestroy() {
     document.body.style.backgroundColor = '';

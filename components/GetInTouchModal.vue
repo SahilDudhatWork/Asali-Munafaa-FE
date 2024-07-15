@@ -83,7 +83,6 @@
 <script>
 import { mapActions } from "vuex";
 import message from "@/static/lang/en.json";
-
 export default {
   props: {
     isGetInTouchModal: {
@@ -110,7 +109,7 @@ export default {
     async handleClick() {
       if (!this.firstName || !this.email || !this.mobile || !this.website) {
         this.$toast.open({
-          message: "Please fill up your field !",
+          message: message.errorMessage,
           type: "error",
           duration: 2000,
           position: "bottom-right",

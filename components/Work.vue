@@ -18,7 +18,7 @@
           <div class="text-center w-full">
             <h2 class="text-black mb-2 text-[26px] font-semibold">Step 1</h2>
             <h6
-              class="text-[#330099] xl:max-w-[450px] mx-auto text-xl font-medium mb-10"
+              class="text-[#330099] xl:max-w-[450px] mx-auto text-2xl font-medium mb-10"
             >
               Connect all platforms like Shopify, WordPress, Facebook ads,
               google ads, shipping portal
@@ -35,7 +35,7 @@
             <div class="text-center w-full">
               <h2 class="text-black mb-2 text-[26px] font-semibold">Step 2</h2>
               <h6
-                class="text-[#330099] xl:max-w-[450px] mx-auto text-xl font-medium mb-10"
+                class="text-[#330099] xl:max-w-[450px] mx-auto text-2xl font-medium mb-10"
               >
                 Find out where you are spending your money, where you’re
                 lacking, how much money you have received now, and how much you
@@ -76,7 +76,7 @@
           <div class="text-center w-full">
             <h2 class="text-black mb-2 text-[26px] font-semibold">Step 3</h2>
             <h6
-              class="text-[#330099] xl:max-w-[450px] mx-auto text-xl font-medium md:mb-10 mb-0"
+              class="text-[#330099] xl:max-w-[450px] mx-auto text-2xl font-medium md:mb-10 mb-0"
             >
               Now it’s time to scale your E-commerce business because you know
               your mistakes and now you can't repeat it

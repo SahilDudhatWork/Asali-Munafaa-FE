@@ -1,62 +1,70 @@
 <template>
-  <div class="">
+<div>
     <button
       @click="toggleDropdown"
-      class="text-[#8C93BE] border-2 bg-[#F3F3F3] xl:mx-7 mx-0 lg:mx-8 md:mx-5 xl:w-1/2 xs:w-full width-100 lg:w-1/2 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+      :class="['bg-white mx-0 text-[#5B638B] font-semibold rounded text-base py-2.5 w-40 width-8 width-7 text-center inline-flex items-center justify-center',borderClass]"
       type="button"
     >
+     <span class="flex gap-2 items-center text-center">
       {{ selectedLabel }}
+      <svg v-if="isSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="Downarrow" width="20" height="20">
+        <path d="M16 22a2 2 0 0 1-1.41-.59l-10-10a2 2 0 0 1 2.82-2.82L16 17.17l8.59-8.58a2 2 0 0 1 2.82 2.82l-10 10A2 2 0 0 1 16 22Z" fill="#5B638B" class="color000000 svgShape">
+        </path>
+      </svg> 
+    </span>
     </button>
-
-    <div
-      v-if="isDropdownVisible"
-      class="shadow-md z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-1/2 dark:bg-gray-700 mx-6 my-4"
-    >
-      <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 lg:px-3 px-0">
-        <li v-for="item in items" :key="item.value">
+    <div v-if="isDropdown" v-click-outside="closeDropdown" class="z-50 absolute right-0 top-14 bg-white rounded-lg shadow  width-8 width-7 w-40 dark:bg-gray-700">
+        <ul class="text-sm text-gray-700 dark:text-gray-200 cursor-pointer">
+            <li v-for="(item,index) in items" :key="index">
           <a
-            href="#"
-            class="block lg:px-4 px-0 py-2 border-b"
-            @click.prevent="selectItem(item)"
+            @click.prevent="selectItem(item,index)"
           >
-            <span class="text-[#8C93BE] font-semibold text-lg">
+            <span class="block px-4 py-2">
               {{ item.label }}
             </span>
           </a>
         </li>
-      </ul>
+        </ul>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
 export default {
-  props: {
+    props: {
     items: {
       type: Array,
       required: true,
     },
     selectedLabel: {
-      // type: String,
+      type: String,
       required: true,
     },
-    index: {
-      type: Number,
+    borderClass: {
+      type: String,
+      default: 'border',
     },
-  },
-  data() {
-    return {
-      isDropdownVisible: false,
-    };
-  },
-  methods: {
-    toggleDropdown() {
-      this.isDropdownVisible = !this.isDropdownVisible;
+    isSvg: {
+      type:Boolean,
+      default: false,
     },
-    selectItem(item) {
-      this.isDropdownVisible = false;
-      this.$emit("getValue", item, this.index);
     },
-  },
-};
+    data() {
+        return {
+            isDropdown:false
+        }
+    },
+    methods: {
+        closeDropdown() {
+            this.isDropdown = false
+        },
+        toggleDropdown(){
+            this.isDropdown = !this.isDropdown;
+        },
+        selectItem(item) {
+        this.isDropdown = false;
+        this.$emit("getValue", item);
+      },
+    },
+}
 </script>

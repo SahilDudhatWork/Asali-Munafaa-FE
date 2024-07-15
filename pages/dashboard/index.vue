@@ -34,42 +34,19 @@
             class="flex gap-2 xxl:flex-row xxxl:flex-row xl:flex-row gap-4 flex-col lg:flex-row"
           >
             <button
+             @click="toggleDropdown"
               class="bg-[#009332] transition-main text-white font-semibold px-5 py-3 w-full text-base rounded-sm"
             >
               Compare Periods
             </button>
-            <div
-        class="gap-3 mt-3 mb-5 flex flex-col gap-3"
-        v-for="(item, key) in aboutBusiness"
-        :key="key"
-      >
-        <Dropdown
-          :index="key"
-          :items="item.items"
-          :selectedLabel="item.selectedLabel"
-          @getValue="getValue"
-        />
-      </div>
-            <!-- <div class="flex border py-3 px-2 gap-3">
-              <select
-                name
-                id
-                class="!focus:outline-none !focus-visible::outline-0 border-none text-[#5B638B] rounded font-semibold text-base"
-              >
-                <option value="year">Select Metrics</option>
-                <option value="week">Month</option>
-                <option value="week">Week</option>
-              </select>
-              <select
-                name
-                id
-                class="focus:border-none active:border-none text-[#5B638B] border-none font-semibold rounded text-base"
-              >
-                <option value="year">Daily</option>
-                <option value="week">Month</option>
-                <option value="week">Week</option>
-              </select>
-            </div> -->
+            <div class="flex xl:px-2 px-0 gap-5 border rounded border-[#5B638B]">
+              <div class="relative">
+              <Dropdown :isSvg="isSvg" :borderClass="borderClass" :items="metricsDropDown" :selectedLabel="metricsSelectedLabel" @getValue="getMetricsValue"/>   
+            </div>
+            <div class="relative"> 
+              <Dropdown :isSvg="isSvg" :borderClass="borderDailyClass" :items="dailyDropDown" :selectedLabel="dailySelectedLabel" @getValue="getDailyValue"/>
+            </div>
+          </div>
           </div>
         </div>
         <LineChart
@@ -115,7 +92,7 @@
               Gross Profit
             </button>
             <button
-              class="xl::text-xl text-md font-semibold text-[#4C45E3] px-4 py-[6px]"
+              class="xl:text-xl text-md font-semibold text-[#4C45E3] px-4 py-[6px]"
               @click="toggleProfit('net')"
               :class="isGross ? 'text-[#4C45E3]' : 'bg-[#4C45E3] text-white '"
             >
@@ -283,10 +260,26 @@ export default {
   data() {
     return {
       isShow: false,
+      isDropdown:false,
       isGross: true,
       isAds: true,
+      isSvg:true,
       activeButton: "Revenue",
       date: new Date(),
+      metricsDropDown: [
+        { label: 'Metrics' },
+        { label: 'Earnings' },
+        { label: 'Log out' },
+      ],
+      dailyDropDown: [
+        { label: 'Daily' },
+        { label: 'Earnings' },
+        { label: 'Log out' },
+      ],
+      metricsSelectedLabel: 'Select Metrics',
+      dailySelectedLabel: 'Daily',
+      borderClass:'border-r border-[#5B638B] rounded-none',
+      borderDailyClass:'border-none',
       tableHeaders: [
         "No.",
         "Campaign Name",
@@ -295,19 +288,6 @@ export default {
         "Cost per Purchase",
         "Total Sales",
         "ROAS",
-      ],
-      aboutBusiness: [
-        {
-          question: "How much You’re Spending on ads ?",
-          selectedLabel: "Select Metrics",
-          items: [
-            { label: "50k to 1lac", value: "50k to 1lac" },
-            { label: "3lac to 5lac", value: "3lac to 5lac" },
-            { label: "1lac to 3lac", value: "1lac to 3lac" },
-            { label: "Above 10lac", value: "Above 10lac" },
-            { label: "5lac to 10lac", value: "5lac to 10lac" },
-          ],
-        },
       ],
       tableData: [
         {
@@ -586,6 +566,12 @@ export default {
     };
   },
   methods: {
+    toggleDropdown(){
+      this.isDropdown = true;
+    },
+    closeDropDown(){
+      this.isDropdown = false;
+    },
     previous() {
       console.log("previous page");
     },
@@ -600,6 +586,12 @@ export default {
     },
     toggleRevenue(type) {
       this.activeButton = type;
+    },
+    getMetricsValue(item) {
+      this.metricsSelectedLabel = item.label;
+    },
+    getDailyValue(item) {
+      this.dailySelectedLabel = item.label;
     },
   },
 };

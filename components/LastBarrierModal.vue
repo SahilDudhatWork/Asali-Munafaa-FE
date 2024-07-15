@@ -56,7 +56,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-
+import message from "@/static/lang/en.json";
 export default {
   props: {
     isLoading: {
@@ -87,7 +87,7 @@ export default {
     async next() {
       if (!this.onBoarding.goal || !this.onBoarding.futureRevenue) {
         this.$toast.open({
-          message: "Please fill up your field !",
+          message: message.errorMessage,
           type: "error",
           duration: 2000,
           position: "bottom-right",

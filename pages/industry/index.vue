@@ -52,6 +52,7 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
+import message from "@/static/lang/en.json";
 export default {
   layout: "dashboard",
   data() {
@@ -106,7 +107,7 @@ export default {
       try {
         if (this.selectedValue == "") {
           this.$toast.open({
-            message: "Please fill up your field !",
+            message: message.errorMessage,
             type: "error",
             duration: 2000,
             position: "bottom-right",

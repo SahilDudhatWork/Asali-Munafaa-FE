@@ -151,7 +151,7 @@ export default {
       try {
         if (this.form.email == "" || this.form.password == "") {
           this.$toast.open({
-            message: "Please fill up your field !",
+            message: message.errorMessage,
             type: "error",
             duration: 2000,
             position: "bottom-right",
@@ -168,7 +168,6 @@ export default {
           this.$router.push("/login");
         }
       } catch (error) {
-        console.log("error", error);
         this.$toast.open({
           message: error?.response?.data?.msg || this.message?.techinalError,
           type: "error",

@@ -32,15 +32,9 @@
         >
           <div class="flex justify-between items-center mb-5">
             <h2 class="text-black font-normal text-xl">Net True Profit</h2>
-            <select
-              name
-              id
-              class="py-1 px-2 rounded-sm border border-[#C6CDE5]"
-            >
-              <option value="year">Year</option>
-              <option value="week">Month</option>
-              <option value="week">Week</option>
-            </select>
+            <div class="relative"> 
+              <Dropdown :items="trueProfitSelect" :selectedLabel="selectedLabel" @getValue="getValue" class="border-none"/>
+            </div>
           </div>
           <LineChart
             :chartData="chartData"
@@ -56,6 +50,12 @@
 export default {
   data() {
     return {
+      trueProfitSelect: [
+        { label: 'Years' },
+        { label: 'Month' },
+        { label: 'Week' },
+      ],
+      selectedLabel: 'Years',
       chartData: {
         labels: [2015, 2016, 2017, 2018, 2019, 2020],
         datasets: [
@@ -114,5 +114,10 @@ export default {
       },
     };
   },
+  methods:{
+    getValue(item) {
+      this.selectedLabel = item.label;
+    },
+  }
 };
 </script>

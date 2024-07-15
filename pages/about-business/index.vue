@@ -23,7 +23,7 @@
         <p class="text-xl font-medium text-[#5B638B]">
           {{ `${key + 1}).` }} {{ item.question }}
         </p>
-        <Dropdown
+        <AboutBusinessDropdown
           :index="key"
           :items="item.items"
           :selectedLabel="item.selectedLabel"
@@ -161,7 +161,7 @@ export default {
       );
       if (invalidItemFound) {
         this.$toast.open({
-          message: "Please fill up your field !",
+          message: message.errorMessage,
           type: "error",
           duration: 2000,
           position: "bottom-right",

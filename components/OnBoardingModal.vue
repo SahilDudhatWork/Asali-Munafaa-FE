@@ -54,6 +54,7 @@
   </div>
 </template>
 <script>
+import message from "@/static/lang/en.json";
 import { mapGetters } from "vuex";
 export default {
   props: {
@@ -91,7 +92,7 @@ export default {
         !this.onBoarding.websiteUrl
       ) {
         this.$toast.open({
-          message: "Please fill up your field !",
+          message: message.errorMessage,
           type: "error",
           duration: 2000,
           position: "bottom-right",

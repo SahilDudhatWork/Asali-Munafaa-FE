@@ -163,7 +163,7 @@ export default {
       try {
         if (this.form.emailOrPhone == "" || this.form.password == "") {
           this.$toast.open({
-            message: "Please fill up your field !",
+            message: message.errorMessage,
             type: "error",
             duration: 2000,
             position: "bottom-right",

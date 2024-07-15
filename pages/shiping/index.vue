@@ -44,36 +44,20 @@
           class="flex justify-between items-center xxl:flex-row xxxl:flex-row xl:flex-row lg:flex-row gap-4 flex-col mb-5 border-b-2 py-3"
         >
           <h2 class="text-[#09347F] font-semibold text-xl">
-            Compare Key Metrics
+            Compare shipment
           </h2>
           <div
             class="flex gap-2 xxl:flex-row xxxl:flex-row xl:flex-row gap-4 flex-col lg:flex-row"
           >
-            <button
-              class="bg-[#009332] transition-main text-white font-semibold px-5 py-3 w-full text-base rounded-sm"
-            >
-              Compare Periods
-            </button>
-            <div class="flex border py-3 px-4 gap-3">
-              <select
-                name
-                id
-                class="!focus:outline-none !focus-visible::outline-0 border-none text-[#5B638B] rounded font-semibold text-base"
-              >
-              <option value="year">logistics</option>
-                <option value="week">Month</option>
-                <option value="week">Week</option>
-              </select>
-              <select
-                name
-                id
-                class="focus:border-none active:border-none text-[#5B638B] border-none font-semibold rounded text-base"
-              >
-              <option value="year">Region</option>
-                <option value="week">Month</option>
-                <option value="week">Week</option>
-              </select>
+            <div class="flex px-2 gap-5 border rounded border-[#5B638B]">
+              <div class="relative">
+              <Dropdown :isSvg="isSvg" :borderClass="borderClass" :items="logisticsDropDown" :selectedLabel="logisticsSelectedLabel" @getValue="getLogisticsValue"/>   
             </div>
+            <div class="relative"> 
+              <Dropdown :isSvg="isSvg" :borderClass="borderDailyClass" :items="regionDropDown" :selectedLabel="regionSelectedLabel" @getValue="getRegionValue"/>
+            </div>
+          </div>
+
           </div>
         </div>
         <LineChart
@@ -144,20 +128,12 @@
     >
       <div class="bg-white rounded-xl shadow-lg px-5 py-5 mb-6">
         <div class="flex justify-between px-2 py-2">
-          <p class="text-[#000087] font-semibold text-xl w-[70%]">
-            <select
-                name
-                id
-                class="!focus-visible::outline-0 text-[#5B638B] border py-2 px-3 rounded-md font-semibold text-base"
-              >
-                <option value="year">Orders</option>
-                <option value="week">Month</option>
-                <option value="week">Week</option>
-              </select>
+          <p class="relative">
+            <Dropdown :isSvg="isSvg" :items="ordersDropDown" :selectedLabel="ordersSelectedLabel" @getValue="getOrdersValue"/>   
           </p>
           <p class="text-[#2d375b] font-normal text-base">Last 30 days</p>
         </div>
-        <div class="mb-7" id="test-chart">
+        <div class="mb-7 mt-3" id="test-chart">
           <GChart
           :type="'GeoChart'"
           :data="chartDatas"
@@ -219,6 +195,27 @@ export default {
       isShow: false,
       isAds: true,
       date: new Date(),
+      isSvg:true,
+      logisticsDropDown: [
+        { label: 'logistics' },
+        { label: 'Earnings' },
+        { label: 'Log out' },
+      ],
+      regionDropDown: [
+        { label: 'Region' },
+        { label: 'Earnings' },
+        { label: 'Log out' },
+      ],
+      ordersDropDown: [
+        { label: 'Orders' },
+        { label: 'Earnings' },
+        { label: 'Week' },
+      ],
+      ordersSelectedLabel:'Orders',
+      logisticsSelectedLabel: 'logistics',
+      regionSelectedLabel: 'Region',
+      borderClass:'border-r border-[#5B638B] rounded-none',
+      borderDailyClass:'border-none',
       shippingProtal: {
         image: ruppesImage,
         title: "Shipping Portal",
@@ -527,10 +524,19 @@ export default {
     toggleAds(type) {
       this.isAds = type === "Shiprocket";
     },  
+    getLogisticsValue(item) {
+      this.logisticsSelectedLabel = item.label;
+    },
+    getRegionValue(item) {
+      this.regionSelectedLabel = item.label;
+    },
+    getOrdersValue(item){
+      this.ordersSelectedLabel = item.label
+    },
     removeBorders() {
       this.$nextTick(() => {
         const chart = document.getElementById('test-chart');
-        const svg = chart.querySelector('svg');
+        const svg = chart?.querySelector('svg');
         
         if (svg) {
           const paths = svg.querySelectorAll('path');
@@ -541,7 +547,7 @@ export default {
             }
           });
         } else {
-          console.error('SVG element not found');
+          console.log('SVG element not found');
         }
       });
     },

@@ -259,7 +259,7 @@ export default {
     };
   },
   async mounted() {
-    document.body.style.backgroundColor = "#dad8f3";
+    document.body.style.backgroundColor = "#D9D8FF";
     this.activeTab = this.$router.history.current.fullPath;
     try {
       const response = await this.getProfileData();

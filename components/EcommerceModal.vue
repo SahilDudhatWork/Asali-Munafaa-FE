@@ -57,7 +57,6 @@
       </button>
       <button
         class="bg-[#2E0A93] text-white font-bold py-3 mt-4 px-4 w-full text-sm rounded-md"
-        @click="weCommerceLogin"
         :disabled="isLoading"
       >
         <div class="flex items-center justify-center">
@@ -142,6 +141,7 @@
                       class="text-gray-700 focus:outline-none pr-32 focus:shadow-outline border border-gray-300 rounded px-4 block w-full appearance-none"
                       type="text"
                       placeholder="store-name"
+                      v-model="store"
                     />
                   </div>
                 </div>
@@ -153,6 +153,7 @@
                     Back
                   </button>
                   <button
+                  @click="handleSubmit"
                     class="font-medium bg-green-800 text-white border border-gray-300 transition-colors rounded py-3 px-9"
                   >
                     Next
@@ -171,6 +172,8 @@
 </template>
 
 <script>
+import message from "@/static/lang/en.json";
+import crypto from "crypto";
 export default {
   props: {
     isLoading: {
@@ -180,16 +183,38 @@ export default {
   data() {
     return {
       isModal: false,
+      store:"",
     };
   },
   methods: {
     shopifyLogin() {
-      this.isModal = false;
-      this.$emit("next");
+      this.isModal = true;
     },
-    weCommerceLogin() {
-      this.$emit("next");
-    },
+    handleSubmit(){
+      if(!this.store){
+        this.$toast.open({
+            message:message.storeMessage,
+            type: "error",
+            duration: 2000,
+            position: "bottom-right",
+          });
+      }else{
+        try {
+        const SHOPIFY_API_KEY = process.env.SHOPIFY_API_KEY;
+        const SHOPIFY_SCOPES = process.env.SHOPIFY_SCOPES;
+        const SHOPIFY_REDIRECT_URI = process.env.SHOPIFY_REDIRECT_URI;
+        const state = Buffer.from(
+          JSON.stringify({ state: crypto.randomBytes(16).toString("hex") })
+        ).toString("base64");
+        const installUrl = `https://${this.store}.myshopify.com/admin/oauth/authorize?client_id=${SHOPIFY_API_KEY}&scope=${SHOPIFY_SCOPES}&state=${state}&redirect_uri=${SHOPIFY_REDIRECT_URI}`;
+        if (window.self === window.top) {
+          window.location.href = installUrl;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+      }
+    }
   },
 };
 </script>

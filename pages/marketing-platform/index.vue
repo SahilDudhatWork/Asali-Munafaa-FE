@@ -107,7 +107,7 @@ import googleAds from "@/static/svg/googleAds.svg";
 import tiktok from "@/static/svg/tiktok.svg";
 import snapchat from "@/static/svg/snapchat.svg";
 import { mapActions, mapGetters } from "vuex";
-
+import message from "@/static/lang/en.json";
 export default {
   layout: "dashboard",
   data() {
@@ -164,14 +164,14 @@ export default {
     async getName(value) {
       this.selectedValue = value;
     },
-    connect(value, key) {
-      console.log(value.name, key, "are you sure do connect ??");
+    connect(value) {
+      console.log(value.name);
     },
     async marketingPlatformNext() {
       try {
         if (this.selectedValue == "") {
           this.$toast.open({
-            message: "Please fill up your field !",
+            message: message.errorMessage,
             type: "error",
             duration: 2000,
             position: "bottom-right",
