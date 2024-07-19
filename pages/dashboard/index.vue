@@ -239,7 +239,7 @@
     <div
       class="mt-6 mb-4 bg-white rounded-xl shadow-lg py-3 overflow-x-auto px-3"
     >
-      <Table :header="tableHeaders" :tableData="tableData" />
+      <CampaignTable :header="tableHeaders" :tableData="tableData" />
     </div>
     <div class="mt-3 rounded-xl shadow-lg">
       <Footer />
@@ -248,11 +248,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import ruppesImage from "@/static/svg/ruppes.svg";
-import salesImage from "@/static/Images/product1.webp";
-import totalSalesImage from "@/static/Images/product2.webp";
-import grossProfitImage from "@/static/Images/product3.webp";
-import deviveryRateImage from "@/static/Images/product4.webp";
 import questionIcon from "@/static/svg/question.svg";
 import profitImage from "@/static/svg/profit.svg";
 export default {
@@ -385,36 +382,7 @@ export default {
           bodySpacing: 4,
         },
       },
-      productCard: [
-        {
-          image: salesImage,
-          sales: "10",
-          totalSales: "₹10,000",
-          grossProfit: { key: "₹ 8,000", value: "80%" },
-          deliveryRate: "50%",
-        },
-        {
-          image: totalSalesImage,
-          sales: "10",
-          totalSales: "₹10,000",
-          grossProfit: { key: "₹ 8,000", value: "80%" },
-          deliveryRate: "50%",
-        },
-        {
-          image: grossProfitImage,
-          sales: "10",
-          totalSales: "₹10,000",
-          grossProfit: { key: "₹ 8,000", value: "80%" },
-          deliveryRate: "50%",
-        },
-        {
-          image: deviveryRateImage,
-          sales: "10",
-          totalSales: "₹10,000",
-          grossProfit: { key: "₹ 8,000", value: "80%" },
-          deliveryRate: "50%",
-        },
-      ],
+      productCard:[],
       totalSales: [
         {
           key: "Total Sales",
@@ -566,6 +534,9 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      getProductDetails: "bussiness-details/getProductDetails",
+    }),
     toggleDropdown(){
       this.isDropdown = true;
     },
@@ -593,7 +564,18 @@ export default {
     getDailyValue(item) {
       this.dailySelectedLabel = item.label;
     },
+    async prodocuDetails(){
+      try {
+       let res = await this.getProductDetails();
+       this.productCard = res.data.Response
+      } catch (error) {
+        console.log(error);
+      }
+    }
   },
+  async mounted(){
+    await this.prodocuDetails();
+  }
 };
 </script>
 <style>

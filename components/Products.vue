@@ -122,7 +122,7 @@
         class="grid xl:grid-cols-4 xxxl:grid-cols-4 xxl:grid-cols-4 lg:grid-cols-2 grid-cols-1 gap-5"
       >
         <ProductCard
-          v-for="(item, key) in productCard"
+          v-for="(item, key) in productCard.slice(0,4)"
           :key="key"
           :item="item"
         />

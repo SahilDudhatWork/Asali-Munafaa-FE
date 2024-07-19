@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="xl:pb-[120px] md:pb-[100px] pb-[50px]">
+    <div class="xl:pb-[120px] md:pb-[100px] pb-[50px] mt-28">
       <div class="xl:max-w-[1798px] max-w-[1500px] mx-auto">
         <div class="flex flex-wrap justify-center gap-10 px-3">
           <div

@@ -41,10 +41,11 @@ export default {
     { src: "~/plugins/vue-avatar.js", mode: "client" },
     { src: "~/plugins/vue-spinner.js", mode: "client" },
     { src: "~/plugins/vue-google-charts.js", ssr: false },
+    { src: '~/plugins/vue-slick-carousel.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [{ path: "~/components/", pathPrefix: false }],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: ["@nuxtjs/dotenv"],

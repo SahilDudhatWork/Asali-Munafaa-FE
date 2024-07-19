@@ -18,20 +18,54 @@
         class="grid xl:grid-cols-3 grid-cols-1 xxl:gap-[80px] md:gap-[50px] gap-[30px]"
       >
         <div
-          class="bg-white h-[500px] xl:p-[50px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-lg"
+          class="bg-white xl:p-[50px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-2xl"
         >
           <h2 class="text-black font-normal text-lg mt-1">Sources</h2>
           <PieChart
             :chartData="data"
             :options="doughnutOptions"
-            class="w-auto h-auto"
-          />
+            class="w-auto h-[320px]"
+            />
+          <div class="flex justify-center">
+            <div class="grid xxl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-2 sm:mt-6 grid-cols-1 gap-5 xl:mt-8">
+              <div class="flex gap-3 items-center">
+                <div class="bg-[#C02E1D] rounded-full w-4 h-4"></div>
+              <div>
+                <p class="font-medium text-md text-[#09347F]">
+                  RTO
+                </p>
+              </div>
+               </div>
+               <div class="flex gap-3 items-center">
+                <div class="bg-[#FF462E] rounded-full w-4 h-4"></div>
+                <div>
+                  <p class="font-medium text-md text-[#09347F]">
+                    SPENT MARKETING
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+              <div class="bg-[#7700D2] rounded-full w-4 h-4"></div>
+              <div>
+                <p class="font-medium text-md text-[#09347F]">
+                  Revenue
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-center">
+                <div class="bg-[#009618] rounded-full w-4 h-4"></div>
+                <div>
+                  <p class="font-medium text-md text-[#09347F]">NET PROFIT</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div
-          class="bg-white h-[500px] xl:col-span-2 xl:p-[60px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-lg"
+          class="bg-white xl:col-span-2 xl:p-[60px] md:p-[40px] p-[30px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-2xl"
         >
           <div class="flex justify-between items-center mb-5">
-            <h2 class="text-black font-normal text-xl">Net True Profit</h2>
+            <h2 class="text-black font-normal text-md">Net True Profit</h2>
             <div class="relative"> 
               <Dropdown :items="trueProfitSelect" :selectedLabel="selectedLabel" @getValue="getValue" class="border-none"/>
             </div>
@@ -97,6 +131,10 @@ export default {
           node: "nearest",
           intersect: 0,
           bodySpacing: 2,
+        },
+        plugins: {
+          legend: false,
+          tooltip: false,
         },
       },
       chartOptions: {

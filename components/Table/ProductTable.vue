@@ -17,29 +17,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="" v-for="(item, index) in tableData" :key="index">
+        <tr class="" v-for="(item, index) in tableData.slice(0,5)" :key="index">
           <th class="py-2 text-[#000087] font-normal text-xl">
             {{ index + 1 }}.
           </th>
           <th
             class="py-2 text-[#000087] font-normal xl:text-xl xxxl:text-xl xxl:text-xl text-md"
           >
-            {{ item.name }}
-          </th>
-          <th
-            class="py-2 text-[#000087] font-normal xl:text-xl xxxl:text-xl xxl:text-xl text-md"
-          >
-            {{ item.spend }}
-          </th>
-          <th
-            class="py-2 text-[#000087] font-normal xl:text-xl xxxl:text-xl xxl:text-xl text-md"
-          >
-            {{ item.orders }}
-          </th>
-          <th
-            class="py-2 text-[#000087] font-normal xl:text-xl xxxl:text-xl xxl:text-xl text-md"
-          >
-            {{ item.purchase }}
+            {{ item.productName }}
           </th>
           <th
             class="py-2 text-[#000087] font-normal xl:text-xl xxxl:text-xl xxl:text-xl text-md"
@@ -49,12 +34,27 @@
           <th
             class="py-2 text-[#000087] font-normal xl:text-xl xxxl:text-xl xxl:text-xl text-md"
           >
-            {{ item.roas }}
+            {{ item.totalSales }}
           </th>
           <th
             class="py-2 text-[#000087] font-normal xl:text-xl xxxl:text-xl xxl:text-xl text-md"
           >
-            {{ item.profit }}
+            {{ item?.variants[0]?.price }}
+          </th>
+          <th
+            class="py-2 text-[#000087] font-normal xl:text-xl xxxl:text-xl xxl:text-xl text-md"
+          >
+          {{ item?.variants[0]?.price }}
+        </th>
+          <th
+            class="py-2 text-[#000087] font-normal xl:text-xl xxxl:text-xl xxl:text-xl text-md"
+          >
+            {{ item.profits }}
+          </th>
+          <th
+            class="py-2 text-[#000087] font-normal xl:text-xl xxxl:text-xl xxl:text-xl text-md"
+          >
+            {{ item.profitMargin }}
           </th>
         </tr>
       </tbody>

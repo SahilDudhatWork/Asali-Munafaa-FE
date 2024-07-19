@@ -206,6 +206,7 @@ export default {
         const state = Buffer.from(
           JSON.stringify({ state: crypto.randomBytes(16).toString("hex") })
         ).toString("base64");
+        this.$emit('next');
         const installUrl = `https://${this.store}.myshopify.com/admin/oauth/authorize?client_id=${SHOPIFY_API_KEY}&scope=${SHOPIFY_SCOPES}&state=${state}&redirect_uri=${SHOPIFY_REDIRECT_URI}`;
         if (window.self === window.top) {
           window.location.href = installUrl;

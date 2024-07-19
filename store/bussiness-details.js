@@ -35,4 +35,12 @@ export const actions = {
       throw error;
     }
   },
+  async getProductDetails (ctx,payload){
+    try {
+      const response = await $axios.get("/shopify/products");
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 };

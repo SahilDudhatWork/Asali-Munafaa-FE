@@ -2,33 +2,33 @@
   <header
     id="header"
     style="z-index: 999"
-    class="bg-gradient-to-r fixed top-0 w-full lef-0 from-[#2B0064] to-[#6313D9] xl:p-8 p-4 header-area"
+    class="bg-gradient-to-r fixed top-0 w-full lef-0 from-[#2B0064] to-[#6313D9] p-3 header-area"
   >
-    <div class="flex justify-between items-center">
-      <div class="flex items-center gap-14">
+    <div class="flex justify-between items-center xl:mx-40 lg:mx-30 mx-0">
+      <div class="flex items-center gap-7">
         <a href="/">
           <img
             src="../static/Images/logo.webp"
             alt
-            class="xl:w-[150px] w-[120px] h-auto"
+            class="xl:w-[115px] sm:w-[100px] md:w-[100px] lg:w-[100px] w-[80px] h-auto"
           />
         </a>
         <div
           class="relative text-white bg-transparent display-absolute top-0 top-100 left-0 w-full xl:w-[unset] text-center menu-container display-none block"
         >
           <div>
-            <ul class="flex display-block items-center xxl:gap-14 gap-6">
+            <ul class="flex display-block items-center gap-7">
               <li>
                 <a
                   href="/"
-                  class="xl:text-xl lg:text-lg font-normal justify-center xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative active nav-menu-content"
+                  class="xl:text-[19px] lg:text-[19px] font-normal justify-center xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative active nav-menu-content"
                   >Home</a
                 >
               </li>
               <li class="drop-li relative">
                 <a
                   href="javascript:void(0)"
-                  class="xl:text-xl lg:text-lg inline-flex gap-2 justify-center items-center font-normal xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  class="xl:text-[19px] lg:text-[19px] inline-flex gap-2 justify-center items-center font-normal xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                 >
                   Explore
                   <svg
@@ -61,7 +61,7 @@
               <li class="drop-li relative">
                 <a
                   href="javascript:void(0)"
-                  class="xl:text-xl lg:text-lg inline-flex gap-2 justify-center items-center font-normal xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  class="xl:text-[19px] lg:text-[19px] inline-flex gap-2 justify-center items-center font-normal xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                 >
                   Pages
                   <svg
@@ -94,7 +94,7 @@
               <li class="drop-li relative">
                 <a
                   href="javascript:void(0)"
-                  class="xl:text-xl lg:text-lg inline-flex gap-2 justify-center items-center font-normal xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  class="xl:text-[19px] lg:text-[19px] inline-flex gap-2 justify-center items-center font-normal xl:text-white text-white [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                 >
                   <Nuxt-link to="/blog"> Blogs</Nuxt-link>
 
@@ -128,14 +128,14 @@
               <li class="">
                 <a
                   href="javascript:void(0)"
-                  class="xl:text-xl lg:text-lg font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  class="xl:text-[19px] lg:text-[19px] font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                   >Contact</a
                 >
               </li>
               <li class="">
                 <a
                   href="javascript:void(0)"
-                  class="xl:text-xl lg:text-lg font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  class="xl:text-[19px] lg:text-[19px] font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
                   >About</a
                 >
               </li>
@@ -143,8 +143,8 @@
           </div>
         </div>
       </div>
-      <div class="items-center gap-4 flex">
-        <div class="cursor-pointer xl:block hidden">
+      <div class="items-center gap-7 flex">
+        <!-- <div class="cursor-pointer xl:block hidden">
           <svg
             width="35"
             height="35"
@@ -174,14 +174,20 @@
               stroke-linejoin="round"
             />
           </svg>
-        </div>
+        </div> -->
         <a
           href="javascript:void(0)"
           @click="openGetInTouchModal"
-          class="py-3 rounded-xl xl:px-5 px-2 bg-gradient-to-r from-[#00CACE] to-[#00C3D3] hover:bg-gradient-to-r hover:from-[#00CACE] transition-main hover:to-[#00C3D3] bg-primaryBg text-white xl:text-lg text-sm font-medium"
+          class="py-[10px] rounded-xl xl:px-3 px-2 bg-gradient-to-r from-[#00CACE] to-[#00C3D3] hover:bg-gradient-to-r hover:from-[#00CACE] transition-main hover:to-[#00C3D3] bg-primaryBg text-white xl:text-[17px] text-sm font-medium"
         >
           Get In Touch
         </a>
+        <div>
+                <Nuxt-link
+                  to="/login"
+                  class="xl:text-[19px] lg:text-[19px] font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  >Login</Nuxt-link>
+              </div>
         <div class="xl:hidden lg:hidden nav-menu text-white">
           <button
             @click.prevent="toggleSidebar"
@@ -210,7 +216,7 @@
           <aside
             :class="isSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
             v-click-outside="closeSidebar"
-            class="fixed top-0 left-0 z-40 w-[19rem] mt-[80px] width-17 h-screen transition-transform xl:translate-x-0 bg-[#2B0064]"
+            class="fixed top-0 left-0 z-40 w-[19rem] mt-[64px] width-17 h-screen transition-transform xl:translate-x-0 bg-[#2B0064]"
             aria-label="Sidebar"
           >
             <div

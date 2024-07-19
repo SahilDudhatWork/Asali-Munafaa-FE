@@ -94,7 +94,7 @@
       <div
         class="mt-6 mb-4 bg-white rounded-xl shadow-lg py-3 px-2 overflow-x-auto"
       >
-        <Table :header="tableHeaders" :tableData="tableData" />
+        <ProductTable :header="tableHeaders" :tableData="tableData" />
       </div>
     </div>
     <div class="mt-6 mb-3">
@@ -105,6 +105,7 @@
 
 <script>
 import productImage from "@/static/svg/product.svg";
+import { mapActions } from "vuex";
 export default {
   layout: "overview",
   data() {
@@ -122,53 +123,8 @@ export default {
         "Profits",
         "Profits Margin",
       ],
-      tableData: [
-        {
-          name: "Products Name",
-          spend: "Sales",
-          orders: "Total Sales",
-          purchase: "Product Prices",
-          sales: "10000",
-          roas: "Profits",
-          profit: "Profits Margin",
-        },
-        {
-          name: "Products Name",
-          spend: "Sales",
-          orders: "Total Sales",
-          purchase: "Product Prices",
-          sales: "Total Sales",
-          roas: "Profits",
-          profit: "Profits Margin",
-        },
-        {
-          name: "Products Name",
-          spend: "Sales",
-          orders: "Total Sales",
-          purchase: "Product Prices",
-          sales: "Total Sales",
-          roas: "Profits",
-          profit: "Profits Margin",
-        },
-        {
-          name: "Products Name",
-          spend: "Sales",
-          orders: "Total Sales",
-          purchase: "Product Prices",
-          sales: "Total Sales",
-          roas: "Profits",
-          profit: "Profits Margin",
-        },
-        {
-          name: "Products Name",
-          spend: "Sales",
-          orders: "Total Sales",
-          purchase: "Product Prices",
-          sales: "Total Sales",
-          roas: "Profits",
-          profit: "Profits Margin",
-        },
-      ],
+      tableData:[],
+     
       chartData: {
         labels: [2015, 2016, 2017, 2018, 2019, 2020],
         datasets: [
@@ -205,13 +161,27 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      getProductDetails: "bussiness-details/getProductDetails",
+    }),
     toggleProfit(type) {
       this.activeButton = type;
     },
     toggleProduct(type) {
       this.isProduct = type === "Product";
     },
+    async prodocuDetails(){
+      try {
+       let res = await this.getProductDetails();
+       this.tableData = res.data.Response
+      } catch (error) {
+        console.log(error);
+      }
+    }
   },
+  async mounted(){
+    await this.prodocuDetails();
+  }
 };
 </script>
 <style>

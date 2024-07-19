@@ -20,7 +20,6 @@ export default {
     const hmac = queryParams.get("hmac");
     const shop = queryParams.get("shop");
     const host = queryParams.get("host");
-    console.log("process.env.SHOPIFY_API_KEY", process.env.SHOPIFY_API_KEY);
     if ((hmac, shop)) {
       try {
         const SHOPIFY_API_KEY = process.env.SHOPIFY_API_KEY;

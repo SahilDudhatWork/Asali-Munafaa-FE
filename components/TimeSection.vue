@@ -14,11 +14,11 @@
     </p>
     <div class="max-w-[918px] mx-auto">
       <div
-        class="bg-[rgba(228,192,254,1)] md:p-[36px] p-[25px] shadow-[0_5px_15px_rgba(0,0,0,0.35)]"
+        class="bg-[rgba(228,192,254,1)] md:p-[36px] p-[25px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-2xl"
       >
         <div class="grid lg:grid-cols-2 gap-5">
           <div
-            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-lg"
+            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-2xl"
           >
             <div
               class="flex flex-wrap items-center gap-6 pb-[15px] border-b border-[#F1F1F1]"
@@ -82,7 +82,7 @@
             </div>
           </div>
           <div
-            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-lg"
+            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-2xl"
           >
             <div
               class="flex flex-wrap items-center gap-6 pb-[15px] border-b border-[#F1F1F1]"
@@ -187,7 +187,7 @@
             </div>
           </div>
           <div
-            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-lg"
+            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-2xl"
           >
             <div
               class="flex flex-wrap items-center gap-6 pb-[15px] border-b border-[#F1F1F1]"
@@ -267,7 +267,7 @@
             </div>
           </div>
           <div
-            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-lg"
+            class="shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white md:p-[33px] p-[25px] rounded-2xl"
           >
             <div
               class="flex flex-wrap items-center gap-6 pb-[15px] border-b border-[#F1F1F1]"
