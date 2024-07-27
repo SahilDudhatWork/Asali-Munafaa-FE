@@ -122,7 +122,7 @@
             class="xl:text-[20px] font-medium text-center font-light text-white"
           >
             Don’t have an Account ?
-            <Nuxt-link to="/signup">
+            <Nuxt-link :to="`/signup/?ensh=${ensh}`">
               <span class="cursor-pointer font-medium border-b"
                 >Create New</span
               ></Nuxt-link
@@ -141,6 +141,7 @@ export default {
   layout: "blank",
   data() {
     return {
+      ensh: "",
       form: {},
       isLoading: false,
     };
@@ -152,6 +153,12 @@ export default {
       isLastBarrierModal: (state) => state.modal.isLastBarrierModal,
       isEcommerceModal: (state) => state.modal.isEcommerceModal,
     }),
+  },
+  mounted() {
+    const queryParams = new URLSearchParams(window.location.search);
+    if (queryParams.get("ensh")) {
+      this.ensh = queryParams.get("ensh");
+    }
   },
   methods: {
     ...mapActions({
@@ -170,6 +177,7 @@ export default {
           });
         } else {
           this.isLoading = true;
+          this.form.ensh = this.ensh;
           const response = await this.Login(this.form);
           let onbordingStep = response.data.onboardingSteps;
           this.closeModal("isOnBoardingModal");

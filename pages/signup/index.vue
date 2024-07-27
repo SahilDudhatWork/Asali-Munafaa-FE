@@ -122,7 +122,9 @@
             >
               Already have an Account ?
               <span class="cursor-pointer font-medium border-b"
-                ><nuxt-link to="/login">Log in</nuxt-link></span
+                ><nuxt-link :to="`/login/?ensh=${ensh}`"
+                  >Log in</nuxt-link
+                ></span
               >
             </p>
           </div>
@@ -139,9 +141,17 @@ export default {
   layout: "blank",
   data() {
     return {
+      ensh: "",
       form: {},
       isLoading: false,
     };
+  },
+
+  mounted() {
+    const queryParams = new URLSearchParams(window.location.search);
+    if (queryParams.get("ensh")) {
+      this.ensh = queryParams.get("ensh");
+    }
   },
   methods: {
     ...mapActions({
@@ -165,7 +175,11 @@ export default {
             duration: 2000,
             position: "bottom-right",
           });
-          this.$router.push("/login");
+          if (this.ensh) {
+            this.$router.push(`/login/?ensh=${this.ensh}`);
+          } else {
+            this.$router.push("/login");
+          }
         }
       } catch (error) {
         this.$toast.open({

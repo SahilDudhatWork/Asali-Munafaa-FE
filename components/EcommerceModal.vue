@@ -153,7 +153,7 @@
                     Back
                   </button>
                   <button
-                  @click="handleSubmit"
+                    @click="handleSubmit"
                     class="font-medium bg-green-800 text-white border border-gray-300 transition-colors rounded py-3 px-9"
                   >
                     Next
@@ -174,6 +174,7 @@
 <script>
 import message from "@/static/lang/en.json";
 import crypto from "crypto";
+import { mapActions } from "vuex";
 export default {
   props: {
     isLoading: {
@@ -183,39 +184,49 @@ export default {
   data() {
     return {
       isModal: false,
-      store:"",
+      store: "",
     };
   },
   methods: {
+    ...mapActions({
+      addShop: "auth/addShop",
+    }),
     shopifyLogin() {
       this.isModal = true;
     },
-    handleSubmit(){
-      if(!this.store){
+    async handleSubmit() {
+      if (!this.store) {
         this.$toast.open({
-            message:message.storeMessage,
-            type: "error",
-            duration: 2000,
-            position: "bottom-right",
-          });
-      }else{
+          message: message.storeMessage,
+          type: "error",
+          duration: 2000,
+          position: "bottom-right",
+        });
+      } else {
         try {
-        const SHOPIFY_API_KEY = process.env.SHOPIFY_API_KEY;
-        const SHOPIFY_SCOPES = process.env.SHOPIFY_SCOPES;
-        const SHOPIFY_REDIRECT_URI = process.env.SHOPIFY_REDIRECT_URI;
-        const state = Buffer.from(
-          JSON.stringify({ state: crypto.randomBytes(16).toString("hex") })
-        ).toString("base64");
-        this.$emit('next');
-        const installUrl = `https://${this.store}.myshopify.com/admin/oauth/authorize?client_id=${SHOPIFY_API_KEY}&scope=${SHOPIFY_SCOPES}&state=${state}&redirect_uri=${SHOPIFY_REDIRECT_URI}`;
-        if (window.self === window.top) {
-          window.location.href = installUrl;
+          const SHOPIFY_API_KEY = process.env.SHOPIFY_API_KEY;
+          const SHOPIFY_SCOPES = process.env.SHOPIFY_SCOPES;
+          const SHOPIFY_REDIRECT_URI = process.env.SHOPIFY_REDIRECT_URI;
+          const state = Buffer.from(
+            JSON.stringify({ state: crypto.randomBytes(16).toString("hex") })
+          ).toString("base64");
+          const installUrl = `https://${this.store}.myshopify.com/admin/oauth/authorize?client_id=${SHOPIFY_API_KEY}&scope=${SHOPIFY_SCOPES}&state=${state}&redirect_uri=${SHOPIFY_REDIRECT_URI}`;
+          if (window.self === window.top) {
+            let response = await this.addShop(this.store);
+            if (response.status == 200) {
+              if (!response.data.shopifyAppInstalled) {
+                this.$emit("next");
+                window.location.href = installUrl;
+              }
+              // this.$emit("next");
+              // window.location.href = installUrl;
+            }
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
       }
-      }
-    }
+    },
   },
 };
 </script>

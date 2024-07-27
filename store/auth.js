@@ -34,7 +34,10 @@ export const mutations = {
 export const actions = {
   async login(ctx, payload) {
     try {
-      const response = await $axios.post("/user/auth/logIn", payload);
+      const response = await $axios.post(
+        `/user/auth/logIn?ensh=${payload?.ensh}`,
+        payload
+      );
       sessionStorage.setItem("token", response.data.accessToken);
       ctx.commit("getuserData", response.data);
       return response;
@@ -73,6 +76,14 @@ export const actions = {
   async connectShopify(ctx, payload) {
     try {
       const response = await $axios.post(`/shopify/install?shop=${payload}`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async addShop(ctx, payload) {
+    try {
+      const response = await $axios.post(`/shopify/fetch/shop?shop=${payload}`);
       return response;
     } catch (error) {
       throw error;

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState, mapGetters } from "vuex";
 import message from "@/static/lang/en.json";
 
 export default {
@@ -48,10 +48,14 @@ export default {
       isEcommerceModal: (state) => state.modal.isEcommerceModal,
       modal: (state) => state.modal,
     }),
+    ...mapGetters({
+      getUserData: "auth/getUserData",
+    }),
   },
   async mounted() {
     try {
       const response = await this.getProfileData();
+      let shopifyAppInstalled = this.getUserData?.shopifyAppInstalled;
       let onbordingStep = response.data.onboardingSteps;
       this.closeModal("isOnBoardingModal");
       if (onbordingStep.step1) {
@@ -59,7 +63,11 @@ export default {
       } else if (onbordingStep.step2) {
         this.openModal("isLastBarrierModal");
       } else if (onbordingStep.step3) {
-        this.openModal("isEcommerceModal");
+        if (shopifyAppInstalled) {
+          await this.ecommerceNext();
+        } else {
+          this.openModal("isEcommerceModal");
+        }
       } else if (onbordingStep.step4) {
         try {
           const response = await this.getBusinessDetail();
