@@ -1,18 +1,18 @@
 <template>
   <div class="pb-[60px]">
     <h2
-      class="xl:text-[50px] md:text-[35px] text-[22px] font-semibold md:mb-[16px] mb-[16px] text-black text-center"
+      class="xl:text-[50px] md:text-[35px] text-[22px] font-semibold md:mb-[16px] mb-[16px] text-white text-center"
     >
-      Find Out Every Profit Opportunity, Cut Losses in Real Time
+      Find Out Every Profit <span class="text-[#01CACE]">Opportunity, Cut Losses in Real Time</span> 
     </h2>
     <p
-      class="md:text-[28px] text-[22px] max-w-[1448px] mx-auto text-center mb-[100px] font-medium text-[#330099]"
+      class="md:text-[28px] text-[22px] max-w-[1448px] mx-auto text-center mb-[100px] font-medium text-gray-400"
     >
       Find what boosts and hurts your profit. Learn how fees such as shipping,
       fulfillment, discounts, and other expenses impact profitability, then
       optimize them.
     </p>
-    <div class="max-w-[918px] mx-auto">
+    <div class="max-w-[918px] lg:mx-auto mx-5">
       <div
         class="bg-[rgba(228,192,254,1)] md:p-[36px] p-[25px] shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-2xl"
       >

@@ -2,7 +2,7 @@
   <PageTemplate>
     <template #content>
       <div
-        class="pt-8 my-4 xl:w-[30%] lg:w-1/2 sm:w-1/2 md:w-[75%] mx-5 sm:mx-0"
+        class="pt-8 my-4 xl:w-[22%] lg:w-1/2 sm:w-1/2 md:w-[75%] mx-5 sm:mx-0"
       >
         <h2
           class="xl:text-4xl text-2xl py-2 font-medium text-center text-white lg:mb-12 xl:mb-12 sm:mb-0"
@@ -44,7 +44,8 @@
         </div>
 
         <div class="mt-4 flex gap-3 flex-col">
-          <label class="block text-white xl:text-lg text-sm font-bold"
+         <form @submit.prevent="login">
+          <label class="block text-white xl:text-lg text-sm font-bold mb-2"
             >Email or Phone</label
           >
           <div class="flex items-center text-lg">
@@ -52,7 +53,7 @@
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 128 96"
               id="email"
-              class="absolute ml-3"
+              class="absolute ml-3 mb-5"
               width="24"
             >
               <g>
@@ -66,11 +67,11 @@
               v-model="form.emailOrPhone"
               type="email"
               id="email"
-              class="bg-white rounded pl-12 py-2 md:py-2 focus:outline-none w-full"
+              class="bg-white rounded pl-12 py-2 md:py-2 focus:outline-none w-full mb-5"
               placeholder="Email"
             />
           </div>
-          <label class="block text-white xl:text-lg text-sm font-bold"
+          <label class="block text-white xl:text-lg text-sm font-bold mb-1"
             >Password
           </label>
           <div class="flex items-center text-lg">
@@ -83,7 +84,7 @@
               v-model="form.password"
               type="password"
               id="password"
-              class="bg-white rounded pl-12 py-2 md:py-2 focus:outline-none w-full"
+              class="bg-white rounded pl-12 py-2 md:py-2 focus:outline-none w-full mb-3"
               placeholder="Password"
             />
           </div>
@@ -94,18 +95,16 @@
                 aria-describedby="remember"
                 type="checkbox"
                 class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                required=""
               />
             </div>
-            <div class="ml-3 xl:text-base">
+            <div class="ml-3 xl:text-base mb-4">
               <label for="remember" class="text-white dark:text-white"
                 >Remember me</label
               >
             </div>
           </div>
           <button
-            class="bg-gradient-to-r from-[#00CACE] to-[#00C3D3] hover:bg-gradient-to-r hover:from-[#00CACE] transition-main hover:to-[#00C3D3] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full rounded-md"
-            @click="login"
+            class="bg-gradient-to-r from-[#00CACE] to-[#00C3D3] hover:bg-gradient-to-r hover:from-[#00CACE] transition-main hover:to-[#00C3D3] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full rounded-md mb-2"
             :disabled="isLoading"
           >
             <Loader v-if="isLoading" :loading="isLoading"></Loader>
@@ -116,6 +115,7 @@
               >Forget Password?</a
             >
           </div>
+         </form>
         </div>
         <div class="py-4 mt-3">
           <p

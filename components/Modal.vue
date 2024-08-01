@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-gradient-to-r from-[#2B0064] to-[#6313D9] w-full min-h-screen">
+  <div class="bg-black w-full min-h-screen">
     <div
-      class="flex overflow-hidden mx-auto justify-center w-full rounded-md bg-world-img sm:p-0"
+      class="flex overflow-hidden mx-auto justify-center w-full rounded-md world-img sm:p-0"
     >
       <slot name="modalContent"></slot>
 

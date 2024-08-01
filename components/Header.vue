@@ -2,10 +2,10 @@
   <header
     id="header"
     style="z-index: 999"
-    class="bg-gradient-to-r fixed top-0 w-full lef-0 from-[#2B0064] to-[#6313D9] p-3 header-area"
+    class="bg-gradient-to-r from-[#0c040f] to-[#320747] fixed top-0 w-full lef-0 p-3 header-area"
   >
-    <div class="flex justify-between items-center xl:mx-40 lg:mx-30 mx-0">
-      <div class="flex items-center gap-7">
+    <div class="flex justify-between items-center mx-7">
+      <div class="flex items-center gap-9">
         <a href="/">
           <img
             src="../static/Images/logo.webp"
@@ -143,7 +143,7 @@
           </div>
         </div>
       </div>
-      <div class="items-center gap-7 flex">
+      <div class="items-center sm:gap-7 gap-0 flex">
         <!-- <div class="cursor-pointer xl:block hidden">
           <svg
             width="35"
@@ -185,7 +185,7 @@
         <div>
                 <Nuxt-link
                   to="/login"
-                  class="xl:text-[19px] lg:text-[19px] font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content"
+                  class="xl:text-[19px] lg:text-[19px] font-normal xl:text-white text-white justify-center [&.active]:after:content('') [&.active]:after:w-full [&.active]:after:h-[2px] [&.active]:after:bg-gradient-to-r from-[#9ED0FF] to-[#4F42E4] [&.active]:after:absolute [&.active]:after:bottom-[-10px] [&.active]:after:left-0 relative nav-menu-content  sm:!block hidden"
                   >Login</Nuxt-link>
               </div>
         <div class="xl:hidden lg:hidden nav-menu text-white">
@@ -295,6 +295,10 @@ export default {
           name: "About",
           href: "",
         },
+        {
+          name: "Login",
+          href: "/login",
+        },
       ],
     };
   },
@@ -308,9 +312,9 @@ export default {
       this.isComingSoonModal = false;
       document.body.style.overflow = "";
     },
-    openGetInTouchModal(hidden) {
-      this.isGetInTouchModal = true;
+    openGetInTouchModal() {
       document.body.style.overflow = "hidden";
+      this.isGetInTouchModal = true;
     },
     closeGetInTouchModal() {
       this.isGetInTouchModal = false;

@@ -2,7 +2,7 @@
   <div>
     <PageTemplate>
       <template #content>
-        <div class="pt-8 my-4 xl:w-[30%] lg:w-1/2 sm:w-1/2 md:w-[75%] mx-5">
+        <div class="pt-8 my-4 xl:w-[22%] lg:w-1/2 sm:w-1/2 md:w-[75%] mx-5">
           <h2
             class="xl:text-4xl text-2xl py-2 font-medium text-center text-white lg:mb-12 xl:mb-3 sm:mb-0"
           >
@@ -14,7 +14,6 @@
             Know your real profit in just 60 second
           </p>
           <a
-            href="#"
             class="flex items-center justify-center mt-4 text-white rounded-lg shadow-md bg-white"
           >
             <div class="px-4 py-3">
@@ -48,7 +47,8 @@
           </div>
 
           <div class="mt-4 flex gap-3 flex-col">
-            <label class="block text-white xl:text-lg text-sm font-bold"
+           <form @submit.prevent="signup">
+            <label class="block text-white xl:text-lg text-sm font-bold mb-2"
               >Email or Phone</label
             >
             <div class="flex items-center text-lg">
@@ -56,7 +56,7 @@
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 128 96"
                 id="email"
-                class="absolute ml-3"
+                class="absolute ml-3 mb-5"
                 width="24"
               >
                 <g>
@@ -70,15 +70,15 @@
                 v-model="form.email"
                 type="email"
                 id="email"
-                class="bg-white rounded pl-12 py-2 md:py-2 focus:outline-none w-full"
+                class="bg-white rounded pl-12 py-2 md:py-2 focus:outline-none w-full mb-5"
                 placeholder="Email"
               />
             </div>
-            <label class="block text-white xl:text-lg text-sm font-bold"
+            <label class="block text-white xl:text-lg text-sm font-bold mb-1"
               >Password
             </label>
             <div class="flex items-center text-lg">
-              <svg class="absolute ml-3" viewBox="0 0 24 24" width="24">
+              <svg class="absolute ml-3 mb-3" viewBox="0 0 24 24" width="24">
                 <path
                   d="m18.75 9h-.75v-3c0-3.309-2.691-6-6-6s-6 2.691-6 6v3h-.75c-1.24 0-2.25 1.009-2.25 2.25v10.5c0 1.241 1.01 2.25 2.25 2.25h13.5c1.24 0 2.25-1.009 2.25-2.25v-10.5c0-1.241-1.01-2.25-2.25-2.25zm-10.75-3c0-2.206 1.794-4 4-4s4 1.794 4 4v3h-8zm5 10.722v2.278c0 .552-.447 1-1 1s-1-.448-1-1v-2.278c-.595-.347-1-.985-1-1.722 0-1.103.897-2 2-2s2 .897 2 2c0 .737-.405 1.375-1 1.722z"
                 />
@@ -87,7 +87,7 @@
                 v-model="form.password"
                 type="password"
                 id="password"
-                class="bg-white rounded pl-12 py-2 md:py-2 focus:outline-none w-full"
+                class="bg-white rounded pl-12 py-2 md:py-2 focus:outline-none w-full mb-3"
                 placeholder="Password"
               />
             </div>
@@ -98,10 +98,9 @@
                   aria-describedby="remember"
                   type="checkbox"
                   class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                  required=""
                 />
               </div>
-              <div class="ml-3 xl:text-base">
+              <div class="ml-3 xl:text-base mb-4">
                 <label for="remember" class="text-white dark:text-white"
                   >Would like to receive update on email</label
                 >
@@ -109,12 +108,12 @@
             </div>
             <button
               class="bg-gradient-to-r from-[#00CACE] to-[#00C3D3] hover:bg-gradient-to-r hover:from-[#00CACE] transition-main hover:to-[#00C3D3] bg-primaryBg text-white font-bold py-3 mt-4 px-4 w-full rounded-md"
-              @click="signup"
               :disabled="isLoading"
             >
               <Loader v-if="isLoading" :loading="isLoading"></Loader>
               <span v-else>Continue With Email</span>
             </button>
+           </form>
           </div>
           <div class="py-4 mt-3">
             <p

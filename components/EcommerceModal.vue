@@ -121,7 +121,8 @@
               <div
                 class="w-full p-7 py-9 xxl:w-1/2 bg-white mx-4 my-4 xl:mx-0 xl:my-0"
               >
-                <h2 class="text-3xl py-2 font-bold">
+                <form @submit.prevent="handleSubmit">
+                  <h2 class="text-3xl py-2 font-bold">
                   Connect your Shopify store
                 </h2>
                 <p class="text-[#637381] font-medium text-lg">
@@ -147,18 +148,19 @@
                 </div>
                 <div class="flex justify-end gap-3 mt-8">
                   <button
+                  type="button"
                     @click="isModal = false"
                     class="font-medium bg-white border border-gray-300 transition-colors rounded py-3 px-9"
                   >
                     Back
                   </button>
                   <button
-                    @click="handleSubmit"
                     class="font-medium bg-green-800 text-white border border-gray-300 transition-colors rounded py-3 px-9"
                   >
                     Next
                   </button>
                 </div>
+                </form>
               </div>
             </div>
             <div>
@@ -218,8 +220,6 @@ export default {
                 this.$emit("next");
                 window.location.href = installUrl;
               }
-              // this.$emit("next");
-              // window.location.href = installUrl;
             }
           }
         } catch (error) {

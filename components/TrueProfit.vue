@@ -1,11 +1,11 @@
 <template>
   <div
-    class="bg-profit-img px-5 md:pt-[70px] pt-[50px] xl:pb-[145px] pb-[80px] relative bg-cover bg-no-repeat"
+    class="bg-profit-img px-5 md:pt-[70px] pt-[50px] xl:pb-[145px] pb-[80px] relative"
   >
     <h2
       class="text-center text-white xl:text-[50px] md:text-[35px] text-[25px] font-semibold md:mb-10 mb-5"
     >
-      Always Be on Top of Your Net True Profit
+      Always Be on Top <span class="text-[#01CACE]">of Your Net True Profit</span>
     </h2>
     <p
       class="xl:text-[28px] md:text-[24px] text-xl font-normal text-white text-center md:mb-16 mb-8"

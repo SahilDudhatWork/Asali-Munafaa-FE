@@ -25,11 +25,11 @@
                 If you want to get in touch you can email me at
                 Info@asalimunaafa.com or fill out the contact form below.
               </p>
-
-              <div class="mt-4 flex gap-3 flex-col mx-12">
+              <form @submit.prevent="handleSubmit">
+                <div class="mt-4 flex gap-3 flex-col mx-12">
                 <input
                   class="text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                  type="email"
+                  type="text"
                   placeholder="First Name"
                   v-model="firstName"
                 />
@@ -41,25 +41,25 @@
                 />
                 <input
                   class="text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                  type="email"
+                  type="number"
                   placeholder="Your Phone Number"
                   v-model="mobile"
                 />
                 <input
                   class="text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                  type="email"
+                  type="text"
                   placeholder="Website"
                   v-model="website"
                 />
                 <button
                   class="bg-[#4C0EA6] text-white font-bold py-2 px-4 w-full rounded-md"
-                  @click="handleClick"
                   :disabled="isLoading"
                 >
                   <Loader v-if="isLoading" :loading="isLoading"></Loader>
                   <span v-else>Contact</span>
                 </button>
               </div>
+              </form>
               <div class="py-4">
                 <p class="text-sm font-medium text-center">
                   this <span class="text-[#4C0EA6]">Asali Munafa,</span> you
@@ -106,7 +106,7 @@ export default {
     closeModal() {
       this.$emit("close");
     },
-    async handleClick() {
+    async handleSubmit() {
       if (!this.firstName || !this.email || !this.mobile || !this.website) {
         this.$toast.open({
           message: message.errorMessage,

@@ -989,6 +989,9 @@ video {
   background-image: url('../../static/Images/opacity.webp');
 }
 .bg-world-img {
+  background-image: url('../../static/Images/bg-world.webp');
+}
+.world-img {
   background-image: url('../../static/Images/world.webp');
 }
 .bg-getintouch-img {
@@ -1380,9 +1383,11 @@ body {
   -ms-transform: scale(1.0);
   -o-transform: scale(1.0);
 }
-
+.blog-box{
+  padding: 0 30px !important;
+}
 .slick-slide {
-    padding: 0 30px;
+    padding: 0 10px;
   /* display: flex !important; */
   /* gap: 30px !important; */
   /* margin: 0 50px; */
@@ -1417,7 +1422,7 @@ body {
 }
 
 .slick-dots li.slick-active button {
-  background-color: #7700D2 !important;
+  background-color: #01CACE !important;
 }
 
 .z-99 {

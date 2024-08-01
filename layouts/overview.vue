@@ -76,7 +76,7 @@
     </header>
     <aside
       :class="isSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
-      class="fixed top-0 left-0 z-40 xl:w-[19rem] w-[17rem] width-17 mt-[52px] h-screen transition-transform sm:translate-x-0 bg-[#2B0064]"
+      class="fixed top-0 left-0 z-40 xl:w-[19rem] w-[17rem] width-17 mt-[52px] h-screen transition-transform sm:translate-x-0 bg-black"
       aria-label="Sidebar"
     >
       <div class="bg-dashboard-img h-full py-4 dark:bg-gray-800">

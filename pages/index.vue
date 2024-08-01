@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Hero />
+    <!-- <Hero />
     <Integration />
     <OurImpact />
     <Profit />
@@ -8,6 +8,10 @@
     <Blog />
     <TimeSection />
     <TrueProfit />
+    <Reports />
+    <Carousel /> -->
+    <OurClient />
+    <Frequently />
   </div>
 </template>
 
@@ -16,6 +20,7 @@ import { mapActions } from "vuex";
 import crypto from "crypto";
 export default {
   async mounted() {
+    document.body.style.backgroundColor = 'black'
     const queryParams = new URLSearchParams(window.location.search);
     const hmac = queryParams.get("hmac");
     const shop = queryParams.get("shop");
@@ -38,6 +43,9 @@ export default {
     } else {
       console.log("HMAC is invalid");
     }
+  },
+  beforeDestroy() {
+    document.body.style.backgroundColor = '';
   },
   methods: {
     ...mapActions({
