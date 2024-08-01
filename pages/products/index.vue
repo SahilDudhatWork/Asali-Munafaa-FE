@@ -184,7 +184,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .mx-input {
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.3);

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <Hero />
+    <Hero />
     <Integration />
     <OurImpact />
     <Profit />
@@ -9,7 +9,7 @@
     <TimeSection />
     <TrueProfit />
     <Reports />
-    <Carousel /> -->
+    <Carousel />
     <OurClient />
     <Frequently />
   </div>

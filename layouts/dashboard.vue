@@ -393,7 +393,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 @keyframes slideInRight {
   from {
     opacity: 0;

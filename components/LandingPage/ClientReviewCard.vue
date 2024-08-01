@@ -1,8 +1,8 @@
 <template>
   <div 
     :style="cardStyle" 
-    class="sm:mx-0 mx-4 max-w-[340px] p-5 rounded-xl xl:absolute duration-300 ease-in-out transform hover:!scale-110 hover:z-50 rotate-0"
-    :class="[hoverRightClass, rotateClass]"
+    class="review-card sm:mx-0 mx-4 max-w-[340px] p-5 rounded-xl xl:absolute duration-300 ease-in-out transform hover:!scale-110 hover:z-50 hover:!rotate-0"
+    :class="[hoverRight ? 'hover:!right-[4rem]' :'', rotateClass]"
   >
     <h1 class="text-white pr-16">{{ review }}</h1>
     <img :src="image" alt="" class="mt-36 rounded-full w-12 h-12">
@@ -68,14 +68,11 @@ export default {
           return '';
       }
     },
-    hoverRightClass() {
-      return this.hoverRight ? `hover:!right-[${this.hoverRight}]` : '';
-    }
   },
 }
 </script>
 
-<style>
+<style scoped>
 @media screen and (min-width: 1199px) {
   .rotate-2 {
     transform: rotate(2deg);
@@ -87,7 +84,12 @@ export default {
     transform: rotate(-15deg);
   }
   .hover\:right-\[var\(--hover-right\)\] {
-    right: var(--hover-right);
+    right: var(--hover-right) !important;
+  }
+}
+@media screen and (max-width: 1198px) {
+  .review-card{
+    transform: none !important; 
   }
 }
 </style>
