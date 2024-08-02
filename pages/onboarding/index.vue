@@ -70,24 +70,28 @@ export default {
         }
       } else if (onbordingStep.step4) {
         try {
-          const response = await this.getBusinessDetail();
-          if (response.data && Object.keys(response.data).length > 0) {
-            const businessdetailsSteps = response.data.businessDetailsSteps;
-            if (businessdetailsSteps.step1) {
-              this.$router.push("/industry");
-            } else if (businessdetailsSteps.step2) {
-              this.$router.push("/shipping");
-            } else if (businessdetailsSteps.step3) {
-              this.$router.push("/about-business");
-            } else if (businessdetailsSteps.step4) {
-              this.$router.push("/product");
-            } else if (businessdetailsSteps.step5) {
-              this.$router.push("/dashboard");
+          if (shopifyAppInstalled) {
+            const response = await this.getBusinessDetail();
+            if (response.data && Object.keys(response.data).length > 0) {
+              const businessdetailsSteps = response.data.businessDetailsSteps;
+              if (businessdetailsSteps.step1) {
+                this.$router.push("/industry");
+              } else if (businessdetailsSteps.step2) {
+                this.$router.push("/shipping");
+              } else if (businessdetailsSteps.step3) {
+                this.$router.push("/about-business");
+              } else if (businessdetailsSteps.step4) {
+                this.$router.push("/product");
+              } else if (businessdetailsSteps.step5) {
+                this.$router.push("/dashboard");
+              } else {
+                this.$router.push("/marketing-platform");
+              }
             } else {
               this.$router.push("/marketing-platform");
             }
           } else {
-            this.$router.push("/marketing-platform");
+            this.openModal("isEcommerceModal");
           }
         } catch (error) {
           console.log(error);
@@ -190,8 +194,13 @@ export default {
           duration: 2000,
           position: "bottom-right",
         });
-        this.openModal("isEcommerceModal");
         this.closeModal("isLastBarrierModal");
+        let shopifyAppInstalled = this.getUserData?.shopifyAppInstalled;
+        if (shopifyAppInstalled) {
+          await this.ecommerceNext();
+        } else {
+          this.openModal("isEcommerceModal");
+        }
       } catch (error) {
         this.$toast.open({
           message: error,

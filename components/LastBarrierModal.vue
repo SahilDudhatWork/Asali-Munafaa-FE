@@ -78,12 +78,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getUserData: "auth/getUserData",
+      getUserOnbordingData: "auth/getUserOnbordingData",
     }),
   },
   async mounted() {
-    this.onBoarding.goal = await this.getUserData?.goal;
-    this.onBoarding.futureRevenue = await this.getUserData?.futureRevenue;
+    this.onBoarding.goal = await this.getUserOnbordingData?.goal;
+    this.onBoarding.futureRevenue = await this.getUserOnbordingData
+      ?.futureRevenue;
   },
   methods: {
     async next() {

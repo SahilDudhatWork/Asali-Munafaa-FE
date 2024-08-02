@@ -12,8 +12,11 @@ export const state = () => ({
 });
 
 export const getters = {
-  getUserData(state) {
+  getUserOnbordingData(state) {
     return state.userOnbordingData;
+  },
+  getUserData(state) {
+    return state.userData;
   },
 };
 export const mutations = {

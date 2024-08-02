@@ -1,11 +1,11 @@
 <template>
-  <div 
-    :style="cardStyle" 
+  <div
+    :style="cardStyle"
     class="review-card sm:mx-0 mx-4 max-w-[340px] p-5 rounded-xl xl:absolute duration-300 ease-in-out transform hover:!scale-110 hover:z-50 hover:!rotate-0"
-    :class="[hoverRight ? 'hover:!right-[4rem]' :'', rotateClass]"
+    :class="[hoverRight ? 'hover:!right-[4rem]' : '', rotateClass]"
   >
     <h1 class="text-white pr-16">{{ review }}</h1>
-    <img :src="image" alt="" class="mt-36 rounded-full w-12 h-12">
+    <img :src="image" alt="" class="mt-36 rounded-full w-12 h-12" />
     <p class="text-white mt-3">{{ title }}</p>
   </div>
 </template>
@@ -15,36 +15,36 @@ export default {
   props: {
     review: {
       type: String,
-      required: true
+      required: true,
     },
     image: {
       type: String,
-      required: true
+      required: true,
     },
     title: {
       type: String,
-      required: true
+      required: true,
     },
     right: {
       type: String,
-      required: true
+      required: true,
     },
     top: {
       type: String,
-      required: true
+      required: true,
     },
     rotate: {
       type: String,
-      required: true
+      required: true,
     },
     bgColor: {
       type: String,
-      required: true
+      required: true,
     },
-    hoverRight:{
+    hoverRight: {
       type: String,
-      default:''
-    }
+      default: "",
+    },
   },
   computed: {
     cardStyle() {
@@ -56,20 +56,20 @@ export default {
     },
     rotateClass() {
       switch (this.rotate) {
-        case '2deg':
-          return 'rotate-2';
-        case '20deg':
-          return 'rotate-20';
-        case '-15deg':
-          return '-rotate-15';
-        case '2deg':
-          return 'rotate-2';
+        case "2deg":
+          return "rotate-2";
+        case "20deg":
+          return "rotate-20";
+        case "-15deg":
+          return "-rotate-15";
+        case "2deg":
+          return "rotate-2";
         default:
-          return '';
+          return "";
       }
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -88,8 +88,8 @@ export default {
   }
 }
 @media screen and (max-width: 1198px) {
-  .review-card{
-    transform: none !important; 
+  .review-card {
+    transform: none !important;
   }
 }
 </style>

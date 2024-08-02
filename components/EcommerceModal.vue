@@ -216,8 +216,10 @@ export default {
           if (window.self === window.top) {
             let response = await this.addShop(this.store);
             if (response.status == 200) {
-              if (!response.data.shopifyAppInstalled) {
+              if (response.data.shopifyAppInstalled) {
                 this.$emit("next");
+              } else {
+                // this.$emit("next");
                 window.location.href = installUrl;
               }
             }

@@ -94,15 +94,17 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getUserData: "auth/getUserData",
+      getUserOnbordingData: "auth/getUserOnbordingData",
     }),
   },
 
   async mounted() {
-    this.onBoarding.aboutAsaliMunafaa = await this.getUserData
+    this.onBoarding.aboutAsaliMunafaa = await this.getUserOnbordingData
       ?.aboutAsaliMunafaa;
-    this.onBoarding.sellingProduct = await this.getUserData?.sellingProduct;
-    this.onBoarding.monthlyRevenue = await this.getUserData?.monthlyRevenue;
+    this.onBoarding.sellingProduct = await this.getUserOnbordingData
+      ?.sellingProduct;
+    this.onBoarding.monthlyRevenue = await this.getUserOnbordingData
+      ?.monthlyRevenue;
   },
 
   methods: {
