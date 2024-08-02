@@ -1,23 +1,23 @@
 <template>
   <div class="pb-[60px] pb-[30px] pt-20">
-    <div class="blog mx-5">
-      <VueSlickCarousel v-bind="settings">
-        <div v-for="(i, key) in items" :key="key" class="text-center blog-box">
-          <img :src="i.image" alt="Image 1" class="" />
-          <div class="pt-5">
-            <h2
-              class="text-white text-center mb-2 md:text-[26px] text-[22px] font-semibold"
-            >
-              {{ i.title }}
-            </h2>
-            <h6
-              class="text-gray-400 text-center md:text-xl text-lg font-normal md:mb-10 mb-0"
-            >
-              {{ i.description }}
-            </h6>
-          </div>
+    <div>
+      <Slick :options="slickOptions" class="custom-slick">
+      <div v-for="(i, key) in items" :key="key" class="slick-slide mt-10">
+        <img :src="i.image" alt="Image 1" />
+        <div class="pt-5 text">
+          <h2
+            class="text-white text-center mb-2 xl:!text-[26px] lg:!text-[18px] md:!text-[26px] sm:!text-[26px] text-[22px] font-semibold"
+          >
+            {{ i.title }}
+          </h2>
+          <h6
+            class="text-gray-400 text-center md:text-xl text-lg font-normal md:mb-10 mb-0"
+          >
+            {{ i.description }}
+          </h6>
         </div>
-      </VueSlickCarousel>
+      </div>
+    </Slick>
     </div>
     <div class="text-center">
       <button
@@ -30,83 +30,148 @@
 </template>
 
 <script>
-import VueSlickCarousel from "vue-slick-carousel";
-import "vue-slick-carousel/dist/vue-slick-carousel.css";
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 import sliderImage from "../static/Images/slider.webp";
-
 export default {
-  components: {
-    VueSlickCarousel,
-  },
   data() {
     return {
-      settings: {
-        dots: true,
-        centerMode: false,
-        centerPadding: "0px",
-        infinite: true,
-        speed: 500,
+      items: [
+      {
+        image: sliderImage,
+        title: "The Challenge of Profit Tracking:",
+        description:
+          "E-commerce sellers can feel a bit overwhelmed with all the information coming from different places, like ad results, shipping fees, and taxes. It's tough to keep track of everything, and that makes it hard to make good decisions.",
+      },
+      {
+        image: sliderImage,
+        title: "The Challenge of Profit Tracking:",
+        description:
+          "E-commerce sellers can feel a bit overwhelmed with all the information coming from different places, like ad results, shipping fees, and taxes. It's tough to keep track of everything, and that makes it hard to make good decisions.",
+      },
+      {
+        image: sliderImage,
+        title: "The Challenge of Profit Tracking:",
+        description:
+          "E-commerce sellers can feel a bit overwhelmed with all the information coming from different places, like ad results, shipping fees, and taxes. It's tough to keep track of everything, and that makes it hard to make good decisions.",
+      },
+      {
+        image: sliderImage,
+        title: "The Challenge of Profit Tracking:",
+        description:
+          "E-commerce sellers can feel a bit overwhelmed with all the information coming from different places, like ad results, shipping fees, and taxes. It's tough to keep track of everything, and that makes it hard to make good decisions.",
+      },
+    ],
+      slickOptions: {
+        centerMode: true,
+        dots:true,
+        arrows:false,
+        centerPadding: '0px',
         slidesToShow: 3,
-        arrows: false,
         responsive: [
-          {
-            breakpoint: 1200,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: "40px",
-              slidesToShow: 2,
-            },
+        {
+          breakpoint: 1200,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: "0px",
+            slidesToShow: 3,
           },
+        },
+        {
+          breakpoint: 991,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: "80px",
+            slidesToShow: 1,
+          },
+        },
           {
-            breakpoint: 991,
+            breakpoint: 768,
             settings: {
               arrows: false,
               centerMode: true,
-              centerPadding: "40px",
-              slidesToShow: 1,
-            },
+              centerPadding: '80px',
+              slidesToShow: 1
+            }
           },
           {
             breakpoint: 480,
             settings: {
               arrows: false,
               centerMode: true,
-              centerPadding: "0",
-              slidesToShow: 1,
-            },
-          },
-        ],
-      },
-      items: [
-        {
-          image: sliderImage,
-          title: "The Challenge of Profit Tracking:",
-          description:
-            "E-commerce sellers can feel a bit overwhelmed with all the information coming from different places, like ad results, shipping fees, and taxes. It's tough to keep track of everything, and that makes it hard to make good decisions.",
-        },
-        {
-          image: sliderImage,
-          title: "The Challenge of Profit Tracking:",
-          description:
-            "E-commerce sellers can feel a bit overwhelmed with all the information coming from different places, like ad results, shipping fees, and taxes. It's tough to keep track of everything, and that makes it hard to make good decisions.",
-        },
-        {
-          image: sliderImage,
-          title: "The Challenge of Profit Tracking:",
-          description:
-            "E-commerce sellers can feel a bit overwhelmed with all the information coming from different places, like ad results, shipping fees, and taxes. It's tough to keep track of everything, and that makes it hard to make good decisions.",
-        },
-        {
-          image: sliderImage,
-          title: "The Challenge of Profit Tracking:",
-          description:
-            "E-commerce sellers can feel a bit overwhelmed with all the information coming from different places, like ad results, shipping fees, and taxes. It's tough to keep track of everything, and that makes it hard to make good decisions.",
-        },
-      ],
-    };
+              centerPadding: '0px',
+              slidesToShow: 1
+            }
+          }
+        ]
+      }
+    }
   },
-};
+  mounted() {
+    document.body.style.backgroundColor = 'black'
+  },
+  beforeDestroy() {
+    document.body.style.backgroundColor = '';
+  },
+}
 </script>
 
+
+<style scoped>
+.custom-slick .slick-center img {
+  transform: scale(1.2);
+  object-fit: contain; 
+  transition: transform 0.3s ease-in-out;
+  transform-origin: bottom;
+  margin-top: 15px;
+}
+.custom-slick .slick-slide {
+  margin-top:2.5rem;
+  }
+
+.custom-slick img {
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  padding: 0 30px;
+}
+.custom-slick .slick-center .text{
+  padding-top: 8px !important;
+}
+.slick-dots {
+display: flex;
+justify-content: center;
+margin: 0;
+padding: 1rem 0;
+list-style-type: none;
+}
+@media screen and (min-width:991px) and (max-width:1200px){
+  .custom-slick img {
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  padding: 0 35px;
+}
+}
+
+@media screen and (min-width:320px) and (max-width:1500px){
+  .custom-slick .slick-center img {
+    margin-top: 13px;
+  }
+}
+
+@media screen and (min-width:900px) and (max-width:990px){
+  .custom-slick img {
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  padding: 0 70px;
+}
+}
+
+@media screen and (max-width:767px) {
+  .slick-dots {
+      padding: 0;
+  }
+  .custom-slick img{
+    padding: 0 40px;
+  }
+}
+</style>

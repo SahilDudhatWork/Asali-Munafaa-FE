@@ -28,6 +28,7 @@
     "vue-echarts": "^6.7.3",
     "vue-google-charts": "^1.1.0",
     "vue-server-renderer": "^2.7.10",
+    "vue-slick": "^1.2.0",
     "vue-slick-carousel": "^1.0.6",
     "vue-spinner": "^1.0.4",
     "vue-template-compiler": "^2.7.10",

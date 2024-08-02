@@ -20,7 +20,7 @@ import { mapActions } from "vuex";
 import crypto from "crypto";
 export default {
   async mounted() {
-    document.body.style.backgroundColor = 'black'
+    document.body.style.backgroundColor = 'black';
     const queryParams = new URLSearchParams(window.location.search);
     const hmac = queryParams.get("hmac");
     const shop = queryParams.get("shop");

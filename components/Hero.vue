@@ -14,7 +14,7 @@
             or Loss in Just one Dashboard within 60 Sec.
           </h2>
           <p
-            class="text-[#EAEDFF] font-[poppins] font-medium text-2xl lg:mb-9 mb-7"
+            class="text-[#EAEDFF] font-medium text-2xl lg:mb-9 mb-7"
           >
             Track all your revenue and expenses and find out real profit
           </p>
