@@ -1,6 +1,10 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+ server: {
+    host: '0.0.0.0', // Listen on all IP addresses
+    port: 3000       // Port that Nuxt will run on
+  },
   // router: {
   //   middleware: "auth",
   // },
